@@ -1,0 +1,220 @@
+{
+  "meta": {
+    "title": "HaaliHealth — AI Voice Triage & Value-Based Care for GCC Hospitals",
+    "description": "HaaliHealth turns the patient's voice into proactive triage, continuous engagement and real-time PROMs — so GCC hospitals cut ER load and prove outcomes for Pay-for-Quality reimbursement.",
+    "ogLocale": "en_US"
+  },
+  "nav": {
+    "solutions": "Solutions",
+    "benefits": "Benefits",
+    "security": "Security",
+    "contact": "Contact",
+    "cta": "Book Demo",
+    "menu": "Open menu",
+    "close": "Close menu",
+    "switchTo": "التبديل إلى العربية"
+  },
+  "hero": {
+    "eyebrow": "Built for GCC health systems",
+    "title": "AI Voice Triage for Proactive Patient Care.",
+    "titleAccent": "Your patients' voice is the compass of care.",
+    "subtitle": "Advanced voice analysis reads symptoms the moment a patient speaks — filtering non-urgent cases away from your emergency department and routing every patient to the right level of care, in their own dialect.",
+    "ctaPrimary": "Book Demo",
+    "ctaSecondary": "Watch How it Works",
+    "trustLabel": "Aligned with national health strategies across the GCC",
+    "widget": {
+      "label": "Live triage session",
+      "status": "Analysing voice",
+      "transcript": "I've had chest tightness since this morning and I'm short of breath when I walk.",
+      "dialect": "Dialect detected — Gulf Arabic",
+      "confidence": "Confidence",
+      "outcome": "Recommended pathway",
+      "outcomeValue": "Urgent — Cardiology, same day",
+      "handoff": "Report delivered to HIS before arrival"
+    }
+  },
+  "challenge": {
+    "eyebrow": "The Challenge",
+    "title": "Reimbursement in the Gulf is moving to outcomes. Most hospitals cannot prove them.",
+    "body": "As GCC payers shift to Pay-for-Quality and Value-Based Payment models, hospitals are paid for results rather than volume. But the evidence that decides those payments — patient-reported outcomes — is still collected on paper, late, and from a fraction of the population. Meanwhile emergency departments absorb cases that were never emergencies.",
+    "points": [
+      {
+        "title": "Outcomes go unmeasured",
+        "body": "PROMs are collected sporadically and rarely reach the HIS in time to support a reimbursement case."
+      },
+      {
+        "title": "Emergency departments absorb the overflow",
+        "body": "A large share of ER presentations could have been safely resolved in a clinic, on a call, or at home."
+      },
+      {
+        "title": "Care stops at the clinic door",
+        "body": "Between visits patients have no vetted source of guidance, so adherence slips and readmissions rise."
+      }
+    ]
+  },
+  "how": {
+    "eyebrow": "How it works",
+    "title": "One continuous loop, from first symptom to proven outcome.",
+    "subtitle": "Three connected modules. The patient's voice opens the loop; measured outcomes close it.",
+    "videoLabel": "Product walkthrough",
+    "steps": [
+      {
+        "n": "01",
+        "name": "Voice Triage",
+        "tag": "Intake",
+        "title": "AI analyses the patient's voice the moment symptoms are described.",
+        "body": "The patient speaks naturally in their own dialect. HaaliHealth transcribes, extracts clinical signals and scores urgency against your protocols — then routes them to self-care, a clinic slot, or the emergency department, with a structured report waiting in the HIS before they arrive.",
+        "bullets": [
+          "Natural speech in local Arabic dialects and English",
+          "Urgency scoring mapped to your own triage protocols",
+          "Structured pre-arrival report pushed to the HIS"
+        ]
+      },
+      {
+        "n": "02",
+        "name": "Rafeeqi AI",
+        "tag": "Engagement",
+        "title": "A health companion that stays with the patient between visits.",
+        "body": "Rafeeqi answers patient questions around the clock — but only from clinically vetted material and the patient's own health profile. It never improvises. It handles the routine questions that would otherwise reach your nurses, and keeps patients adherent to the plan they left with.",
+        "bullets": [
+          "Answers restricted to vetted clinical content — no open-ended generation",
+          "Personalised to the patient's conditions and medications",
+          "Deflects routine calls and messages away from clinical staff"
+        ]
+      },
+      {
+        "n": "03",
+        "name": "Automated PROMs",
+        "tag": "Proof",
+        "title": "Real-time patient-reported outcomes, delivered straight to your HIS.",
+        "body": "Standardised outcome measures are collected inside the patient's normal routine rather than as a separate chore — so response rates hold. Results stream back into your systems as quantifiable evidence of treatment effectiveness, ready for the insurer.",
+        "bullets": [
+          "Standardised, condition-specific instruments",
+          "Live dashboards and automated clinical reports",
+          "Reimbursement-ready evidence for P4Q and VBP contracts"
+        ]
+      }
+    ]
+  },
+  "benefits": {
+    "eyebrow": "Benefits & ROI",
+    "title": "Why hospital leaders choose HaaliHealth",
+    "subtitle": "The voice layer wins back capacity today. The outcomes layer protects your reimbursement tomorrow.",
+    "stats": [
+      { "value": "P4Q", "label": "Pay-for-Quality ready", "hint": "Evidence formatted for payer submission" },
+      { "value": "24/7", "label": "Continuous patient support", "hint": "Rafeeqi responds at any hour" },
+      { "value": "GCC", "label": "In-region data residency", "hint": "Hosted to meet local requirements" }
+    ],
+    "cards": [
+      {
+        "icon": "trending-up",
+        "title": "Higher insurance reimbursements",
+        "body": "Quantified, real-time PROMs give you objective proof of treatment effectiveness — the evidence that decides your rate under Pay-for-Quality and Value-Based Payment contracts."
+      },
+      {
+        "icon": "activity",
+        "title": "Reduced ER waiting times",
+        "body": "Non-urgent cases are identified and redirected before they reach the door, so your emergency department keeps its capacity for the patients who genuinely need it."
+      },
+      {
+        "icon": "mic",
+        "title": "Full local dialect support",
+        "body": "Built for how patients actually speak across the Gulf and the wider region — not a translated model. Accurate understanding means accurate triage."
+      },
+      {
+        "icon": "clock",
+        "title": "Clinical staff time returned",
+        "body": "Rafeeqi absorbs routine questions and a structured report arrives ahead of the patient, so clinicians spend their time on care rather than on intake and repetition."
+      },
+      {
+        "icon": "heart",
+        "title": "Measurably higher patient satisfaction",
+        "body": "Immediate answers, vetted guidance and follow-up that does not stop at discharge — reflected directly in the experience scores your board reviews."
+      },
+      {
+        "icon": "line-chart",
+        "title": "Fewer avoidable readmissions",
+        "body": "Outcome data often signals deterioration earlier than clinical data alone. Catching it early keeps patients out of the ward and protects your quality metrics."
+      }
+    ]
+  },
+  "security": {
+    "eyebrow": "Security & Integration",
+    "title": "Enterprise-grade security, held to both international and GCC standards.",
+    "subtitle": "Patient data stays in region, encrypted in transit and at rest, inside a framework your compliance office already recognises.",
+    "badges": [
+      { "icon": "shield-check", "title": "HIPAA Compliant", "body": "International healthcare privacy standard" },
+      { "icon": "landmark", "title": "SDAIA / PDPL Compliant", "body": "Saudi personal data protection law" },
+      { "icon": "lock", "title": "End-to-End Encryption", "body": "Encrypted in transit and at rest" },
+      { "icon": "server", "title": "GCC Data Residency", "body": "Patient data never leaves the region" }
+    ],
+    "integrationTitle": "Seamless integration with your HIS / EHR",
+    "integrationBody": "HaaliHealth connects to the systems you already run through standards-based interfaces — no rip-and-replace, no parallel record. Triage reports and PROMs land in the patient chart where your clinicians already work.",
+    "integrations": [
+      { "icon": "plug", "label": "HL7 / FHIR interfaces" },
+      { "icon": "code", "label": "REST API & webhooks" },
+      { "icon": "refresh-cw", "label": "Real-time bidirectional sync" },
+      { "icon": "key-round", "label": "SSO & role-based access" }
+    ],
+    "note": "Certifications and integration scope are confirmed per deployment during technical due diligence."
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "See it running on your own pathways.",
+    "subtitle": "Book a 30-minute technical walkthrough with our clinical and integration team. We will map the loop to one of your departments and show the reimbursement case end to end.",
+    "assurances": [
+      "A working demo, not a slide deck",
+      "Integration questions answered by the engineering team",
+      "No obligation and no procurement process to start"
+    ],
+    "form": {
+      "title": "Request your demo",
+      "name": "Full name",
+      "namePlaceholder": "Dr. Sara Al-Mansouri",
+      "hospital": "Hospital / organisation",
+      "hospitalPlaceholder": "King Fahad Medical City",
+      "email": "Professional email",
+      "emailPlaceholder": "name@hospital.com",
+      "role": "Your role",
+      "rolePlaceholder": "Select a role",
+      "roles": [
+        "Executive (CEO / COO / CFO)",
+        "CTO / CIO / IT",
+        "Chief Medical Officer",
+        "Quality & Outcomes",
+        "Other"
+      ],
+      "submit": "Request your demo",
+      "submitting": "Sending…",
+      "success": "Thank you — we will be in touch within one working day.",
+      "successNote": "A member of the team will contact you to arrange the walkthrough.",
+      "again": "Submit another request",
+      "privacy": "We use your details only to arrange this demo. No marketing lists.",
+      "errors": {
+        "name": "Please enter your full name.",
+        "hospital": "Please enter your hospital or organisation.",
+        "email": "Please enter a valid professional email address.",
+        "emailPersonal": "Please use your professional (work) email address."
+      }
+    }
+  },
+  "footer": {
+    "tagline": "Turning the patient's voice into proven outcomes for hospitals across the GCC.",
+    "columns": [
+      { "title": "Product", "links": ["Voice Triage", "Rafeeqi AI", "Automated PROMs", "Health +"] },
+      { "title": "Company", "links": ["About", "The Challenge", "Careers", "Contact"] },
+      { "title": "Legal", "links": ["Privacy Policy", "Terms of Service", "Data Processing", "Security"] }
+    ],
+    "rights": "All rights reserved.",
+    "built": "Built for value-based care in the GCC."
+  },
+  "video": {
+    "title": "HaaliHealth — product overview",
+    "close": "Close video",
+    "duration": "2:43",
+    "play": "Play the overview film"
+  },
+  "common": {
+    "backToTop": "Back to top"
+  }
+}

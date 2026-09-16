@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem; /* clears the sticky navbar */
+  }
+
+  body {
+    @apply bg-white text-navy-800 antialiased;
+  }
+
+  /* Arabic typography: Tajawal, slightly looser leading for diacritic clearance */
+  html[dir='rtl'] body {
+    @apply font-arabic;
+    line-height: 1.85;
+  }
+
+  html[dir='ltr'] body {
+    @apply font-sans;
+  }
+
+  ::selection {
+    @apply bg-mint-300/40 text-navy-950;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-navy-500 ring-offset-2 ring-offset-white rounded-lg;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-mint-500/40
+           bg-mint-50 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-mint-700;
+  }
+
+  /* The logo's blue→green ramp, applied to text. */
+  .text-gradient {
+    @apply bg-brand-gradient bg-clip-text text-transparent;
+  }
+
+  /* Signature CTA — carries the full brand gradient. */
+  .btn-gradient {
+    @apply btn bg-brand-gradient text-navy-950 shadow-card
+           hover:shadow-glow hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .eyebrow-dark {
+    @apply inline-flex items-center gap-2 rounded-full border border-white/15
+           bg-white/5 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-mint-300;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3.5
+           text-sm font-semibold transition-all duration-200 whitespace-nowrap;
+  }
+
+  .btn-primary {
+    @apply btn bg-navy-800 text-white shadow-card
+           hover:bg-navy-700 hover:shadow-lift hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-mint {
+    @apply btn bg-mint-400 text-navy-950 shadow-card
+           hover:bg-mint-300 hover:shadow-glow hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-outline {
+    @apply btn border border-navy-800/15 bg-white/70 text-navy-800
+           hover:border-navy-800/30 hover:bg-white hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-outline-dark {
+    @apply btn border border-white/25 bg-white/5 text-white
+           hover:border-white/50 hover:bg-white/10 hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .card {
+    @apply rounded-2xl border border-navy-100 bg-white p-7 shadow-card
+           transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply hover:-translate-y-1.5 hover:border-mint-300 hover:shadow-lift;
+  }
+
+  .h2 {
+    @apply text-3xl font-extrabold leading-tight tracking-tight text-navy-900 sm:text-4xl lg:text-[2.75rem];
+  }
+
+  .lede {
+    @apply text-base leading-relaxed text-navy-800/65 sm:text-lg;
+  }
+}
+
+/* Scroll-reveal: hidden until the observer adds .is-visible */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
