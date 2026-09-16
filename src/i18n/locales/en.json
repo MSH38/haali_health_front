@@ -72,10 +72,10 @@
       },
       {
         "n": "02",
-        "name": "Rafeeqi AI",
+        "name": "Haali Voice",
         "tag": "Engagement",
         "title": "A health companion that stays with the patient between visits.",
-        "body": "Rafeeqi answers patient questions around the clock — but only from clinically vetted material and the patient's own health profile. It never improvises. It handles the routine questions that would otherwise reach your nurses, and keeps patients adherent to the plan they left with.",
+        "body": "Haali Voice answers patient questions around the clock — but only from clinically vetted material and the patient's own health profile. It never improvises. It handles the routine questions that would otherwise reach your nurses, and keeps patients adherent to the plan they left with.",
         "bullets": [
           "Answers restricted to vetted clinical content — no open-ended generation",
           "Personalised to the patient's conditions and medications",
@@ -102,7 +102,7 @@
     "subtitle": "The voice layer wins back capacity today. The outcomes layer protects your reimbursement tomorrow.",
     "stats": [
       { "value": "P4Q", "label": "Pay-for-Quality ready", "hint": "Evidence formatted for payer submission" },
-      { "value": "24/7", "label": "Continuous patient support", "hint": "Rafeeqi responds at any hour" },
+      { "value": "24/7", "label": "Continuous patient support", "hint": "Haali Voice responds at any hour" },
       { "value": "GCC", "label": "In-region data residency", "hint": "Hosted to meet local requirements" }
     ],
     "cards": [
@@ -124,7 +124,7 @@
       {
         "icon": "clock",
         "title": "Clinical staff time returned",
-        "body": "Rafeeqi absorbs routine questions and a structured report arrives ahead of the patient, so clinicians spend their time on care rather than on intake and repetition."
+        "body": "Haali Voice absorbs routine questions and a structured report arrives ahead of the patient, so clinicians spend their time on care rather than on intake and repetition."
       },
       {
         "icon": "heart",
@@ -140,13 +140,22 @@
   },
   "security": {
     "eyebrow": "Security & Integration",
-    "title": "Enterprise-grade security, held to both international and GCC standards.",
-    "subtitle": "Patient data stays in region, encrypted in transit and at rest, inside a framework your compliance office already recognises.",
-    "badges": [
-      { "icon": "shield-check", "title": "HIPAA Compliant", "body": "International healthcare privacy standard" },
-      { "icon": "landmark", "title": "SDAIA / PDPL Compliant", "body": "Saudi personal data protection law" },
-      { "icon": "lock", "title": "End-to-End Encryption", "body": "Encrypted in transit and at rest" },
-      { "icon": "server", "title": "GCC Data Residency", "body": "Patient data never leaves the region" }
+    "title": "Security built in from day one, with formal certification underway.",
+    "subtitle": "The safeguards below are engineered into the platform today. The certifications that attest to them are in progress, and we will say so plainly until each one is signed.",
+    "safeguardsTitle": "Engineered into the platform today",
+    "safeguards": [
+      { "icon": "lock", "title": "End-to-End Encryption", "body": "Patient data encrypted in transit and at rest" },
+      { "icon": "server", "title": "GCC Data Residency", "body": "Hosted in region; data does not leave it" },
+      { "icon": "key-round", "title": "Role-Based Access", "body": "Least-privilege access with SSO support" },
+      { "icon": "shield-check", "title": "Full Audit Trail", "body": "Every access to patient data is logged" }
+    ],
+    "roadmapTitle": "Certification roadmap",
+    "roadmapNote": "We hold none of the certifications below yet. Each is actively in progress, and this page will be updated the moment one is formally awarded — not before.",
+    "roadmapStatusLabel": "Status",
+    "roadmap": [
+      { "icon": "landmark", "name": "SDAIA / PDPL", "scope": "Saudi personal data protection law", "status": "In progress" },
+      { "icon": "shield-check", "name": "HIPAA alignment", "scope": "International healthcare privacy standard", "status": "In progress" },
+      { "icon": "lock", "name": "ISO 27001", "scope": "Information security management", "status": "Planned" }
     ],
     "integrationTitle": "Seamless integration with your HIS / EHR",
     "integrationBody": "HaaliHealth connects to the systems you already run through standards-based interfaces — no rip-and-replace, no parallel record. Triage reports and PROMs land in the patient chart where your clinicians already work.",
@@ -156,7 +165,7 @@
       { "icon": "refresh-cw", "label": "Real-time bidirectional sync" },
       { "icon": "key-round", "label": "SSO & role-based access" }
     ],
-    "note": "Certifications and integration scope are confirmed per deployment during technical due diligence."
+    "note": "We will share our current security documentation, architecture and certification timeline under NDA during technical due diligence."
   },
   "contact": {
     "eyebrow": "Contact",
@@ -201,7 +210,7 @@
   "footer": {
     "tagline": "Turning the patient's voice into proven outcomes for hospitals across the GCC.",
     "columns": [
-      { "title": "Product", "links": ["Voice Triage", "Rafeeqi AI", "Automated PROMs", "Health +"] },
+      { "title": "Product", "links": ["Voice Triage", "Haali Voice", "Automated PROMs", "Health +"] },
       { "title": "Company", "links": ["About", "The Challenge", "Careers", "Contact"] },
       { "title": "Legal", "links": ["Privacy Policy", "Terms of Service", "Data Processing", "Security"] }
     ],

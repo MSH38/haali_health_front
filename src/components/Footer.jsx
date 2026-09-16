@@ -1,6 +1,18 @@
+import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { ArrowUp, Linkedin, Mail } from 'lucide-react'
 import Logo from './Logo'
+
+/**
+ * Destinations for the footer link columns, matched positionally to
+ * `footer.columns[].links` in the translation files. Kept here rather than in
+ * the locale files so translators never have to touch a URL.
+ */
+const COLUMN_HREFS = [
+  ['/#solutions', '/#solutions', '/#solutions', '/#solutions'],
+  ['/about', '/#solutions', '/#contact', '/#contact'],
+  ['/privacy', '/terms', '/privacy#retention', '/security'],
+]
 
 export default function Footer() {
   const { t } = useTranslation()
@@ -13,7 +25,9 @@ export default function Footer() {
         <div className="grid gap-10 lg:grid-cols-[1.4fr_repeat(3,1fr)] lg:gap-12">
           {/* Brand */}
           <div>
-            <Logo variant="light" />
+            <Link to="/" aria-label="HaaliHealth">
+              <Logo variant="light" />
+            </Link>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/45">
               {t('footer.tagline')}
             </p>
@@ -38,18 +52,18 @@ export default function Footer() {
           </div>
 
           {/* Link columns */}
-          {columns.map((col) => (
+          {columns.map((col, ci) => (
             <div key={col.title}>
               <h3 className="text-sm font-bold text-white">{col.title}</h3>
               <ul className="mt-4 space-y-2.5">
-                {col.links.map((link) => (
+                {col.links.map((link, li) => (
                   <li key={link}>
-                    <a
-                      href="#top"
+                    <Link
+                      to={COLUMN_HREFS[ci]?.[li] ?? '/'}
                       className="text-sm text-white/45 transition-colors hover:text-mint-400"
                     >
                       {link}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -62,13 +76,22 @@ export default function Footer() {
           <p className="text-xs text-white/35">
             © {year} HaaliHealth. {t('footer.rights')} · {t('footer.built')}
           </p>
-          <a
-            href="#top"
-            className="inline-flex items-center gap-2 text-xs font-semibold text-white/45 transition-colors hover:text-mint-400"
-          >
-            <ArrowUp className="h-3.5 w-3.5" />
-            {t('common.backToTop')}
-          </a>
+          <div className="flex items-center gap-5">
+            <Link to="/privacy" className="text-xs text-white/35 transition-colors hover:text-mint-400">
+              {t('pages.privacy.breadcrumb')}
+            </Link>
+            <Link to="/terms" className="text-xs text-white/35 transition-colors hover:text-mint-400">
+              {t('pages.terms.breadcrumb')}
+            </Link>
+            <button
+              type="button"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="inline-flex items-center gap-2 text-xs font-semibold text-white/45 transition-colors hover:text-mint-400"
+            >
+              <ArrowUp className="h-3.5 w-3.5" />
+              {t('common.backToTop')}
+            </button>
+          </div>
         </div>
       </div>
     </footer>

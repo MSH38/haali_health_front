@@ -1,5 +1,6 @@
 import {
   Activity,
+  ClipboardList,
   Clock,
   Code2,
   Heart,
@@ -8,6 +9,7 @@ import {
   LineChart,
   Lock,
   Mic,
+  PhoneCall,
   Plug,
   RefreshCw,
   Server,
@@ -18,6 +20,7 @@ import {
 /** Maps the icon keys used in the translation files to lucide components. */
 const ICONS = {
   activity: Activity,
+  'clipboard-list': ClipboardList,
   clock: Clock,
   code: Code2,
   heart: Heart,
@@ -26,6 +29,7 @@ const ICONS = {
   'line-chart': LineChart,
   lock: Lock,
   mic: Mic,
+  'phone-call': PhoneCall,
   plug: Plug,
   'refresh-cw': RefreshCw,
   server: Server,

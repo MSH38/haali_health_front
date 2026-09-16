@@ -92,12 +92,37 @@
   }
 
   .h2 {
-    @apply text-3xl font-extrabold leading-tight tracking-tight text-navy-900 sm:text-4xl lg:text-[2.75rem];
+    @apply text-3xl font-extrabold leading-[1.35] tracking-tight text-navy-900 sm:text-4xl sm:leading-[1.35] lg:text-[2.75rem];
   }
 
   .lede {
-    @apply text-base leading-relaxed text-navy-800/65 sm:text-lg;
+    @apply text-base leading-relaxed text-navy-800/65 sm:text-lg sm:leading-relaxed;
   }
+}
+
+/**
+ * Arabic headings need materially more leading than Latin ones.
+ *
+ * Tajawal carries tall diacritics above the baseline and deep descenders below
+ * it, so a tight display leading that looks sharp in Inter makes Arabic lines
+ * physically collide. Tailwind's `leading-*` utilities sit in the utilities
+ * layer and beat anything in @layer base, so these rules live outside the
+ * layers and win on specificity — (0,1,2) against a utility's (0,1,0).
+ *
+ * This is why it must be here and not a `leading-` class on each heading:
+ * every new heading would otherwise reintroduce the bug.
+ */
+html[dir='rtl'] h1 {
+  line-height: 1.45;
+}
+
+html[dir='rtl'] h2 {
+  line-height: 1.5;
+}
+
+html[dir='rtl'] h3,
+html[dir='rtl'] h4 {
+  line-height: 1.6;
 }
 
 /* Scroll-reveal: hidden until the observer adds .is-visible */

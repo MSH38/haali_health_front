@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Globe, Menu, X } from 'lucide-react'
 import Logo from './Logo'
 import { useScrolled } from '../hooks/useReveal'
 
+/** Section links are absolute (`/#id`) so they work from any route. */
 const LINKS = [
   { id: 'solutions', key: 'nav.solutions' },
   { id: 'benefits', key: 'nav.benefits' },
@@ -13,17 +15,22 @@ const LINKS = [
 
 export default function Navbar() {
   const { t, i18n } = useTranslation()
+  const { pathname } = useLocation()
   const scrolled = useScrolled(24)
   const [open, setOpen] = useState(false)
 
   const next = i18n.resolvedLanguage === 'ar' ? 'en' : 'ar'
 
   /**
-   * The navbar sits over the dark hero at rest, so it renders light-on-dark
-   * there. Once scrolled — or whenever the mobile sheet is open — it becomes
-   * the white glass bar and flips to dark-on-light.
+   * The navbar sits over a dark band at the top of every route (the home hero
+   * and the secondary-page header), so it renders light-on-dark at rest and
+   * becomes the white glass bar once scrolled — or whenever the mobile sheet
+   * is open, so the sheet never hangs off a transparent header.
    */
   const solid = scrolled || open
+
+  // Close the mobile sheet whenever the route changes.
+  useEffect(() => setOpen(false), [pathname])
 
   // Lock body scroll while the mobile sheet is open.
   useEffect(() => {
@@ -47,16 +54,16 @@ export default function Navbar() {
       }`}
     >
       <nav className="container-x flex h-20 items-center justify-between gap-4">
-        <a href="#top" className="shrink-0" aria-label="HaaliHealth">
+        <Link to="/" className="shrink-0" aria-label="HaaliHealth">
           <Logo variant={solid ? 'dark' : 'light'} />
-        </a>
+        </Link>
 
         {/* Desktop links */}
         <ul className="hidden items-center gap-1 lg:flex">
           {LINKS.map((link) => (
             <li key={link.id}>
-              <a
-                href={`#${link.id}`}
+              <Link
+                to={`/#${link.id}`}
                 className={`rounded-lg px-4 py-2 text-sm font-semibold transition-colors ${
                   solid
                     ? 'text-navy-800/75 hover:bg-navy-50 hover:text-navy-900'
@@ -64,7 +71,7 @@ export default function Navbar() {
                 }`}
               >
                 {t(link.key)}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -86,8 +93,8 @@ export default function Navbar() {
             <span>{next.toUpperCase()}</span>
           </button>
 
-          <a
-            href="#contact"
+          <Link
+            to="/#contact"
             className={
               solid
                 ? 'btn-primary'
@@ -95,7 +102,7 @@ export default function Navbar() {
             }
           >
             {t('nav.cta')}
-          </a>
+          </Link>
         </div>
 
         {/* Mobile trigger */}
@@ -115,21 +122,30 @@ export default function Navbar() {
       {/* Mobile sheet — always light, since `solid` is forced true while open */}
       <div
         className={`overflow-hidden border-t border-navy-900/10 bg-white/95 backdrop-blur-xl transition-[max-height] duration-300 lg:hidden ${
-          open ? 'max-h-[26rem]' : 'max-h-0 border-t-0'
+          open ? 'max-h-[30rem]' : 'max-h-0 border-t-0'
         }`}
       >
         <ul className="container-x flex flex-col gap-1 py-5">
           {LINKS.map((link) => (
             <li key={link.id}>
-              <a
-                href={`#${link.id}`}
+              <Link
+                to={`/#${link.id}`}
                 onClick={() => setOpen(false)}
                 className="block rounded-lg px-3 py-3 text-base font-semibold text-navy-800 transition-colors hover:bg-navy-50"
               >
                 {t(link.key)}
-              </a>
+              </Link>
             </li>
           ))}
+          <li>
+            <Link
+              to="/about"
+              onClick={() => setOpen(false)}
+              className="block rounded-lg px-3 py-3 text-base font-semibold text-navy-800 transition-colors hover:bg-navy-50"
+            >
+              {t('pages.about.breadcrumb')}
+            </Link>
+          </li>
           <li className="mt-3 flex items-center gap-3">
             <button
               type="button"
@@ -139,9 +155,9 @@ export default function Navbar() {
               <Globe className="h-4 w-4" aria-hidden="true" />
               {next.toUpperCase()}
             </button>
-            <a href="#contact" onClick={() => setOpen(false)} className="btn-primary flex-1">
+            <Link to="/#contact" onClick={() => setOpen(false)} className="btn-primary flex-1">
               {t('nav.cta')}
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

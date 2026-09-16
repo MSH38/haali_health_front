@@ -41,6 +41,45 @@ src/
 
 **No copy lives in components.** All text is in the two locale files, so translation and copy edits never touch JSX.
 
+## Routes
+
+| Path | Page | Audience |
+|---|---|---|
+| `/` | Landing page | Hospital executives |
+| `/about` | About Us | Executives, clinical leadership |
+| `/privacy` | Privacy Policy | Compliance, DPO, legal |
+| `/terms` | Terms of Service & Medical Disclaimer | Legal, clinical governance |
+| `/security` | Security & Compliance | CTO, CCIO, IT security audit |
+
+Routing is `react-router-dom` with `BrowserRouter`. Unknown paths fall back to
+the landing page. `ScrollManager` resets scroll on navigation and handles
+cross-page hash links (`/#contact` from any route).
+
+**Deep links need a server rewrite.** Configs are included for Netlify
+(`public/_redirects`), Vercel (`vercel.json`) and Azure Static Web Apps
+(`public/staticwebapp.config.json`). On nginx, add
+`try_files $uri $uri/ /index.html;`. Without one, `/about` returns 404.
+
+## ⚠️ Compliance claims — read before editing
+
+`src/config/compliance.js` is the **single source of truth** for every
+certification claim on the site. Each item carries a status:
+
+| Status | Meaning | Renders as |
+|---|---|---|
+| `built` | Engineering fact, true in the product today | Mint, confident |
+| `in-progress` | Being pursued, **not yet awarded** | Amber, dashed, "not yet certified" |
+| `planned` | On the roadmap, not started | Muted |
+| `certified` | Formally awarded, certificate in hand | Mint, confident |
+
+**As of this build, no item is `certified`.** The Security page states this
+explicitly rather than leaving it implied.
+
+Hospital IT audit teams read these pages and will ask for the certificate.
+Publishing "Certified" before one exists ends procurement and creates legal
+exposure. To publish a newly awarded certification, change its `status` to
+`'certified'` — nothing else in the codebase needs to change.
+
 ## Language & RTL
 
 Arabic is the default (`fallbackLng: 'ar'`). The toggle calls `i18n.changeLanguage()`; a listener in `src/i18n/index.js` sets `<html lang>` and `<html dir>`, and the choice persists to `localStorage`.

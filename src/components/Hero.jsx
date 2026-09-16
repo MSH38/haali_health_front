@@ -51,14 +51,14 @@ export default function Hero() {
             </Reveal>
 
             <Reveal delay={80}>
-              <h1 className="mt-6 text-[2.5rem] font-extrabold leading-[1.12] tracking-tight text-white sm:text-5xl lg:text-[3.6rem]">
+              <h1 className="mt-6 text-[2.5rem] font-extrabold leading-[1.2] tracking-tight text-white sm:text-5xl sm:leading-[1.2] lg:text-[3.6rem]">
                 <span className="block text-mint-400">{t('hero.titleAccent')}</span>
                 <span className="block">{t('hero.title')}</span>
               </h1>
             </Reveal>
 
             <Reveal delay={160}>
-              <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-white/70 sm:text-lg lg:mx-0">
+              <p className="mx-auto mt-7 max-w-xl text-base leading-relaxed text-white/70 sm:mt-8 sm:text-lg lg:mx-0">
                 {t('hero.subtitle')}
               </p>
             </Reveal>

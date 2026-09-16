@@ -3,6 +3,12 @@ import { initReactI18next } from 'react-i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
 import en from './locales/en.json'
 import ar from './locales/ar.json'
+import enPages from './locales/en.pages.json'
+import arPages from './locales/ar.pages.json'
+
+// Secondary-page copy lives in its own file to keep each one reviewable.
+// It is merged under a `pages.` prefix: t('pages.about.hero.title').
+const merge = (base, pages) => ({ ...base, pages })
 
 export const LANGS = {
   ar: { label: 'العربية', short: 'AR', dir: 'rtl' },
@@ -14,8 +20,8 @@ i18n
   .use(initReactI18next)
   .init({
     resources: {
-      en: { translation: en },
-      ar: { translation: ar },
+      en: { translation: merge(en, enPages) },
+      ar: { translation: merge(ar, arPages) },
     },
     fallbackLng: 'ar',
     supportedLngs: ['ar', 'en'],

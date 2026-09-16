@@ -1,0 +1,401 @@
+{
+  "common": {
+    "home": "Home",
+    "lastUpdated": "Last updated",
+    "onThisPage": "On this page",
+    "ctaTitle": "See Haali Health running on your own patient pathways.",
+    "ctaBody": "A 30-minute technical walkthrough with our clinical and integration team.",
+    "ctaButton": "Book a Demo",
+    "ctaSecondary": "Talk to our team"
+  },
+
+  "about": {
+    "meta": {
+      "title": "About — Haali Health",
+      "description": "Haali Health closes the information gap in chronic care, using natural telephone conversations to keep hospitals connected to patients between appointments."
+    },
+    "breadcrumb": "About Us",
+    "hero": {
+      "eyebrow": "About Haali Health",
+      "title": "Closing the Information Gap in Chronic Care",
+      "subtitle": "Chronic disease is managed in the weeks between appointments, but that is precisely where clinical teams lose visibility. Haali Health keeps that period observed, structured and clinically useful."
+    },
+    "mission": {
+      "eyebrow": "Our Mission",
+      "title": "Care is continuous. Clinical information should be too.",
+      "body": [
+        "A patient with Type 2 Diabetes may see their consultant three times a year. Between those visits they manage medication, diet, symptoms and setbacks largely alone — and almost none of that experience reaches the medical record. The result is a clinician making decisions on a fifteen-minute snapshot of a six-month reality.",
+        "Haali Health closes that gap with something every patient already knows how to use: a phone call. Our AI conducts natural, structured conversations in the patient's own dialect, then converts what it hears into organised clinical information delivered into the hospital's existing systems — before the next appointment, not after it."
+      ],
+      "pullQuote": "We are not trying to replace the consultation. We are trying to make sure the consultation starts with the full picture.",
+      "stats": [
+        { "value": "Between", "label": "visits", "hint": "Where chronic outcomes are actually decided" },
+        { "value": "No app", "label": "required", "hint": "A normal phone call the patient answers" },
+        { "value": "Structured", "label": "clinical output", "hint": "Not a transcript — organised data" }
+      ]
+    },
+    "philosophy": {
+      "eyebrow": "Core Philosophy",
+      "title": "Three principles we will not compromise on",
+      "subtitle": "These are design constraints, not marketing positions. Every product decision is tested against them.",
+      "cards": [
+        {
+          "icon": "clipboard-list",
+          "title": "AI Collects and Organises. Clinicians Decide.",
+          "body": "Our system gathers information and structures it against recognised clinical frameworks. It does not diagnose, prescribe, or advise the patient on treatment. Every clinical judgement stays with the licensed professional, made faster because the information arrives organised rather than absent.",
+          "point": "Decision support, never decision-making."
+        },
+        {
+          "icon": "phone-call",
+          "title": "Zero Patient Friction",
+          "body": "No application to download, no account to create, no portal password to recover, no smartphone required. The patient answers a phone call and has a conversation in their own dialect. Engagement technology that assumes digital fluency systematically excludes the elderly and chronically ill patients who need it most.",
+          "point": "If it needs an onboarding guide, it will not reach the patients who matter."
+        },
+        {
+          "icon": "line-chart",
+          "title": "Longitudinal Visibility",
+          "body": "Pre-appointment preparation, post-discharge follow-up, and continuous between-visit monitoring are one connected workflow, not three disconnected products. Clinical teams see a trajectory over months rather than isolated data points, which is what chronic disease management actually requires.",
+          "point": "A trend line is worth more than a reading."
+        }
+      ]
+    },
+    "regional": {
+      "eyebrow": "Regional Focus",
+      "title": "Built for the Gulf, not translated into it.",
+      "body": "Haali Health is engineered specifically for Saudi Arabia and the wider GCC. That shapes the architecture, the clinical content and the language model — not just the interface language.",
+      "points": [
+        {
+          "icon": "mic",
+          "title": "Arabic dialects, spoken naturally",
+          "body": "Patients speak as they actually speak. Our models are built for Gulf, Najdi, Hijazi and Levantine speech patterns rather than adapted from Modern Standard Arabic, because a system that misunderstands a patient is worse than no system."
+        },
+        {
+          "icon": "landmark",
+          "title": "Aligned to local clinical guidance",
+          "body": "Conversation pathways follow the clinical protocols and care standards used by health systems in the region, so the structured output fits the way local clinicians already work."
+        },
+        {
+          "icon": "trending-up",
+          "title": "Vision 2030 and value-based care",
+          "body": "Saudi Arabia's health transformation is moving reimbursement toward measurable outcomes. Haali Health produces exactly the longitudinal outcome evidence that Pay-for-Quality and Value-Based Payment models require."
+        },
+        {
+          "icon": "server",
+          "title": "Data sovereignty as an architecture decision",
+          "body": "Patient data is hosted in region. This is a foundational design constraint of the platform, not a configuration option added for a particular customer."
+        }
+      ]
+    },
+    "extensibility": {
+      "eyebrow": "Clinical Extensibility",
+      "title": "Starting deliberately narrow, engineered to go wide.",
+      "body": "We began with Type 2 Diabetes because it is the highest-prevalence chronic condition in the Kingdom, it is managed almost entirely between appointments, and its outcome measures are well defined. Proving clinical value there earns the right to expand.",
+      "note": "Pathway availability is confirmed per deployment. Timelines below are indicative and depend on clinical validation with partner health systems.",
+      "phases": [
+        {
+          "status": "Live today",
+          "title": "Type 2 Diabetes",
+          "body": "Medication adherence, symptom tracking, glycaemic self-reporting and pre-appointment preparation."
+        },
+        {
+          "status": "In development",
+          "title": "Cardiovascular & Hypertension",
+          "body": "Post-event follow-up, adherence monitoring and escalation flagging for cardiology pathways."
+        },
+        {
+          "status": "Planned",
+          "title": "Broader chronic pathways",
+          "body": "Respiratory, renal, and post-surgical recovery pathways, built on the same conversational and structuring engine."
+        }
+      ]
+    }
+  },
+
+  "privacy": {
+    "meta": {
+      "title": "Privacy Policy — Haali Health",
+      "description": "How Haali Health processes health provider and patient data under the Saudi Personal Data Protection Law (PDPL), SDAIA guidance and GCC data sovereignty requirements."
+    },
+    "breadcrumb": "Privacy Policy",
+    "hero": {
+      "eyebrow": "Legal",
+      "title": "Privacy Policy",
+      "subtitle": "How we process data for healthcare providers and the patients they care for, under Saudi and GCC data protection requirements."
+    },
+    "updated": "16 September 2026",
+    "disclaimer": "This policy describes our data processing practices. It is provided for information and does not constitute legal advice. Providers should review it alongside their own regulatory obligations and Data Processing Agreement with us.",
+    "sections": [
+      {
+        "id": "scope",
+        "title": "1. Introduction & Scope",
+        "body": [
+          "Haali Health provides a clinical engagement platform to hospitals, clinics and health systems. This policy explains how we handle personal data and personal health data when a healthcare provider deploys our platform, including data generated during telephone conversations with that provider's patients.",
+          "In the language of the Saudi Personal Data Protection Law, the healthcare provider is the Data Controller and Haali Health acts as a Data Processor. The provider determines why patient data is processed; we process it only on their documented instruction and only to deliver the contracted service."
+        ],
+        "bullets": [
+          "We do not sell personal data or health data under any circumstances.",
+          "We do not use identifiable patient data to train models for other customers.",
+          "We do not use patient data for advertising, profiling or any secondary commercial purpose.",
+          "Patients are informed at the start of each call that the conversation is recorded and handled on behalf of their healthcare provider."
+        ]
+      },
+      {
+        "id": "standards",
+        "title": "2. Compliance Standards",
+        "body": [
+          "Our platform is designed and operated in accordance with the Saudi Personal Data Protection Law (PDPL) and its Implementing Regulations, guidance issued by the Saudi Data and Artificial Intelligence Authority (SDAIA), and the data sovereignty frameworks applicable across the GCC.",
+          "We hold formal certification transparently: where a certification has been awarded we state it and provide the evidence; where it is still being pursued we say so explicitly rather than implying it. Our current certification status is published on the Security & Compliance page and is kept accurate at all times."
+        ],
+        "bullets": [
+          "Saudi Personal Data Protection Law (PDPL) and Implementing Regulations",
+          "SDAIA guidance on data governance and the responsible use of artificial intelligence",
+          "GCC data sovereignty and cross-border transfer requirements",
+          "ISO 27001 information security management — alignment in progress, not yet certified"
+        ]
+      },
+      {
+        "id": "residency",
+        "title": "3. Data Residency",
+        "body": [
+          "Patient data generated through the Haali Health platform is stored and processed on cloud infrastructure located inside the Kingdom of Saudi Arabia. Patient data does not leave national borders.",
+          "This is enforced architecturally rather than by policy alone: our production data stores, processing pipelines, backups and disaster recovery environments are all provisioned in-region. Support and engineering access is governed by controlled procedures that do not involve exporting patient data outside the Kingdom."
+        ],
+        "bullets": [
+          "Primary storage and processing: in-Kingdom cloud regions",
+          "Backups and disaster recovery: in-Kingdom, never replicated abroad",
+          "No routine cross-border transfer of identifiable patient data",
+          "Any exception would require the provider's explicit written instruction and a lawful PDPL transfer basis"
+        ]
+      },
+      {
+        "id": "voice",
+        "title": "4. Voice Data & Encryption",
+        "body": [
+          "Our platform conducts structured telephone conversations with patients on behalf of their healthcare provider. This section explains precisely what happens to that audio.",
+          "Audio is captured over the call, transcribed, and analysed to extract clinically relevant information. That information is then organised into a structured clinical summary and delivered to the provider's systems. The structured summary — not raw audio — is the clinical output of the platform."
+        ],
+        "steps": [
+          { "title": "Capture", "body": "The patient is informed the call is recorded. Audio is encrypted in transit from the moment the call begins." },
+          { "title": "Transcription", "body": "Speech is converted to text within our in-Kingdom processing environment. Audio is never sent to third-party services outside the region." },
+          { "title": "Structuring", "body": "Clinically relevant information is extracted and organised against recognised clinical frameworks into a structured summary." },
+          { "title": "Delivery", "body": "The structured summary is delivered into the provider's EHR or HIS over a secure, authenticated integration." }
+        ],
+        "bullets": [
+          "In transit: TLS 1.3 for all data moving between the patient call, our platform and provider systems",
+          "At rest: AES-256 encryption for stored audio, transcripts and structured clinical data",
+          "Access to raw audio is restricted, role-based, and written to an immutable audit log",
+          "Providers may configure audio retention separately from structured clinical data retention"
+        ]
+      },
+      {
+        "id": "retention",
+        "title": "5. Data Retention & Patient Rights",
+        "body": [
+          "The healthcare provider controls retention. As Data Controller they set retention periods consistent with their own clinical record-keeping obligations and Saudi healthcare regulation, and we apply those periods.",
+          "On termination of a provider agreement we return or securely delete provider and patient data according to the terms of the Data Processing Agreement, and confirm deletion in writing."
+        ],
+        "bullets": [
+          "Providers can request export or deletion of their data at any time",
+          "Patients may exercise their PDPL rights — access, correction, deletion, withdrawal of consent — through their healthcare provider, who remains their point of contact",
+          "A patient may decline the call or opt out of future calls at any time, without any effect on the care they receive",
+          "Consent records and opt-out status are maintained and honoured across all future contact"
+        ]
+      },
+      {
+        "id": "contact",
+        "title": "6. Contact",
+        "body": [
+          "For questions about this policy, to request our Data Processing Agreement, or to raise a data protection concern, contact us at info@haalihealth.com.",
+          "If you are a patient with a question about your data, please contact your healthcare provider directly — they are the Data Controller and your first point of contact."
+        ],
+        "bullets": []
+      }
+    ]
+  },
+
+  "terms": {
+    "meta": {
+      "title": "Terms of Service & Medical Disclaimer — Haali Health",
+      "description": "Terms governing hospital and clinic deployment of Haali Health, including the mandatory clinical disclaimer and the role of licensed healthcare professionals."
+    },
+    "breadcrumb": "Terms of Service",
+    "hero": {
+      "eyebrow": "Legal",
+      "title": "Terms of Service & Medical Disclaimer",
+      "subtitle": "The terms governing deployment of Haali Health within hospitals, clinics and health systems."
+    },
+    "updated": "16 September 2026",
+    "disclaimer": "These terms are provided for information and are supplemented by the executed master services agreement between Haali Health and the contracting health system, which prevails in the event of any conflict.",
+    "criticalTitle": "Mandatory Clinical Disclaimer",
+    "criticalBody": "Haali Health is a clinical workflow and engagement support tool. It does NOT provide autonomous medical diagnosis, triage emergency intervention, or replace the independent clinical judgment of a licensed physician.",
+    "criticalPoints": [
+      "The platform does not diagnose medical conditions.",
+      "The platform does not prescribe, alter or discontinue treatment.",
+      "The platform is not an emergency service and must never be relied upon in an emergency.",
+      "Patients in a medical emergency must contact emergency services or attend an emergency department immediately."
+    ],
+    "sections": [
+      {
+        "id": "scope",
+        "title": "1. B2B Service Scope",
+        "body": [
+          "Haali Health is provided exclusively to healthcare organisations under a written agreement. It is not a consumer service and is not offered directly to patients. Patients interact with the platform only because their healthcare provider has deployed it as part of their care pathway.",
+          "The contracting health system is responsible for determining which patients are enrolled, which clinical pathways are activated, and how the structured information the platform produces is used within their clinical governance framework."
+        ],
+        "bullets": [
+          "Access is granted to the contracting organisation and its authorised personnel only",
+          "Clinical pathway configuration is agreed with the provider's clinical leadership before activation",
+          "The provider remains responsible for patient consent and for their own regulatory obligations",
+          "Credentials are issued per named user; sharing of accounts is prohibited"
+        ]
+      },
+      {
+        "id": "professionals",
+        "title": "3. Role of Healthcare Professionals",
+        "body": [
+          "Licensed healthcare professionals remain one hundred percent responsible for all clinical decisions and treatment plans. The structured summaries the platform produces are an input to clinical reasoning, never a substitute for it.",
+          "Clinical staff are expected to apply their own professional judgement to every summary, including judging whether the information it contains is complete, plausible and clinically relevant for the patient in front of them. Where a summary conflicts with the clinician's own assessment, the clinician's assessment governs."
+        ],
+        "bullets": [
+          "All diagnosis, prescribing and treatment decisions rest with the licensed clinician",
+          "Structured summaries are decision support and must be reviewed, not actioned unread",
+          "The platform does not autonomously escalate, refer or triage patients",
+          "Providers should maintain clinical governance and audit over how summaries are used"
+        ]
+      },
+      {
+        "id": "availability",
+        "title": "4. Operational Availability & Service Levels",
+        "body": [
+          "We commit to defined service levels for health systems, set out in full in the service level agreement that forms part of the master services agreement. The summary below is indicative; the executed agreement governs.",
+          "Because the platform is not an emergency or time-critical clinical system, service interruption does not create patient safety risk in the way an outage of a core clinical system would. Providers should nonetheless ensure their care pathways do not depend solely on platform availability."
+        ],
+        "slaTitle": "Indicative service commitments",
+        "sla": [
+          { "metric": "Platform availability", "value": "99.5% monthly uptime", "note": "Excluding scheduled maintenance windows" },
+          { "metric": "Scheduled maintenance", "value": "Notified in advance", "note": "Outside local clinical working hours where possible" },
+          { "metric": "Critical incident response", "value": "Defined in the SLA", "note": "With named escalation contacts on both sides" },
+          { "metric": "Data export on request", "value": "Available throughout the term", "note": "And on termination, per the Data Processing Agreement" }
+        ],
+        "bullets": []
+      },
+      {
+        "id": "liability",
+        "title": "5. Limitations & Governing Terms",
+        "body": [
+          "Liability, indemnity, intellectual property, termination and governing law are set out in the master services agreement between Haali Health and the contracting health system. Nothing on this page varies those terms.",
+          "Nothing in these terms excludes or limits liability where such exclusion is not permitted under applicable Saudi law."
+        ],
+        "bullets": []
+      }
+    ]
+  },
+
+  "security": {
+    "meta": {
+      "title": "Security & Compliance — Haali Health",
+      "description": "Security architecture, data residency, encryption and EHR/HIS integration framework for hospital CTOs, CCIOs and IT security audit teams."
+    },
+    "breadcrumb": "Security & Compliance",
+    "hero": {
+      "eyebrow": "Security & Compliance",
+      "title": "Enterprise security, engineered for healthcare systems.",
+      "subtitle": "Written for hospital CTOs, Chief Clinical Information Officers and IT security audit teams. Where we hold a certification we say so and provide evidence. Where we do not, we say that too."
+    },
+    "architecture": {
+      "eyebrow": "Architecture Overview",
+      "title": "Security is a structural property of the platform, not a feature added to it.",
+      "body": "Patient health data carries the highest sensitivity classification a health system handles. Our architecture reflects that from the ground up: in-region hosting, encryption everywhere, least-privilege access, and complete auditability of every interaction with patient data.",
+      "pillars": [
+        {
+          "icon": "server",
+          "title": "In-Kingdom by design",
+          "body": "Production data stores, processing, backups and disaster recovery are provisioned inside Saudi Arabia. Residency is an architectural constraint, not a per-customer setting."
+        },
+        {
+          "icon": "lock",
+          "title": "Encrypted end to end",
+          "body": "TLS 1.3 in transit and AES-256 at rest, applied to audio, transcripts and structured clinical data alike. Keys are managed in a dedicated key management service."
+        },
+        {
+          "icon": "key-round",
+          "title": "Least-privilege access",
+          "body": "Role-based access control with SSO and MFA support. Access to raw audio is tightly restricted and separately governed from access to structured summaries."
+        },
+        {
+          "icon": "shield-check",
+          "title": "Complete auditability",
+          "body": "Every access to patient data is written to an immutable audit log, exportable to the provider's own SIEM for independent review."
+        }
+      ]
+    },
+    "badgesSection": {
+      "eyebrow": "Compliance Posture",
+      "title": "Where we stand today",
+      "subtitle": "Two categories, deliberately distinguished. Engineering controls are live in the platform now. Certifications are formal attestations by an external body — we mark those as in progress until the certificate is in hand.",
+      "builtLabel": "Live in platform",
+      "statusLabels": {
+        "built": "Live in platform",
+        "in-progress": "In progress — not yet certified",
+        "planned": "Planned",
+        "certified": "Certified"
+      },
+      "honesty": "We hold no third-party compliance certifications at this time. Items marked \"in progress\" are being actively pursued. This page is updated only when a certification is formally awarded — never in anticipation of one.",
+      "items": {
+        "pdpl": {
+          "title": "Saudi PDPL / SDAIA",
+          "body": "Platform designed and operated in accordance with the Personal Data Protection Law and SDAIA guidance. Formal attestation in progress."
+        },
+        "residency": {
+          "title": "Saudi Cloud Data Residency",
+          "body": "All patient data stored and processed on cloud infrastructure inside the Kingdom. Enforced architecturally."
+        },
+        "encryption": {
+          "title": "End-to-End Encryption (AES-256)",
+          "body": "AES-256 at rest and TLS 1.3 in transit across audio, transcripts and structured clinical data."
+        },
+        "nphies": {
+          "title": "NPHIES & HIS Interoperability",
+          "body": "Standards-based HL7 and FHIR interfaces, engineered for NPHIES and the HIS platforms used across the Kingdom."
+        },
+        "iso": {
+          "title": "ISO 27001",
+          "body": "Information security management system aligned to the ISO 27001 control framework. Certification audit in progress."
+        }
+      }
+    },
+    "integration": {
+      "eyebrow": "Integration Framework",
+      "title": "How structured clinical data reaches your EHR.",
+      "body": "Haali Health is designed to feed your existing systems, not to become another system your clinicians have to open. Structured summaries, patient-reported outcome measures and coding suggestions are delivered into the patient record over secure, authenticated, standards-based interfaces.",
+      "outputsTitle": "What we deliver into your systems",
+      "outputs": [
+        {
+          "icon": "clipboard-list",
+          "title": "Structured clinical summaries",
+          "body": "Organised, reviewable summaries of the patient conversation mapped to your clinical templates — not raw transcripts."
+        },
+        {
+          "icon": "line-chart",
+          "title": "Patient-reported outcome measures",
+          "body": "Standardised PROMs captured conversationally and delivered as discrete, trendable data points."
+        },
+        {
+          "icon": "code",
+          "title": "Coding suggestions",
+          "body": "Suggested clinical codes surfaced for coder and clinician review. Suggestions only — never applied automatically."
+        }
+      ],
+      "technicalTitle": "Technical interfaces",
+      "technical": [
+        { "icon": "plug", "label": "HL7 v2 and FHIR R4 interfaces" },
+        { "icon": "code", "label": "REST API with webhook callbacks" },
+        { "icon": "refresh-cw", "label": "Real-time bidirectional synchronisation" },
+        { "icon": "key-round", "label": "SSO, MFA and role-based access control" },
+        { "icon": "shield-check", "label": "Immutable audit logging, SIEM-exportable" },
+        { "icon": "server", "label": "Private network connectivity options" }
+      ],
+      "note": "Integration scope, network topology and security controls are confirmed per deployment during technical due diligence. We will provide our architecture documentation, data flow diagrams and current certification timeline under NDA on request."
+    }
+  }
+}
