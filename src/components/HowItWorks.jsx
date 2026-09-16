@@ -1,45 +1,60 @@
 import { useTranslation } from 'react-i18next'
 import { Check, Play, Waypoints } from 'lucide-react'
 import Reveal from './Reveal'
-import { useVideo } from './VideoLightbox'
+import { useVideo, VIDEO_SRC } from './VideoLightbox'
 
 /**
- * Media frame for a step. Clicking play opens the overview film in the
- * lightbox. Once per-step footage exists, drop a <video> or poster <img>
- * inside — the frame, ratio and hover state stay as they are.
+ * Each step shows a real frame from the film rather than a gray box.
+ *
+ * `#t=<seconds>` is a media fragment: the browser fetches only metadata plus
+ * the bytes around that timestamp and paints that frame as the still. No
+ * ffmpeg-generated poster files needed, and giving each step a different
+ * timestamp means three different stills instead of one repeated image.
  */
-function VideoPlaceholder({ label, step, duration, onPlay }) {
+const STEP_FRAMES = [8, 52, 104]
+
+function VideoFrame({ label, step, duration, startAt, onPlay }) {
   return (
-    <div className="group relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-navy-100 bg-gradient-to-br from-navy-50 to-navy-100 shadow-card transition-shadow duration-300 hover:shadow-lift">
-      {/* Faint grid texture */}
+    <button
+      type="button"
+      onClick={onPlay}
+      aria-label={label}
+      className="group relative block aspect-video w-full overflow-hidden rounded-2xl border border-navy-100 bg-navy-900 shadow-card transition-shadow duration-300 hover:shadow-lift"
+    >
+      <video
+        src={`${VIDEO_SRC}#t=${startAt}`}
+        className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+        preload="metadata"
+        muted
+        playsInline
+        tabIndex={-1}
+        aria-hidden="true"
+      />
+
+      {/* Legibility scrim for the badges and play control */}
       <div
-        className="absolute inset-0 opacity-[0.35] [background-image:linear-gradient(to_right,rgba(17,26,64,.07)_1px,transparent_1px),linear-gradient(to_bottom,rgba(17,26,64,.07)_1px,transparent_1px)] [background-size:32px_32px]"
+        className="absolute inset-0 bg-gradient-to-t from-navy-950/70 via-navy-950/10 to-navy-950/25 transition-opacity duration-300 group-hover:from-navy-950/60"
         aria-hidden="true"
       />
 
       <div className="absolute inset-0 grid place-items-center">
-        <button
-          type="button"
-          onClick={onPlay}
-          aria-label={label}
-          className="grid h-16 w-16 place-items-center rounded-full bg-white text-navy-800 shadow-lift transition-all duration-300 group-hover:scale-110 group-hover:bg-mint-400 group-hover:text-navy-950"
-        >
+        <span className="grid h-16 w-16 place-items-center rounded-full bg-white/95 text-navy-800 shadow-lift backdrop-blur transition-all duration-300 group-hover:scale-110 group-hover:bg-mint-400 group-hover:text-navy-950">
           <Play className="ms-0.5 h-6 w-6 fill-current rtl:ms-0 rtl:me-0.5" />
-        </button>
+        </span>
       </div>
 
       {/* Corner meta */}
-      <span className="absolute top-4 start-4 rounded-lg bg-white/80 px-2.5 py-1 text-[11px] font-bold text-navy-800/70 backdrop-blur">
+      <span className="absolute top-4 start-4 rounded-lg bg-navy-950/70 px-2.5 py-1 text-[11px] font-bold text-white/90 backdrop-blur">
         {step}
       </span>
-      <span className="absolute bottom-4 start-4 text-xs font-medium text-navy-800/45">{label}</span>
+      <span className="absolute bottom-4 start-4 text-xs font-medium text-white/75">{label}</span>
       <span
         dir="ltr"
         className="absolute bottom-4 end-4 rounded-md bg-navy-950/75 px-2 py-0.5 text-[11px] font-semibold tabular-nums text-white/90"
       >
         {duration}
       </span>
-    </div>
+    </button>
   )
 }
 
@@ -70,10 +85,11 @@ export default function HowItWorks() {
               <div key={step.name} className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
                 {/* Media */}
                 <Reveal delay={80} className={flipped ? 'lg:order-2' : 'lg:order-1'}>
-                  <VideoPlaceholder
+                  <VideoFrame
                     label={t('video.play')}
                     step={`${step.n} · ${step.name}`}
                     duration={t('video.duration')}
+                    startAt={STEP_FRAMES[i] ?? 0}
                     onPlay={openVideo}
                   />
                 </Reveal>
