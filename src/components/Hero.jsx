@@ -1,8 +1,7 @@
 import { useTranslation } from 'react-i18next'
-import { ArrowLeft, ArrowRight, CheckCircle2, Mic, Play, Stethoscope } from 'lucide-react'
+import { ArrowDown, ArrowLeft, ArrowRight, CheckCircle2, Mic, Stethoscope } from 'lucide-react'
 import Reveal from './Reveal'
 import AmbientGlow from './AmbientGlow'
-import { useVideo } from './VideoLightbox'
 
 /** Fake voice waveform — decorative only. */
 function Waveform() {
@@ -25,7 +24,6 @@ export default function Hero() {
   const isRtl = i18n.resolvedLanguage === 'ar'
   const Arrow = isRtl ? ArrowLeft : ArrowRight
   const w = t('hero.widget', { returnObjects: true })
-  const openVideo = useVideo()
 
   return (
     <section id="top" className="relative overflow-hidden bg-navy-900 pt-32 pb-20 lg:pt-40 lg:pb-28">
@@ -64,10 +62,10 @@ export default function Hero() {
                   {t('hero.ctaPrimary')}
                   <Arrow className="h-4 w-4 transition-transform group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5" />
                 </a>
-                <button type="button" onClick={openVideo} className="btn-outline-dark group">
-                  <Play className="h-4 w-4 fill-current transition-transform group-hover:scale-110" />
+                <a href="#solutions" className="btn-outline-dark group">
+                  <ArrowDown className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
                   {t('hero.ctaSecondary')}
-                </button>
+                </a>
               </div>
             </Reveal>
 

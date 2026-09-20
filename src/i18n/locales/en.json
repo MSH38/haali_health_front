@@ -20,7 +20,7 @@
     "titleAccent": "Your patients' voice is the compass of care.",
     "subtitle": "Advanced voice analysis reads symptoms the moment a patient speaks — filtering non-urgent cases away from your emergency department and routing every patient to the right level of care, in their own dialect.",
     "ctaPrimary": "Book Demo",
-    "ctaSecondary": "Watch How it Works",
+    "ctaSecondary": "See How it Works",
     "trustLabel": "Aligned with national health strategies across the GCC",
     "widget": {
       "label": "Live triage session",
@@ -56,7 +56,6 @@
     "eyebrow": "How it works",
     "title": "One continuous loop, from first symptom to proven outcome.",
     "subtitle": "Three connected modules. The patient's voice opens the loop; measured outcomes close it.",
-    "videoLabel": "Product walkthrough",
     "steps": [
       {
         "n": "01",
@@ -216,12 +215,6 @@
     ],
     "rights": "All rights reserved.",
     "built": "Built for value-based care in the GCC."
-  },
-  "video": {
-    "title": "HaaliHealth — product overview",
-    "close": "Close video",
-    "duration": "2:43",
-    "play": "Play the overview film"
   },
   "common": {
     "backToTop": "Back to top"
