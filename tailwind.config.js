@@ -85,6 +85,13 @@ export default {
           '0%,100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-10px)' },
         },
+        // Shallow drift for mockup cards. Amplitude is deliberately small: the
+        // cards sit in a fixed cluster, and anything larger than a few pixels
+        // lets neighbours drift into each other.
+        'float-card': {
+          '0%,100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-5px)' },
+        },
         // Slow drifting light sources. Transform-only, so they run on the GPU.
         'drift-a': {
           '0%,100%': { transform: 'translate(0,0) scale(1)' },
@@ -118,6 +125,7 @@ export default {
         'pulse-ring': 'pulse-ring 2.4s cubic-bezier(.4,0,.6,1) infinite',
         wave: 'wave 1.1s ease-in-out infinite',
         float: 'float 6s ease-in-out infinite',
+        'float-card': 'float-card 7s ease-in-out infinite',
         'drift-a': 'drift-a 22s ease-in-out infinite',
         'drift-b': 'drift-b 28s ease-in-out infinite',
         'drift-c': 'drift-c 18s ease-in-out infinite',
