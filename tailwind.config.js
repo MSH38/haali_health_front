@@ -50,6 +50,9 @@ export default {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
         arabic: ['Tajawal', 'Cairo', 'system-ui', 'sans-serif'],
+        // Wordmark only. The RTL base style sets Tajawal on <body>, so the
+        // lockup has to name its own family or it inherits Arabic metrics.
+        brand: ['DM Sans', 'Inter', 'system-ui', 'sans-serif'],
       },
 
       boxShadow: {

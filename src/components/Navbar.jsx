@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Globe, Menu, X } from 'lucide-react'
-import Logo from './Logo'
+import BrandLogo from './BrandLogo'
 import { useScrolled } from '../hooks/useReveal'
 
 /** Section links are absolute (`/#id`) so they work from any route. */
@@ -54,8 +54,8 @@ export default function Navbar() {
       }`}
     >
       <nav className="container-x flex h-20 items-center justify-between gap-4">
-        <Link to="/" className="shrink-0" aria-label="HaaliHealth">
-          <Logo variant={solid ? 'dark' : 'light'} />
+        <Link to="/" className="shrink-0 text-2xl" aria-label="HaaliHealth">
+          <BrandLogo variant={solid ? 'dark' : 'light'} />
         </Link>
 
         {/* Desktop links */}

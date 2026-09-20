@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { ArrowUp, Linkedin, Mail } from 'lucide-react'
-import Logo from './Logo'
+import BrandLogo from './BrandLogo'
 
 /**
  * Destinations for the footer link columns, matched positionally to
@@ -25,8 +25,8 @@ export default function Footer() {
         <div className="grid gap-10 lg:grid-cols-[1.4fr_repeat(3,1fr)] lg:gap-12">
           {/* Brand */}
           <div>
-            <Link to="/" aria-label="HaaliHealth">
-              <Logo variant="light" />
+            <Link to="/" className="text-2xl" aria-label="HaaliHealth">
+              <BrandLogo variant="light" />
             </Link>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/45">
               {t('footer.tagline')}
