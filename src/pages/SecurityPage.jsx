@@ -5,6 +5,7 @@ import PageHero from '../components/layout/PageHero'
 import StickyCta from '../components/layout/StickyCta'
 import Reveal from '../components/Reveal'
 import Icon from '../components/Icon'
+import AmbientGlow from '../components/AmbientGlow'
 import { COMPLIANCE_ITEMS, STATUS, STATUS_STYLES } from '../config/compliance'
 
 export default function SecurityPage() {
@@ -59,10 +60,7 @@ export default function SecurityPage() {
 
       {/* ---------- Compliance posture ---------- */}
       <section className="relative overflow-hidden bg-navy-900 py-20 lg:py-28">
-        <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-          <div className="absolute inset-0 bg-grid-navy [background-size:56px_56px]" />
-          <div className="absolute -top-24 end-[-8%] h-[28rem] w-[28rem] rounded-full bg-mint-500/15 blur-[120px]" />
-        </div>
+        <AmbientGlow />
 
         <div className="container-x relative">
           <Reveal className="mx-auto max-w-3xl text-center">

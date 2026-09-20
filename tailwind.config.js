@@ -63,6 +63,8 @@ export default {
         // The logo's own left-to-right ramp, reused as the signature gradient.
         'brand-gradient': 'linear-gradient(100deg, #5170FF 0%, #00FFA2 100%)',
         'brand-gradient-soft': 'linear-gradient(100deg, #5170FF 0%, #4DFFBE 100%)',
+        // Animated accent ramp: brand green → brand blue → back.
+        'spectrum-gradient': 'linear-gradient(90deg, #00FFA2 0%, #5170FF 50%, #00FFA2 100%)',
         'grid-navy':
           'linear-gradient(to right, rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,.05) 1px, transparent 1px)',
       },
@@ -80,12 +82,45 @@ export default {
           '0%,100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-10px)' },
         },
+        // Slow drifting light sources. Transform-only, so they run on the GPU.
+        'drift-a': {
+          '0%,100%': { transform: 'translate(0,0) scale(1)' },
+          '33%': { transform: 'translate(8%,6%) scale(1.12)' },
+          '66%': { transform: 'translate(-6%,10%) scale(.94)' },
+        },
+        'drift-b': {
+          '0%,100%': { transform: 'translate(0,0) scale(1)' },
+          '50%': { transform: 'translate(-10%,-8%) scale(1.15)' },
+        },
+        'drift-c': {
+          '0%,100%': { transform: 'translate(0,0) scale(.95)', opacity: '.55' },
+          '50%': { transform: 'translate(12%,-6%) scale(1.1)', opacity: '1' },
+        },
+        // Moves a 300%-wide gradient across text or a bar.
+        'gradient-x': {
+          '0%,100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+        },
+        // Light sweep across a button.
+        shimmer: {
+          '0%': { transform: 'translateX(-120%) skewX(-20deg)' },
+          '100%': { transform: 'translateX(220%) skewX(-20deg)' },
+        },
+        'spin-slow': {
+          to: { transform: 'rotate(360deg)' },
+        },
       },
 
       animation: {
         'pulse-ring': 'pulse-ring 2.4s cubic-bezier(.4,0,.6,1) infinite',
         wave: 'wave 1.1s ease-in-out infinite',
         float: 'float 6s ease-in-out infinite',
+        'drift-a': 'drift-a 22s ease-in-out infinite',
+        'drift-b': 'drift-b 28s ease-in-out infinite',
+        'drift-c': 'drift-c 18s ease-in-out infinite',
+        'gradient-x': 'gradient-x 8s ease-in-out infinite',
+        shimmer: 'shimmer 2.8s ease-in-out infinite',
+        'spin-slow': 'spin-slow 14s linear infinite',
       },
     },
   },

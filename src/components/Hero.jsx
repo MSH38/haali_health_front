@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { ArrowLeft, ArrowRight, CheckCircle2, Mic, Play, Stethoscope } from 'lucide-react'
 import Reveal from './Reveal'
+import AmbientGlow from './AmbientGlow'
 import { useVideo } from './VideoLightbox'
 
 /** Fake voice waveform — decorative only. */
@@ -28,13 +29,7 @@ export default function Hero() {
 
   return (
     <section id="top" className="relative overflow-hidden bg-navy-900 pt-32 pb-20 lg:pt-40 lg:pb-28">
-      {/* Ambient background: grid + two soft light sources */}
-      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <div className="absolute inset-0 bg-grid-navy [background-size:64px_64px]" />
-        <div className="absolute -top-32 start-[-10%] h-[32rem] w-[32rem] rounded-full bg-mint-500/20 blur-[120px]" />
-        <div className="absolute bottom-[-12rem] end-[-6%] h-[34rem] w-[34rem] rounded-full bg-navy-400/25 blur-[130px]" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-navy-950/60" />
-      </div>
+      <AmbientGlow grid={64} intensity="strong" />
 
       <div className="container-x relative">
         <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
@@ -52,7 +47,7 @@ export default function Hero() {
 
             <Reveal delay={80}>
               <h1 className="mt-6 text-[2.5rem] font-extrabold leading-[1.2] tracking-tight text-white sm:text-5xl sm:leading-[1.2] lg:text-[3.6rem]">
-                <span className="block text-mint-400">{t('hero.titleAccent')}</span>
+                <span className="text-spectrum block">{t('hero.titleAccent')}</span>
                 <span className="block">{t('hero.title')}</span>
               </h1>
             </Reveal>
@@ -85,14 +80,26 @@ export default function Hero() {
 
           {/* ---------- Interactive UI placeholder ---------- */}
           <Reveal delay={200} className="relative">
-            {/* Glow behind the card */}
-            <div
-              className="absolute inset-6 rounded-[2rem] bg-mint-400/20 blur-3xl"
-              aria-hidden="true"
-            />
+            {/* Glow behind the card — green and blue, breathing out of phase */}
+            <div aria-hidden="true">
+              <div className="absolute inset-6 rounded-[2rem] bg-mint-400/20 blur-3xl animate-drift-b" />
+              <div className="absolute inset-x-16 bottom-0 top-1/2 rounded-[2rem] bg-navy-500/25 blur-3xl animate-drift-c" />
+            </div>
 
-            <div className="relative rounded-[1.75rem] border border-white/15 bg-white/[.07] p-2.5 shadow-2xl backdrop-blur-xl">
-              <div className="rounded-[1.4rem] bg-navy-950/80 p-6 sm:p-7">
+            {/* Float lives here, not on <Reveal>, so it can't fight the reveal transform. */}
+            <div className="relative animate-float">
+              <div className="relative overflow-hidden rounded-[1.75rem] border border-white/15 bg-white/[.07] p-[3px] shadow-2xl backdrop-blur-xl">
+                {/*
+                  Rotating light around the frame. The layer is oversized
+                  (-inset-full) rather than centred with translate classes,
+                  because the spin animation owns `transform` and would wipe
+                  them out.
+                */}
+                <div
+                  className="absolute -inset-full animate-spin-slow bg-[conic-gradient(from_0deg,transparent_0deg,#00FFA2_60deg,transparent_120deg,transparent_180deg,#5170FF_240deg,transparent_300deg)] opacity-70"
+                  aria-hidden="true"
+                />
+              <div className="relative rounded-[1.6rem] bg-navy-950/95 p-6 sm:p-7">
                 {/* Card header */}
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex items-center gap-2.5">
@@ -144,6 +151,7 @@ export default function Hero() {
                   <CheckCircle2 className="h-4 w-4 shrink-0 text-mint-400" />
                   {w.handoff}
                 </div>
+              </div>
               </div>
             </div>
           </Reveal>

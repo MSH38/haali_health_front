@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ScrollManager from './components/layout/ScrollManager'
+import ScrollProgress from './components/layout/ScrollProgress'
 import { VideoProvider } from './components/VideoLightbox'
 
 import HomePage from './pages/HomePage'
@@ -14,6 +15,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollManager />
+      <ScrollProgress />
       <VideoProvider>
         <Navbar />
         <main>

@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { CircleDashed, ShieldCheck } from 'lucide-react'
 import Icon from './Icon'
 import Reveal from './Reveal'
+import AmbientGlow from './AmbientGlow'
 
 export default function Security() {
   const { t } = useTranslation()
@@ -11,12 +12,7 @@ export default function Security() {
 
   return (
     <section id="security" className="relative overflow-hidden bg-navy-900 py-20 lg:py-28">
-      {/* Ambient background */}
-      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <div className="absolute inset-0 bg-grid-navy [background-size:56px_56px]" />
-        <div className="absolute -top-24 end-[-8%] h-[28rem] w-[28rem] rounded-full bg-mint-500/15 blur-[120px]" />
-        <div className="absolute bottom-[-10rem] start-[-8%] h-[26rem] w-[26rem] rounded-full bg-navy-400/20 blur-[120px]" />
-      </div>
+      <AmbientGlow />
 
       <div className="container-x relative">
         <Reveal className="mx-auto max-w-3xl text-center">
