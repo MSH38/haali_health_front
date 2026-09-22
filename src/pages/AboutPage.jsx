@@ -106,16 +106,17 @@ export default function AboutPage() {
                   <span className="grid h-12 w-12 place-items-center rounded-xl bg-navy-800 text-mint-400 transition-colors duration-300 group-hover:bg-mint-400 group-hover:text-navy-950">
                     <Icon name={c.icon} className="h-5 w-5" strokeWidth={2.2} />
                   </span>
-                  <h3 className="mt-5 text-lg font-extrabold leading-snug text-navy-900">
+                  {/*
+                    Both min-h values reserve two lines at lg, where the columns
+                    are narrow enough for one title (or one closing point) to
+                    wrap while its neighbours do not. Without them the body copy
+                    and the footer rule start at different heights per card.
+                  */}
+                  <h3 className="mt-5 text-lg font-extrabold leading-snug text-navy-900 lg:min-h-[3.1rem]">
                     {c.title}
                   </h3>
                   <p className="mt-3 flex-1 text-sm leading-relaxed text-navy-800/65">{c.body}</p>
-                  {/*
-                    min-h reserves two lines, so the rule above the closing line
-                    sits at the same height in all three cards even when one
-                    point wraps and the others do not.
-                  */}
-                  <p className="mt-5 min-h-14 border-t border-navy-100 pt-4 text-sm font-bold text-mint-700">
+                  <p className="mt-5 border-t border-navy-100 pt-4 text-sm font-bold text-mint-700 lg:min-h-14">
                     {c.point}
                   </p>
                 </article>
