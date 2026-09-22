@@ -101,7 +101,7 @@ export default function AboutPage() {
 
           <div className="mt-14 grid gap-5 lg:grid-cols-3">
             {cards.map((c, i) => (
-              <Reveal key={c.title} delay={i * 100}>
+              <Reveal key={c.title} delay={i * 100} className="h-full">
                 <article className="card card-hover group flex h-full flex-col">
                   <span className="grid h-12 w-12 place-items-center rounded-xl bg-navy-800 text-mint-400 transition-colors duration-300 group-hover:bg-mint-400 group-hover:text-navy-950">
                     <Icon name={c.icon} className="h-5 w-5" strokeWidth={2.2} />
@@ -110,7 +110,12 @@ export default function AboutPage() {
                     {c.title}
                   </h3>
                   <p className="mt-3 flex-1 text-sm leading-relaxed text-navy-800/65">{c.body}</p>
-                  <p className="mt-5 border-t border-navy-100 pt-4 text-sm font-bold text-mint-700">
+                  {/*
+                    min-h reserves two lines, so the rule above the closing line
+                    sits at the same height in all three cards even when one
+                    point wraps and the others do not.
+                  */}
+                  <p className="mt-5 min-h-14 border-t border-navy-100 pt-4 text-sm font-bold text-mint-700">
                     {c.point}
                   </p>
                 </article>
