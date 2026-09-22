@@ -37,7 +37,8 @@ export default function Seo() {
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
 
-      <meta name="theme-color" content="#0A2540" />
+      {/* Matches the navbar, which is white at every scroll position. */}
+      <meta name="theme-color" content="#FFFFFF" />
     </Helmet>
   )
 }
