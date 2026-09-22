@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { BarChart3, ChevronRight } from 'lucide-react'
+import { BarChart3, Target } from 'lucide-react'
 import Icon from './Icon'
 import Reveal from './Reveal'
 
@@ -126,6 +126,9 @@ function ReviewSplit({ items }) {
 export default function VbhcAnalytics() {
   const { t } = useTranslation()
   const chain = t('vbhc.chain', { returnObjects: true })
+  // Last entry is the destination the pipeline produces, not a step in it.
+  const steps = chain.slice(0, -1)
+  const destination = chain[chain.length - 1]
   const cards = t('vbhc.cards', { returnObjects: true })
   const d = t('vbhc.dashboard', { returnObjects: true })
   const evidence = t('vbhc.evidence', { returnObjects: true })
@@ -144,33 +147,57 @@ export default function VbhcAnalytics() {
           <p className="lede mt-5">{t('vbhc.subtitle')}</p>
         </Reveal>
 
-        {/* ---------- 2. Six-stage value chain ---------- */}
+        {/* ---------- 2. Value chain: five steps, one destination ---------- */}
         <Reveal delay={80}>
           <div className="mt-14 rounded-3xl border border-navy-100 bg-surface p-6 lg:p-8">
             <h3 className="text-[11px] font-bold uppercase tracking-widest text-mint-700">
               {t('vbhc.chainTitle')}
             </h3>
-            <ol className="mt-5 flex flex-col gap-2 lg:flex-row lg:items-stretch">
-              {chain.map((stage, i) => (
-                <li key={stage} className="flex items-center gap-2 lg:flex-1">
-                  <span
-                    className={`flex-1 rounded-xl border px-3 py-3.5 text-center text-[12px] font-bold leading-snug ${
-                      i === chain.length - 1
-                        ? 'border-navy-800 bg-navy-800 text-white'
-                        : 'border-navy-100 bg-white text-navy-800/80'
-                    }`}
-                  >
-                    {stage}
-                  </span>
-                  {i < chain.length - 1 && (
-                    <ChevronRight
-                      className="h-4 w-4 shrink-0 rotate-90 text-navy-800/25 lg:rotate-0 rtl:lg:rotate-180"
+
+            {/*
+              The five steps are the pipeline; the sixth chain entry is the
+              destination it produces, so it sits below the rail rather than
+              competing with the steps as a seventh equal pill.
+            */}
+            <ol className="mt-6 grid gap-x-3 gap-y-5 lg:grid-cols-5">
+              {steps.map((stage, i) => (
+                <li key={stage} className="relative flex gap-4 lg:block">
+                  {/* Vertical rail (mobile) — connects this step to the next */}
+                  {i < steps.length - 1 && (
+                    <span
+                      className="absolute top-7 h-[calc(100%-0.5rem)] w-px bg-navy-200 ltr:left-[13px] rtl:right-[13px] lg:hidden"
                       aria-hidden="true"
                     />
                   )}
+                  <div className="flex items-center gap-3">
+                    <span className="relative z-10 grid h-7 w-7 shrink-0 place-items-center rounded-full border border-navy-200 bg-white text-[11px] font-extrabold tabular-nums text-navy-800/70">
+                      {i + 1}
+                    </span>
+                    {/* Horizontal rail (desktop) */}
+                    {i < steps.length - 1 && (
+                      <span className="hidden h-px flex-1 bg-navy-200 lg:block" aria-hidden="true" />
+                    )}
+                  </div>
+                  <p className="self-center text-[13px] font-bold leading-snug text-navy-900 lg:mt-3 lg:pe-4">
+                    {stage}
+                  </p>
                 </li>
               ))}
             </ol>
+
+            <div className="mt-7 flex items-center gap-4 rounded-2xl bg-navy-800 px-5 py-4">
+              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-mint-400 text-navy-900">
+                <Target className="h-5 w-5" strokeWidth={2.2} aria-hidden="true" />
+              </span>
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-mint-400">
+                  {t('vbhc.chainOutcome')}
+                </p>
+                <p className="mt-0.5 text-base font-extrabold leading-snug text-white">
+                  {destination}
+                </p>
+              </div>
+            </div>
           </div>
         </Reveal>
 

@@ -236,6 +236,7 @@
     "title": "Turn continuous follow-up into outcomes intelligence.",
     "subtitle": "Haali transforms patient follow-up into structured, longitudinal information that healthcare leaders can analyse across patients, pathways and populations. See who is being reached, where clinical review is needed, how patient-reported and pathway measures are changing, and what follow-up activity means for clinical capacity, creating a stronger information foundation for service improvement and Value-Based Healthcare (VBHC).",
     "chainTitle": "From conversation to Value-Based Healthcare",
+    "chainOutcome": "The outcome",
     "chain": [
       "Patient Follow-Up",
       "Structured Clinical Information",
