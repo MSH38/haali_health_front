@@ -79,10 +79,15 @@ export default function AboutPage() {
 
               <Reveal delay={240}>
                 <blockquote className="mt-8 rounded-2xl border border-mint-300/50 bg-mint-50 p-6">
-                  <Quote className="h-5 w-5 text-mint-600" aria-hidden="true" />
+                  <Quote className="h-5 w-5 text-mint-600 rtl:-scale-x-100" aria-hidden="true" />
                   <p className="mt-3 text-lg font-bold leading-relaxed text-navy-900">
-                    &ldquo;{p('mission.pullQuote')}&rdquo;
+                    {p('mission.pullQuote')}
                   </p>
+                  {/* Closing mark: same glyph, turned to face back into the quote. */}
+                  <Quote
+                    className="mt-3 h-5 w-5 rotate-180 text-mint-600 ltr:ml-auto rtl:mr-auto rtl:-scale-x-100"
+                    aria-hidden="true"
+                  />
                 </blockquote>
               </Reveal>
             </div>
@@ -325,15 +330,19 @@ export default function AboutPage() {
                   <Mail className="h-4 w-4 shrink-0" aria-hidden="true" />
                   info@haalihealth.com
                 </a>
+                {/*
+                  Icon only — the URL itself carries no information a reader
+                  needs, so aria-label does the naming the visible text used to.
+                  Matches the icon button in the footer.
+                */}
                 <a
                   href="https://www.linkedin.com/company/haali-health"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-bold text-navy-800/75 transition-colors hover:text-mint-700"
-                  dir="ltr"
+                  aria-label="LinkedIn"
+                  className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-navy-800/15 text-navy-800/60 transition-colors hover:border-mint-600/60 hover:text-mint-700"
                 >
-                  <Linkedin className="h-4 w-4 shrink-0" aria-hidden="true" />
-                  linkedin.com/company/haali-health
+                  <Linkedin className="h-4 w-4" aria-hidden="true" />
                 </a>
               </div>
 
