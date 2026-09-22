@@ -23,8 +23,8 @@ export default function Benefits() {
         {/* Headline stats */}
         <div className="mx-auto mt-14 grid max-w-4xl gap-4 sm:grid-cols-3">
           {stats.map((s, i) => (
-            <Reveal key={s.label} delay={i * 90}>
-              <div className="rounded-2xl border border-navy-100 bg-white p-6 text-center shadow-card">
+            <Reveal key={s.label} delay={i * 90} className="h-full">
+              <div className="flex h-full flex-col rounded-2xl border border-navy-100 bg-white p-6 text-center shadow-card">
                 <div className="text-3xl font-extrabold tracking-tight text-navy-900">
                   {s.value}
                 </div>
@@ -39,7 +39,7 @@ export default function Benefits() {
                 {i === stats.length - 1 && (
                   <a
                     href="#vbhc"
-                    className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-mint-700 underline-offset-4 transition-colors hover:text-mint-800 hover:underline"
+                    className="mt-auto inline-flex items-center gap-1.5 self-center pt-4 text-xs font-bold text-mint-700 underline-offset-4 transition-colors hover:text-mint-800 hover:underline"
                   >
                     {t('benefits.vbhcLink')}
                     <ArrowRight className="h-3.5 w-3.5 rtl:rotate-180" aria-hidden="true" />
