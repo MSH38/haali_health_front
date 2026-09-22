@@ -67,7 +67,7 @@ export default function Logo({ variant = 'dark', className = '' }) {
 
       <span className="text-[1.3rem] font-extrabold tracking-tight">
         {/* Screen readers get the plain name, not five separate letters. */}
-        <span className="sr-only">HaaliHealth</span>
+        <span className="sr-only">Haali Health</span>
 
         <span aria-hidden="true">
           {WORDMARK.map((letter, i) => (

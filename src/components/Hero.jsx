@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { ArrowDown, ArrowLeft, ArrowRight, CheckCircle2, Mic, Stethoscope } from 'lucide-react'
+import { ArrowDown, ArrowLeft, ArrowRight, CheckCircle2, Mic } from 'lucide-react'
 import Reveal from './Reveal'
 import AmbientGlow from './AmbientGlow'
 
@@ -51,8 +51,11 @@ export default function Hero() {
             </Reveal>
 
             <Reveal delay={160}>
-              <p className="mx-auto mt-7 max-w-xl text-base leading-relaxed text-white/70 sm:mt-8 sm:text-lg lg:mx-0">
+              <p className="mx-auto mt-7 max-w-xl text-base leading-relaxed text-white/80 sm:mt-8 sm:text-lg lg:mx-0">
                 {t('hero.subtitle')}
+              </p>
+              <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-white/55 lg:mx-0">
+                {t('hero.body')}
               </p>
             </Reveal>
 
@@ -62,7 +65,7 @@ export default function Hero() {
                   {t('hero.ctaPrimary')}
                   <Arrow className="h-4 w-4 transition-transform group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5" />
                 </a>
-                <a href="#solutions" className="btn-outline-dark group">
+                <a href="#how-it-works" className="btn-outline-dark group">
                   <ArrowDown className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
                   {t('hero.ctaSecondary')}
                 </a>
@@ -120,31 +123,25 @@ export default function Hero() {
                 {/* Transcript */}
                 <p className="mt-5 text-sm leading-relaxed text-white/85">“{w.transcript}”</p>
 
-                <span className="mt-3 inline-flex items-center gap-1.5 rounded-md bg-white/5 px-2.5 py-1 text-[11px] font-medium text-white/55">
-                  {w.dialect}
-                </span>
-
-                {/* Confidence meter */}
+                {/* Structured findings — compact rows, no autonomous recommendation */}
                 <div className="mt-6">
-                  <div className="flex items-center justify-between text-[11px] font-semibold text-white/50">
-                    <span>{w.confidence}</span>
-                    <span className="text-mint-300">94%</span>
-                  </div>
-                  <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-white/10">
-                    <div className="h-full w-[94%] rounded-full bg-brand-gradient" />
-                  </div>
+                  <p className="text-[11px] font-semibold uppercase tracking-wider text-white/40">
+                    {w.findingsLabel}
+                  </p>
+                  <dl className="mt-3 space-y-2">
+                    {w.findings.map((f) => (
+                      <div
+                        key={f.label}
+                        className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5 rounded-lg border border-white/10 bg-white/5 px-3 py-2"
+                      >
+                        <dt className="text-[11px] font-medium text-white/50">{f.label}</dt>
+                        <dd className="text-[12px] font-bold text-white/90">{f.value}</dd>
+                      </div>
+                    ))}
+                  </dl>
                 </div>
 
-                {/* Outcome */}
-                <div className="mt-6 rounded-xl border border-mint-400/25 bg-mint-400/10 p-4">
-                  <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wider text-mint-300">
-                    <Stethoscope className="h-3.5 w-3.5" />
-                    {w.outcome}
-                  </div>
-                  <p className="mt-1.5 text-base font-bold text-white">{w.outcomeValue}</p>
-                </div>
-
-                {/* HIS handoff */}
+                {/* Ready for clinician review — deliberately not an HIS delivery claim */}
                 <div className="mt-4 flex items-center gap-2 text-xs font-medium text-white/50">
                   <CheckCircle2 className="h-4 w-4 shrink-0 text-mint-400" />
                   {w.handoff}

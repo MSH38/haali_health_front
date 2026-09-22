@@ -7,10 +7,11 @@ import { useScrolled } from '../hooks/useReveal'
 
 /** Section links are absolute (`/#id`) so they work from any route. */
 const LINKS = [
-  { id: 'solutions', key: 'nav.solutions' },
-  { id: 'benefits', key: 'nav.benefits' },
+  { id: 'how-it-works', key: 'nav.howItWorks' },
+  { id: 'for-providers', key: 'nav.forProviders' },
+  { id: 'vbhc', key: 'nav.vbhc' },
+  { id: 'clinical-ai', key: 'nav.clinicalAi' },
   { id: 'security', key: 'nav.security' },
-  { id: 'contact', key: 'nav.contact' },
 ]
 
 export default function Navbar() {
@@ -54,17 +55,17 @@ export default function Navbar() {
       }`}
     >
       <nav className="container-x flex h-20 items-center justify-between gap-4">
-        <Link to="/" className="shrink-0 text-2xl" aria-label="HaaliHealth">
+        <Link to="/" className="shrink-0 text-2xl" aria-label="Haali Health">
           <BrandLogo variant={solid ? 'dark' : 'light'} />
         </Link>
 
         {/* Desktop links */}
-        <ul className="hidden items-center gap-1 lg:flex">
+        <ul className="hidden items-center gap-1 xl:flex">
           {LINKS.map((link) => (
             <li key={link.id}>
               <Link
                 to={`/#${link.id}`}
-                className={`rounded-lg px-4 py-2 text-sm font-semibold transition-colors ${
+                className={`rounded-lg px-3 py-2 text-[13px] font-semibold 2xl:px-4 2xl:text-sm transition-colors ${
                   solid
                     ? 'text-navy-800/75 hover:bg-navy-50 hover:text-navy-900'
                     : 'text-white/80 hover:bg-white/10 hover:text-white'
@@ -77,7 +78,7 @@ export default function Navbar() {
         </ul>
 
         {/* Desktop actions */}
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden items-center gap-3 xl:flex">
           <button
             type="button"
             onClick={toggleLang}
@@ -111,7 +112,7 @@ export default function Navbar() {
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-label={open ? t('nav.close') : t('nav.menu')}
-          className={`grid h-11 w-11 place-items-center rounded-xl border transition-colors lg:hidden ${
+          className={`grid h-11 w-11 place-items-center rounded-xl border transition-colors xl:hidden ${
             solid ? 'border-navy-800/15 text-navy-800' : 'border-white/25 text-white'
           }`}
         >
@@ -121,7 +122,7 @@ export default function Navbar() {
 
       {/* Mobile sheet — always light, since `solid` is forced true while open */}
       <div
-        className={`overflow-hidden border-t border-navy-900/10 bg-white/95 backdrop-blur-xl transition-[max-height] duration-300 lg:hidden ${
+        className={`overflow-hidden border-t border-navy-900/10 bg-white/95 backdrop-blur-xl transition-[max-height] duration-300 xl:hidden ${
           open ? 'max-h-[30rem]' : 'max-h-0 border-t-0'
         }`}
       >

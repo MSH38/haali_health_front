@@ -8,14 +8,14 @@ import DashboardMockup from './DashboardMockup'
  * than a still from the film. Rendered as DOM, so it stays sharp at any
  * density and picks up the brand scale automatically.
  */
-const STEP_VARIANTS = ['triage', 'companion', 'proms']
+const STEP_VARIANTS = ['precheck', 'followup', 'review']
 
 export default function HowItWorks() {
   const { t } = useTranslation()
   const steps = t('how.steps', { returnObjects: true })
 
   return (
-    <section id="solutions" className="bg-white py-20 lg:py-28">
+    <section id="how-it-works" className="bg-white py-20 lg:py-28">
       <div className="container-x">
         {/* Header */}
         <Reveal className="mx-auto max-w-3xl text-center">
@@ -33,10 +33,14 @@ export default function HowItWorks() {
             const flipped = i % 2 === 1
 
             return (
-              <div key={step.name} className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+              <div
+                key={step.name}
+                id={step.id}
+                className="grid scroll-mt-28 items-center gap-10 lg:grid-cols-2 lg:gap-16"
+              >
                 {/* Media */}
                 <Reveal delay={80} className={flipped ? 'lg:order-2' : 'lg:order-1'}>
-                  <DashboardMockup variant={STEP_VARIANTS[i] ?? 'triage'} />
+                  <DashboardMockup variant={STEP_VARIANTS[i] ?? 'precheck'} />
                 </Reveal>
 
                 {/* Copy */}

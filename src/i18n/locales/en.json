@@ -1,182 +1,480 @@
 {
   "meta": {
-    "title": "HaaliHealth — AI Voice Triage & Value-Based Care for GCC Hospitals",
-    "description": "HaaliHealth turns the patient's voice into proactive triage, continuous engagement and real-time PROMs — so GCC hospitals cut ER load and prove outcomes for Pay-for-Quality reimbursement.",
+    "title": "Haali Health — Continuous Patient Follow-Up for Saudi & GCC Providers",
+    "description": "Haali Health runs AI-powered telephone follow-up in Arabic and English, turning what patients report between appointments into structured, clinician-reviewed information that supports outcomes measurement and Value-Based Healthcare.",
     "ogLocale": "en_US"
   },
   "nav": {
-    "solutions": "Solutions",
-    "benefits": "Benefits",
+    "howItWorks": "How It Works",
+    "forProviders": "For Providers",
+    "vbhc": "VBHC & Analytics",
+    "clinicalAi": "Clinical AI & Safety",
     "security": "Security",
-    "contact": "Contact",
-    "cta": "Book Demo",
+    "cta": "Book a Demo",
     "menu": "Open menu",
     "close": "Close menu",
     "switchTo": "التبديل إلى العربية"
   },
   "hero": {
-    "eyebrow": "Built for GCC health systems",
-    "title": "AI Voice Triage for Proactive Patient Care.",
-    "titleAccent": "Your patients' voice is the compass of care.",
-    "subtitle": "Advanced voice analysis reads symptoms the moment a patient speaks — filtering non-urgent cases away from your emergency department and routing every patient to the right level of care, in their own dialect.",
-    "ctaPrimary": "Book Demo",
-    "ctaSecondary": "See How it Works",
-    "trustLabel": "Aligned with national health strategies across the GCC",
+    "eyebrow": "Built for Saudi healthcare. Designed for the GCC.",
+    "title": "without continuous clinician workload.",
+    "titleAccent": "Continuous patient follow-up,",
+    "subtitle": "AI-powered telephone conversations that keep clinical teams connected to patients before and between appointments.",
+    "body": "Haali speaks naturally with patients in Arabic and English, gathers pathway-relevant information, identifies concerns that may need attention, and turns each conversation into structured, reviewable clinical information — so care teams can focus their time where it matters most.",
+    "ctaPrimary": "Book a Demo",
+    "ctaSecondary": "See How Haali Works",
+    "trustLabel": "Saudi-first. Designed for country-specific requirements across the GCC.",
     "widget": {
-      "label": "Live triage session",
-      "status": "Analysing voice",
-      "transcript": "I've had chest tightness since this morning and I'm short of breath when I walk.",
-      "dialect": "Dialect detected — Gulf Arabic",
-      "confidence": "Confidence",
-      "outcome": "Recommended pathway",
-      "outcomeValue": "Urgent — Cardiology, same day",
-      "handoff": "Report delivered to HIS before arrival"
+      "label": "T2D follow-up in progress",
+      "status": "Conversation in progress",
+      "transcript": "I've missed my tablets a couple of times this week, and I've felt a bit light-headed in the mornings.",
+      "findingsLabel": "Structured findings",
+      "findings": [
+        {
+          "label": "Language",
+          "value": "English"
+        },
+        {
+          "label": "Medication adherence",
+          "value": "2 missed doses reported"
+        },
+        {
+          "label": "New patient-reported concern",
+          "value": "Morning light-headedness"
+        },
+        {
+          "label": "Safety status",
+          "value": "Clinical review recommended"
+        }
+      ],
+      "handoff": "Structured summary and transcript ready for clinician review"
     }
   },
   "challenge": {
     "eyebrow": "The Challenge",
-    "title": "Reimbursement in the Gulf is moving to outcomes. Most hospitals cannot prove them.",
-    "body": "As GCC payers shift to Pay-for-Quality and Value-Based Payment models, hospitals are paid for results rather than volume. But the evidence that decides those payments — patient-reported outcomes — is still collected on paper, late, and from a fraction of the population. Meanwhile emergency departments absorb cases that were never emergencies.",
+    "title": "Value-Based Healthcare depends on what happens between appointments.",
+    "body": "Chronic conditions are managed every day, but clinicians see patients at intervals. Between visits, changes in symptoms, medication use, self-management and quality of life can remain invisible until the next appointment. That makes proactive care harder, consumes clinical time when teams try to fill the gap manually, and leaves providers without the continuous, longitudinal patient-reported data needed to measure outcomes and support Value-Based Healthcare (VBHC).",
     "points": [
       {
-        "title": "Outcomes go unmeasured",
-        "body": "PROMs are collected sporadically and rarely reach the HIS in time to support a reimbursement case."
+        "title": "Follow-up does not scale manually",
+        "body": "Clinical teams cannot personally call every patient often enough. As chronic-care cohorts grow, routine outreach competes with higher-value clinical work."
       },
       {
-        "title": "Emergency departments absorb the overflow",
-        "body": "A large share of ER presentations could have been safely resolved in a clinic, on a call, or at home."
+        "title": "Important changes can surface late",
+        "body": "Symptoms, missed medication, self-management difficulties and new concerns can develop between visits without reaching the care team until the next appointment."
       },
       {
-        "title": "Care stops at the clinic door",
-        "body": "Between visits patients have no vetted source of guidance, so adherence slips and readmissions rise."
+        "title": "Outcomes evidence remains incomplete",
+        "body": "Patient-reported information from follow-up is often fragmented or unstructured, making it difficult to trend across a population, support clinical review, demonstrate outcomes and contribute to Value-Based Healthcare."
       }
     ]
   },
   "how": {
     "eyebrow": "How it works",
-    "title": "One continuous loop, from first symptom to proven outcome.",
-    "subtitle": "Three connected modules. The patient's voice opens the loop; measured outcomes close it.",
+    "title": "One continuous follow-up loop — before, between and after appointments.",
+    "subtitle": "Haali reaches patients by phone, gathers the information relevant to their pathway, structures what they report, and puts the right evidence in front of the clinical team for review.",
     "steps": [
       {
         "n": "01",
-        "name": "Voice Triage",
-        "tag": "Intake",
-        "title": "AI analyses the patient's voice the moment symptoms are described.",
-        "body": "The patient speaks naturally in their own dialect. HaaliHealth transcribes, extracts clinical signals and scores urgency against your protocols — then routes them to self-care, a clinic slot, or the emergency department, with a structured report waiting in the HIS before they arrive.",
+        "id": "step-1",
+        "name": "Pre-Appointment Check-In",
+        "tag": "Pre-appointment",
+        "title": "Collect the information clinicians need before the patient arrives.",
+        "body": "Before a first appointment or follow-up visit, Haali can call the patient in their preferred language and gather pathway-relevant information such as symptoms, medication use, recent changes and patient concerns. The result is a structured pre-visit summary for clinical review, so the consultation can start with more of the patient story already available.",
         "bullets": [
-          "Natural speech in local Arabic dialects and English",
-          "Urgency scoring mapped to your own triage protocols",
-          "Structured pre-arrival report pushed to the HIS"
+          "Natural conversation in Arabic and English",
+          "Pathway-based collection of symptoms, medication use and patient concerns",
+          "Structured pre-visit summary with the original conversation available as supporting evidence"
         ]
       },
       {
         "n": "02",
+        "id": "step-2",
         "name": "Haali Voice",
-        "tag": "Engagement",
-        "title": "A health companion that stays with the patient between visits.",
-        "body": "Haali Voice answers patient questions around the clock — but only from clinically vetted material and the patient's own health profile. It never improvises. It handles the routine questions that would otherwise reach your nurses, and keeps patients adherent to the plan they left with.",
+        "tag": "Between visits",
+        "title": "Stay connected to patients between appointments without adding routine calling workload.",
+        "body": "At configured intervals, Haali conducts natural follow-up conversations to understand how the patient is doing, clarify relevant responses, capture medication adherence and patient-reported concerns, and flag issues that require clinical attention. In-scope general education can be answered using approved clinical content; personal treatment or diagnosis questions are handed back to the clinical team.",
         "bullets": [
-          "Answers restricted to vetted clinical content — no open-ended generation",
-          "Personalised to the patient's conditions and medications",
-          "Deflects routine calls and messages away from clinical staff"
+          "General patient education restricted to approved clinical content",
+          "Questions adapted to the patient's condition, treatment and follow-up needs",
+          "Extends follow-up coverage without increasing routine clinical workload proportionally"
         ]
       },
       {
         "n": "03",
-        "name": "Automated PROMs",
-        "tag": "Proof",
-        "title": "Real-time patient-reported outcomes, delivered straight to your HIS.",
-        "body": "Standardised outcome measures are collected inside the patient's normal routine rather than as a separate chore — so response rates hold. Results stream back into your systems as quantifiable evidence of treatment effectiveness, ready for the insurer.",
+        "id": "step-3",
+        "name": "Clinical Review & Outcomes",
+        "tag": "Review & outcomes",
+        "title": "Turn every follow-up conversation into structured clinical information and longitudinal outcomes.",
+        "body": "Haali converts patient conversations into reviewable summaries, structured findings, patient-reported outcome measures and coding suggestions, with the original conversation available as supporting evidence. Clinicians validate what matters, while longitudinal data can be trended across patients and cohorts to support service improvement, outcomes measurement and Value-Based Healthcare (VBHC).",
         "bullets": [
-          "Standardised, condition-specific instruments",
-          "Live dashboards and automated clinical reports",
-          "Reimbursement-ready evidence for P4Q and VBP contracts"
+          "Evidence-linked summaries, structured findings and coding suggestions for clinician review",
+          "PROMs and pathway measures captured as structured, trendable data",
+          "Executive analytics to support outcomes measurement and Value-Based Healthcare (VBHC)"
         ]
       }
     ]
   },
+  "clinicalAi": {
+    "eyebrow": "Clinical AI & Safety",
+    "title": "AI that supports clinical teams — without taking clinical decisions away from them.",
+    "subtitle": "Haali uses AI to conduct natural patient conversations, clarify responses, structure what patients report and highlight information that may need attention. Clinical decisions remain with authorised healthcare professionals.",
+    "cards": [
+      {
+        "icon": "message-circle",
+        "title": "Natural conversation, controlled clinical scope",
+        "body": "Haali can speak naturally with patients while following the clinical pathway configured for that follow-up. The conversation can adapt to what the patient says without becoming an unrestricted medical chatbot."
+      },
+      {
+        "icon": "book-check",
+        "title": "Approved clinical knowledge",
+        "body": "When patients ask in-scope health questions, Haali uses approved clinical content rather than relying on unrestricted general model knowledge. If the approved information is not sufficient, Haali does not improvise a clinical answer."
+      },
+      {
+        "icon": "shield-alert",
+        "title": "Safety before workflow",
+        "body": "Patient responses are continuously assessed against configured safety rules. When a relevant concern is identified, routine questioning can be interrupted and the case highlighted for the appropriate clinical review or escalation pathway."
+      },
+      {
+        "icon": "file-search",
+        "title": "Evidence behind every finding",
+        "body": "AI-generated summaries and structured findings remain linked to the underlying patient conversation. Clinicians can review the original transcript, translation where required, supporting evidence and terminology suggestions before accepting anything into the clinical record."
+      },
+      {
+        "icon": "user-check",
+        "title": "Clinicians remain in control",
+        "body": "Haali can suggest structured findings and medical terminology, but clinicians review, accept, correct or reject those suggestions. Haali does not independently diagnose patients, prescribe treatment or change medication."
+      }
+    ],
+    "flowTitle": "From conversation to reusable clinical data",
+    "flow": [
+      "Patient conversation",
+      "Haali clarifies",
+      "Structures the information",
+      "Applies safety rules",
+      "Suggests relevant terminology",
+      "Clinician reviews",
+      "Approved information becomes reusable clinical data"
+    ],
+    "canTitle": "What Haali can do",
+    "can": [
+      "Collect patient-reported information",
+      "Clarify responses",
+      "Structure findings",
+      "Translate for review",
+      "Identify configured safety concerns",
+      "Suggest validated terminology",
+      "Provide approved general patient education"
+    ],
+    "cannotTitle": "What Haali does not do",
+    "cannot": [
+      "Autonomously diagnose",
+      "Prescribe treatment",
+      "Change medication doses",
+      "Tell patients to start or stop medicines",
+      "Invent clinical codes",
+      "Replace clinician judgement"
+    ]
+  },
   "benefits": {
-    "eyebrow": "Benefits & ROI",
-    "title": "Why hospital leaders choose HaaliHealth",
-    "subtitle": "The voice layer wins back capacity today. The outcomes layer protects your reimbursement tomorrow.",
+    "eyebrow": "Benefits & Value",
+    "title": "Why hospital leaders choose Haali Health",
+    "subtitle": "More patients followed up. Better visibility between visits. Less routine clinical workload. Structured longitudinal data that supports outcomes measurement and Value-Based Healthcare (VBHC).",
+    "vbhcLink": "Explore VBHC & Analytics",
     "stats": [
-      { "value": "P4Q", "label": "Pay-for-Quality ready", "hint": "Evidence formatted for payer submission" },
-      { "value": "24/7", "label": "Continuous patient support", "hint": "Haali Voice responds at any hour" },
-      { "value": "GCC", "label": "In-region data residency", "hint": "Hosted to meet local requirements" }
+      {
+        "value": "Scale",
+        "label": "More patients followed up",
+        "hint": "Extend structured follow-up across larger chronic-care populations without increasing staff workload proportionally."
+      },
+      {
+        "value": "Capacity",
+        "label": "Clinical time focused where it matters",
+        "hint": "Haali handles routine information gathering so clinicians can concentrate on patients needing review and action."
+      },
+      {
+        "value": "VBHC",
+        "label": "Outcomes data made usable",
+        "hint": "Longitudinal patient-reported and pathway data can support outcomes measurement, quality improvement and Value-Based Healthcare."
+      }
     ],
     "cards": [
       {
-        "icon": "trending-up",
-        "title": "Higher insurance reimbursements",
-        "body": "Quantified, real-time PROMs give you objective proof of treatment effectiveness — the evidence that decides your rate under Pay-for-Quality and Value-Based Payment contracts."
-      },
-      {
-        "icon": "activity",
-        "title": "Reduced ER waiting times",
-        "body": "Non-urgent cases are identified and redirected before they reach the door, so your emergency department keeps its capacity for the patients who genuinely need it."
-      },
-      {
-        "icon": "mic",
-        "title": "Full local dialect support",
-        "body": "Built for how patients actually speak across the Gulf and the wider region — not a translated model. Accurate understanding means accurate triage."
-      },
-      {
         "icon": "clock",
-        "title": "Clinical staff time returned",
-        "body": "Haali Voice absorbs routine questions and a structured report arrives ahead of the patient, so clinicians spend their time on care rather than on intake and repetition."
+        "title": "Clinical capacity released",
+        "body": "Routine follow-up, information gathering and documentation can be shifted away from repeated manual calls, giving clinical teams more time for review, intervention and direct care."
       },
       {
-        "icon": "heart",
-        "title": "Measurably higher patient satisfaction",
-        "body": "Immediate answers, vetted guidance and follow-up that does not stop at discharge — reflected directly in the experience scores your board reviews."
+        "icon": "eye",
+        "title": "Earlier visibility between visits",
+        "body": "Regular follow-up can surface new symptoms, medication issues and patient concerns between appointments, so the clinical team has information sooner than it would through episodic care alone."
+      },
+      {
+        "icon": "phone-call",
+        "title": "Low-friction patient reach",
+        "body": "Patients answer a normal phone call and speak naturally in Arabic or English, with no app, portal account or new digital behaviour required."
+      },
+      {
+        "icon": "list-checks",
+        "title": "Clinical review prioritised",
+        "body": "Haali structures what the patient reports and highlights calls that need attention, helping clinical teams review the right patients first instead of reading every conversation from the beginning."
+      },
+      {
+        "icon": "clipboard-list",
+        "title": "Structured clinical intelligence",
+        "body": "Evidence-linked summaries, patient-reported findings, pathway measures and terminology suggestions turn conversations into information that can be reviewed, trended and reused."
       },
       {
         "icon": "line-chart",
-        "title": "Fewer avoidable readmissions",
-        "body": "Outcome data often signals deterioration earlier than clinical data alone. Catching it early keeps patients out of the ward and protects your quality metrics."
+        "title": "Longitudinal outcomes and executive insight",
+        "body": "Follow-up data can be trended across patients, pathways and cohorts to support service improvement, population oversight and Value-Based Healthcare (VBHC)."
       }
     ]
   },
-  "security": {
-    "eyebrow": "Security & Integration",
-    "title": "Security built in from day one, with formal certification underway.",
-    "subtitle": "The safeguards below are engineered into the platform today. The certifications that attest to them are in progress, and we will say so plainly until each one is signed.",
-    "safeguardsTitle": "Engineered into the platform today",
-    "safeguards": [
-      { "icon": "lock", "title": "End-to-End Encryption", "body": "Patient data encrypted in transit and at rest" },
-      { "icon": "server", "title": "GCC Data Residency", "body": "Hosted in region; data does not leave it" },
-      { "icon": "key-round", "title": "Role-Based Access", "body": "Least-privilege access with SSO support" },
-      { "icon": "shield-check", "title": "Full Audit Trail", "body": "Every access to patient data is logged" }
+  "vbhc": {
+    "eyebrow": "VBHC & Analytics",
+    "title": "Turn continuous follow-up into outcomes intelligence.",
+    "subtitle": "Haali transforms patient follow-up into structured, longitudinal information that healthcare leaders can analyse across patients, pathways and populations. See who is being reached, where clinical review is needed, how patient-reported and pathway measures are changing, and what follow-up activity means for clinical capacity — creating a stronger information foundation for service improvement and Value-Based Healthcare (VBHC).",
+    "chainTitle": "From conversation to Value-Based Healthcare",
+    "chain": [
+      "Patient Follow-Up",
+      "Structured Clinical Information",
+      "Longitudinal Pathway Measures",
+      "Population-Level Insight",
+      "Operational & Outcomes Measurement",
+      "Value-Based Healthcare"
     ],
-    "roadmapTitle": "Certification roadmap",
-    "roadmapNote": "We hold none of the certifications below yet. Each is actively in progress, and this page will be updated the moment one is formally awarded — not before.",
+    "cards": [
+      {
+        "icon": "users",
+        "title": "Population Visibility",
+        "headline": "Understand what is happening between appointments.",
+        "body": "See follow-up coverage, patient engagement, emerging concerns and clinical-review demand across defined cohorts and pathways."
+      },
+      {
+        "icon": "line-chart",
+        "title": "Outcomes Visibility",
+        "headline": "Follow change over time, not just individual encounters.",
+        "body": "Trend patient-reported measures, pathway indicators, clinical review activity and other agreed outcomes at patient, cohort and service level."
+      },
+      {
+        "icon": "gauge",
+        "title": "Operational Value",
+        "headline": "Understand the resources behind follow-up.",
+        "body": "Measure activity and clinical-review demand, then combine Haali data with agreed provider assumptions or connected data to model capacity, cost and programme value."
+      }
+    ],
+    "dashboard": {
+      "title": "Executive Snapshot",
+      "label": "Illustrative demo data",
+      "subtitle": "A population-level view of follow-up, clinical review and pathway performance.",
+      "kpis": [
+        {
+          "value": "86%",
+          "label": "Follow-ups completed",
+          "badge": "observed"
+        },
+        {
+          "value": "18%",
+          "label": "Follow-ups requiring clinical review",
+          "badge": "observed"
+        },
+        {
+          "value": "93%",
+          "label": "Reviews within agreed target",
+          "badge": "observed"
+        },
+        {
+          "value": "12 min",
+          "label": "Median time to clinical review",
+          "badge": "observed"
+        }
+      ],
+      "chart": {
+        "title": "Patient-reported measure over time",
+        "sub": "Illustrative cohort trend",
+        "yLabel": "Average pathway measure",
+        "xLabels": [
+          "Baseline",
+          "Month 1",
+          "Month 2",
+          "Month 3",
+          "Month 4",
+          "Month 5"
+        ],
+        "badge": "observed"
+      },
+      "split": {
+        "title": "Follow-up review status",
+        "badge": "observed",
+        "items": [
+          {
+            "label": "No clinical review required",
+            "value": 82
+          },
+          {
+            "label": "Clinical review required",
+            "value": 18
+          }
+        ]
+      },
+      "capacity": {
+        "title": "Clinical capacity opportunity",
+        "value": "168 hrs",
+        "label": "Estimated routine follow-up time released",
+        "badge": "modelled",
+        "note": "Illustrative estimate based on an agreed baseline manual workflow."
+      },
+      "assumptions": {
+        "title": "Model assumptions",
+        "badge": "modelled",
+        "items": [
+          {
+            "label": "Routine follow-ups completed",
+            "value": "1,284"
+          },
+          {
+            "label": "Baseline manual follow-up time",
+            "value": "Provider-defined"
+          },
+          {
+            "label": "Clinical review time",
+            "value": "Measured separately"
+          },
+          {
+            "label": "Calculation assumptions",
+            "value": "Configurable by provider"
+          }
+        ]
+      }
+    },
+    "evidenceTitle": "How we label evidence",
+    "evidence": [
+      {
+        "badge": "observed",
+        "title": "Observed",
+        "body": "Measured directly through the Haali workflow.",
+        "examples": "Follow-up completion · engagement · patient-reported information · clinical-review volumes · review turnaround"
+      },
+      {
+        "badge": "modelled",
+        "title": "Modelled",
+        "body": "Calculated using clearly stated assumptions or additional provider data.",
+        "examples": "Capacity opportunity · workforce value · cost per follow-up · programme economics"
+      },
+      {
+        "badge": "attributed",
+        "title": "Attributed",
+        "body": "Used only when sufficient evidence supports linking a downstream outcome to the programme.",
+        "examples": "Utilisation · clinical outcomes · total cost of care"
+      }
+    ],
+    "closing": {
+      "title": "Supporting Value-Based Healthcare",
+      "body": "Value-Based Healthcare requires providers to understand outcomes across patient populations alongside the resources used to deliver care. Haali helps create the longitudinal information layer needed to support that measurement — connecting what patients report between appointments with clinical review, pathway performance and population-level insight."
+    },
+    "cta": {
+      "prompt": "Explore what this could look like for your pathway",
+      "button": "Book a Demo"
+    }
+  },
+  "security": {
+    "eyebrow": "Security & Governance",
+    "title": "Designed for secure healthcare deployment from day one.",
+    "subtitle": "Haali is being built with healthcare-grade access control, encryption, auditability and deployment flexibility in mind. Production security controls, hosting location and compliance requirements are confirmed with each provider before real patient deployment.",
+    "regionalNote": "Saudi-first. Designed for country-specific privacy, health-data and cybersecurity requirements across the GCC.",
+    "safeguardsTitle": "How the platform is being built",
+    "safeguards": [
+      {
+        "icon": "lock",
+        "title": "Encryption by design",
+        "body": "Patient data is designed to be protected in transit and at rest using industry-standard encryption in production deployments."
+      },
+      {
+        "icon": "server",
+        "title": "Deployment-aligned data location",
+        "body": "Hosting and processing architecture can be configured around the provider's regulatory, contractual and data-location requirements."
+      },
+      {
+        "icon": "key-round",
+        "title": "Role-based access",
+        "body": "Doctor, Care Coordinator and administrative permissions are separated so users only access the functions and information relevant to their role."
+      },
+      {
+        "icon": "shield-check",
+        "title": "Auditability and traceability",
+        "body": "Key user actions, AI outputs, clinician review decisions and configuration versions are designed to be recorded for review and governance."
+      }
+    ],
+    "roadmapTitle": "Compliance & assurance roadmap",
+    "roadmapNote": "Haali is at an early deployment stage. Formal compliance, security assurance and certification activities will be completed in line with production deployment requirements. We will distinguish clearly between controls that are implemented, assessments that are underway and certifications that have been formally achieved.",
     "roadmapStatusLabel": "Status",
     "roadmap": [
-      { "icon": "landmark", "name": "SDAIA / PDPL", "scope": "Saudi personal data protection law", "status": "In progress" },
-      { "icon": "shield-check", "name": "HIPAA alignment", "scope": "International healthcare privacy standard", "status": "In progress" },
-      { "icon": "lock", "name": "ISO 27001", "scope": "Information security management", "status": "Planned" }
+      {
+        "icon": "landmark",
+        "name": "Saudi regulatory readiness",
+        "scope": "PDPL and applicable NCA cybersecurity, cloud and data controls assessed for each production deployment.",
+        "status": "Deployment requirement"
+      },
+      {
+        "icon": "globe",
+        "name": "GCC regulatory readiness",
+        "scope": "Architecture designed to be assessed against each country's privacy, health-data, hosting and cybersecurity requirements before deployment.",
+        "status": "Deployment requirement"
+      },
+      {
+        "icon": "shield-check",
+        "name": "ISO/IEC 27001 · 27701",
+        "scope": "Information Security Management and Privacy Information Management certification planned as the organisation and privacy programme mature.",
+        "status": "Planned"
+      },
+      {
+        "icon": "stethoscope",
+        "name": "Digital health regulatory readiness",
+        "scope": "Haali's intended use and regulatory classification will be assessed for each market as the platform progresses from controlled pilots to clinical deployment.",
+        "status": "Assessment"
+      }
     ],
-    "integrationTitle": "Seamless integration with your HIS / EHR",
-    "integrationBody": "HaaliHealth connects to the systems you already run through standards-based interfaces — no rip-and-replace, no parallel record. Triage reports and PROMs land in the patient chart where your clinicians already work.",
+    "alignmentTitle": "Standards informing the design",
+    "alignment": [
+      "ISO 27799 — healthcare information-security controls informing Haali's health-data security design.",
+      "ISO/IEC 27017 / 27018 — cloud security and cloud privacy controls informing hosting and processor due diligence.",
+      "Saudi-first, country-specific authorisation — Saudi/SFDA requirements assessed first, followed by the applicable national requirements for the UAE, Qatar, Bahrain, Kuwait and Oman as commercial deployment expands."
+    ],
+    "integrationEyebrow": "Integration Readiness",
+    "integrationTitle": "Designed to fit into your existing HIS / EHR ecosystem",
+    "integrationBody": "Haali is designed to sit alongside the clinical systems your teams already use. Patient follow-up produces structured, clinician-reviewed information that can be exported or integrated into existing workflows using standards-based interfaces. Integration scope is configured with each provider, including FHIR/HL7, APIs and NPHIES-aligned exchange where applicable.",
     "integrations": [
-      { "icon": "plug", "label": "HL7 / FHIR interfaces" },
-      { "icon": "code", "label": "REST API & webhooks" },
-      { "icon": "refresh-cw", "label": "Real-time bidirectional sync" },
-      { "icon": "key-round", "label": "SSO & role-based access" }
+      {
+        "icon": "plug",
+        "label": "FHIR / HL7-ready data structures"
+      },
+      {
+        "icon": "code",
+        "label": "REST APIs & webhooks — configured per deployment"
+      },
+      {
+        "icon": "refresh-cw",
+        "label": "NPHIES-aligned interoperability"
+      },
+      {
+        "icon": "workflow",
+        "label": "Existing workflow integration"
+      }
     ],
-    "note": "We will share our current security documentation, architecture and certification timeline under NDA during technical due diligence."
+    "note": "Integration architecture, data flows, security controls and deployment requirements are confirmed with each provider during technical due diligence."
   },
   "contact": {
-    "eyebrow": "Contact",
-    "title": "See it running on your own pathways.",
-    "subtitle": "Book a 30-minute technical walkthrough with our clinical and integration team. We will map the loop to one of your departments and show the reimbursement case end to end.",
+    "eyebrow": "Book a Demo",
+    "title": "See Haali working on a pathway relevant to your organisation.",
+    "subtitle": "Book a focused walkthrough of the Haali workflow — from patient follow-up and structured clinical information to clinician review, analytics and future interoperability. We can discuss how the model could fit one of your chronic-care pathways and the outcomes or Value-Based Healthcare priorities you are working toward.",
     "assurances": [
-      "A working demo, not a slide deck",
-      "Integration questions answered by the engineering team",
-      "No obligation and no procurement process to start"
+      "See the patient-to-clinician workflow in action",
+      "Explore clinical workflow, integration and deployment questions",
+      "Discuss a potential pathway or pilot with no obligation"
     ],
     "form": {
-      "title": "Request your demo",
+      "title": "Request a Haali demo",
       "name": "Full name",
       "namePlaceholder": "Dr. Sara Al-Mansouri",
       "hospital": "Hospital / organisation",
@@ -192,12 +490,22 @@
         "Quality & Outcomes",
         "Other"
       ],
-      "submit": "Request your demo",
+      "interest": "Area of interest",
+      "interestOptional": "optional",
+      "interestPlaceholder": "Select an area",
+      "interests": [
+        "Clinical workflow",
+        "Operations & capacity",
+        "Digital / IT & integration",
+        "VBHC & outcomes",
+        "Partnership"
+      ],
+      "submit": "Request a Demo",
       "submitting": "Sending…",
       "success": "Thank you — we will be in touch within one working day.",
       "successNote": "A member of the team will contact you to arrange the walkthrough.",
       "again": "Submit another request",
-      "privacy": "We use your details only to arrange this demo. No marketing lists.",
+      "privacy": "We use your details to respond to your enquiry and arrange the demo. We do not sell your contact information.",
       "errors": {
         "name": "Please enter your full name.",
         "hospital": "Please enter your hospital or organisation.",
@@ -207,14 +515,36 @@
     }
   },
   "footer": {
-    "tagline": "Turning the patient's voice into proven outcomes for hospitals across the GCC.",
+    "tagline": "Continuous patient follow-up and structured clinical intelligence for healthcare providers across Saudi Arabia and the GCC.",
     "columns": [
-      { "title": "Product", "links": ["Voice Triage", "Haali Voice", "Automated PROMs", "Health +"] },
-      { "title": "Company", "links": ["About", "The Challenge", "Careers", "Contact"] },
-      { "title": "Legal", "links": ["Privacy Policy", "Terms of Service", "Data Processing", "Security"] }
+      {
+        "title": "Product",
+        "links": [
+          "Pre-Appointment Check-In",
+          "Between-Visit Follow-Up",
+          "Clinical Review & Outcomes",
+          "Value-Based Healthcare & Analytics"
+        ]
+      },
+      {
+        "title": "Company",
+        "links": [
+          "About",
+          "For Providers",
+          "Security & Governance",
+          "Book a Demo"
+        ]
+      },
+      {
+        "title": "Legal",
+        "links": [
+          "Privacy Policy"
+        ]
+      }
     ],
     "rights": "All rights reserved.",
-    "built": "Built for value-based care in the GCC."
+    "built": "Saudi-first. Designed for the GCC.",
+    "disclaimer": "Demonstrations shown on this website use synthetic data. Haali Health does not provide medical advice, diagnosis or emergency services. In an emergency, contact your local emergency services."
   },
   "common": {
     "backToTop": "Back to top"

@@ -191,12 +191,14 @@ function Chip({ children }) {
 /* ------------------------------------------------------------- shared cards */
 
 /** Bar-chart style list. Counts drive the bar widths, longest = full width. */
-function BarListCard({ title, Icon, items, className = '' }) {
+function BarListCard({ title, Icon, items, aside, className = '' }) {
   const max = Math.max(...items.map((i) => i.count))
 
   return (
     <Card className={`p-3.5 shadow-xl ${className}`}>
-      <CardTitle Icon={Icon}>{title}</CardTitle>
+      <CardTitle Icon={Icon} aside={aside}>
+        {title}
+      </CardTitle>
 
       <div className="mt-3 space-y-2.5">
         {items.map((item) => (
@@ -207,91 +209,108 @@ function BarListCard({ title, Icon, items, className = '' }) {
   )
 }
 
+/**
+ * Coding suggestions.
+ *
+ * The header label is not decoration: Review #5 keeps this panel only on the
+ * condition that the clinician-review boundary is unmissable. Any code shown
+ * here must come from the authoritative terminology dataset Haali uses — do
+ * not invent identifiers to fill the card.
+ */
 function SuggestedCodesCard({ className = '' }) {
   return (
     <Card className={`p-3.5 shadow-xl ${className}`}>
-      <CardTitle aside="6, each needs a person to decide">Suggested codes</CardTitle>
+      <CardTitle aside="Clinician review required">AI-suggested terminology</CardTitle>
 
       <div className="mt-2.5">
-        <SuggestedCode
-          term="Generalized weakness"
-          code="1137501002"
-          meta="SNOMED_CT GPS · confidence 0.85"
-        />
-        <SuggestedCode term="Dizziness" code="404640003" meta="SNOMED_CT GPS · confidence 0.75" />
-        <SuggestedCode
-          term="Hypoglycaemia"
-          code="302866003"
-          meta="SNOMED_CT GPS · confidence 0.71"
-        />
+        <SuggestedCode term="Medication non-adherence" code="1137501002" meta="SNOMED_CT GPS" />
+        <SuggestedCode term="Dizziness" code="404640003" meta="SNOMED_CT GPS" />
+        <SuggestedCode term="Type 2 diabetes mellitus" code="44054006" meta="SNOMED_CT GPS" />
       </div>
     </Card>
   )
 }
 
-/* ------------------------------------------------------- 01 · Voice Triage */
+/** Sits on every synthetic figure so none of it reads as deployment evidence. */
+const ILLUSTRATIVE = 'Illustrative example'
 
-function ClinicalSummaryCard({ className = '' }) {
+/* --------------------------------------------- 01 · Pre-Appointment Check-In */
+
+function PreVisitSummaryCard({ className = '' }) {
+  const findings = [
+    { label: 'Check-in', value: 'Complete' },
+    { label: 'Medication adherence', value: '2 missed doses reported' },
+    { label: 'New concern', value: 'Morning light-headedness' },
+    { label: 'Foot / vision review', value: 'No new concern reported' },
+  ]
+
   return (
     <Card className={`p-4 shadow-xl ${className}`}>
       <div className="flex items-center justify-between gap-3">
         <div className="flex items-center gap-2">
-          <span className="relative grid h-2 w-2 place-items-center">
-            <span className="absolute inset-0 animate-pulse-ring rounded-full bg-red-500/40" />
-            <span className="h-2 w-2 rounded-full bg-red-500" />
+          <span className="grid h-6 w-6 place-items-center rounded-full bg-navy-800">
+            <ClipboardList className="h-3 w-3 text-mint-400" strokeWidth={2.5} />
           </span>
-          <span className="text-lg font-extrabold tracking-tight text-red-600">Critical</span>
+          <span className="text-base font-extrabold tracking-tight text-navy-900">
+            Pre-visit summary
+          </span>
         </div>
         <span className="inline-flex items-center gap-1 rounded-full bg-navy-50 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider text-navy-700">
           <Sparkles className="h-2.5 w-2.5" strokeWidth={2.5} />
-          AI summary
+          AI structured
         </span>
       </div>
 
-      <p className="mt-3 text-[12px] font-medium leading-[1.65] text-navy-800/80">
-        <span className="font-bold text-navy-900">Patient-reported:</span> The patient was uncertain
-        about feeling generally well and said he does not remember the dietary/lifestyle advice
-        given by doctors. He reported low blood sugar episodes (shakiness, sweating, dizziness)
-        occurring often, consistent with the safety flag{' '}
-        <span className="font-bold text-navy-900">&ldquo;Severe low blood sugar&rdquo;</span>.
-      </p>
+      <dl className="mt-3">
+        {findings.map((f) => (
+          <div
+            key={f.label}
+            className="flex flex-wrap items-baseline justify-between gap-x-2 gap-y-0.5 border-t border-slate-100 py-2 first:border-t-0 first:pt-0"
+          >
+            <dt className="text-[11px] font-medium text-navy-800/50">{f.label}</dt>
+            <dd className="text-[12px] font-bold text-navy-900">{f.value}</dd>
+          </div>
+        ))}
+      </dl>
 
       <p className="mt-3 text-[11px] leading-relaxed text-navy-800/45">
-        AI generated, patient reported. Not a clinical assessment. Consent given at 16:50, in
+        Patient-reported and AI-structured. Not a clinical assessment. Consent given at 16:50, in
         English.
       </p>
 
       <div className="mt-3 border-t border-slate-100 pt-3">
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-red-50 px-2.5 py-1 text-[11px] font-bold text-red-700 ring-1 ring-inset ring-red-200">
-          <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
-          Critical • Severe low blood sugar
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-2.5 py-1 text-[11px] font-bold text-amber-700 ring-1 ring-inset ring-amber-200">
+          <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
+          Structured findings ready for clinician review
         </span>
       </div>
     </Card>
   )
 }
 
-function TriageKpis({ className = '' }) {
+function PrecheckKpis({ className = '' }) {
   return (
     <div className={`flex gap-3 ${className}`}>
-      <Kpi label="Needs your review" value="14" sub="of 15 waiting" />
-      <Kpi label="Critical" value="6" sub="act today" tone="alert">
-        <ul className="mt-2 space-y-0.5 border-t border-red-200/70 pt-2">
-          {['Stephen Boyle', 'Michael Evans'].map((name) => (
-            <li key={name} className="truncate text-[11px] font-semibold text-red-700">
-              {name}
-            </li>
-          ))}
-        </ul>
-      </Kpi>
+      <Kpi
+        label="Check-ins completed"
+        value="86%"
+        sub={ILLUSTRATIVE}
+        accent="navy"
+        Icon={ClipboardList}
+      />
+      <Kpi label="Awaiting review" value="14" sub={ILLUSTRATIVE} accent="navy" Icon={Stethoscope} />
     </div>
   )
 }
 
-/* -------------------------------------------------------- 02 · Haali Voice */
+/* --------------------------------------------- 02 · Between-Visit Follow-Up */
 
-/** Patient question + the vetted answer, with its sources shown. */
-function CompanionCard({ className = '' }) {
+/**
+ * The approved conversation example (Review #4). Haali declines the dose
+ * question and records it instead — showing the escalation boundary is the
+ * whole point of the card, so do not replace it with an answer.
+ */
+function FollowUpCard({ className = '' }) {
   return (
     <Card className={`p-4 shadow-xl ${className}`}>
       <div className="flex items-center justify-between gap-3">
@@ -303,86 +322,81 @@ function CompanionCard({ className = '' }) {
         </div>
         <span className="inline-flex items-center gap-1 rounded-full bg-mint-50 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider text-mint-800">
           <ShieldCheck className="h-2.5 w-2.5" strokeWidth={2.5} />
-          Vetted only
+          Approved content only
         </span>
       </div>
 
       {/* Patient turn */}
       <div className="mt-3 flex justify-end">
         <p className="max-w-[80%] rounded-2xl rounded-ee-md bg-navy-50 px-3 py-2 text-[12px] font-medium leading-[1.6] text-navy-900">
-          I skipped breakfast today — should I still take my metformin?
+          I&rsquo;ve missed my tablets twice this week. Should I take an extra one tonight?
         </p>
       </div>
 
-      {/* Companion turn */}
+      {/* Haali turn */}
       <div className="mt-2 flex justify-start">
         <div className="max-w-[88%] rounded-2xl rounded-es-md border border-slate-200 bg-white px-3 py-2">
           <p className="text-[12px] font-medium leading-[1.65] text-navy-800/80">
-            Your plan says to take metformin{' '}
-            <span className="font-bold text-navy-900">with food</span>. Have something to eat first,
-            then take it. If you cannot eat, skip this dose and tell your nurse at the next check-in.
+            I can&rsquo;t advise changing your dose.{' '}
+            <span className="font-bold text-navy-900">I can record this for your care team.</span>{' '}
+            Can I ask how many doses you&rsquo;ve missed in the last seven days?
           </p>
           <div className="mt-2 flex flex-wrap items-center gap-1 border-t border-slate-100 pt-2">
-            <Chip>Trust diabetes guidance v4</Chip>
-            <Chip>Patient care plan</Chip>
+            <Chip>Recorded for clinical review</Chip>
+            <Chip>T2D follow-up pathway</Chip>
           </div>
         </div>
       </div>
 
       <p className="mt-3 text-[11px] leading-relaxed text-navy-800/45">
-        Answers are drawn only from vetted clinical content and this patient&rsquo;s own profile. No
-        open-ended generation. Escalates to a clinician when out of scope.
+        General education is answered from approved clinical content. Treatment and diagnosis
+        questions are handed back to the clinical team.
       </p>
     </Card>
   )
 }
 
-function PatientProfileCard({ className = '' }) {
-  const meds = [
-    { name: 'Metformin 500mg', schedule: 'Twice daily, with food' },
-    { name: 'Ramipril 5mg', schedule: 'Once daily, morning' },
-  ]
-
+/**
+ * Provider-known context — not an HIS sync. The distinction matters: there is
+ * no live integration yet, and anything shown here is context the provider
+ * already recorded, never something Haali derived.
+ */
+function ProviderContextCard({ className = '' }) {
   return (
     <Card className={`p-3.5 shadow-xl ${className}`}>
-      <CardTitle Icon={ClipboardList} aside="Synced from HIS">
-        Patient profile
+      <CardTitle Icon={ClipboardList} aside="Provider-recorded">
+        Provider-known context
       </CardTitle>
 
       <div className="mt-2.5 flex flex-wrap gap-1">
-        <Chip>Type 2 diabetes</Chip>
-        <Chip>Hypertension</Chip>
-        <Chip>Arabic · Gulf</Chip>
+        <Chip>Type 2 Diabetes pathway</Chip>
+        <Chip>Preferred language: Arabic</Chip>
       </div>
 
-      <div className="mt-2">
-        {meds.map((med) => (
-          <div key={med.name} className="border-t border-slate-100 py-2 first:pt-1.5">
-            <p className="truncate text-[12px] font-bold text-navy-900">{med.name}</p>
-            <p className="mt-0.5 truncate text-[11px] font-medium text-navy-800/45">
-              {med.schedule}
-            </p>
-          </div>
-        ))}
+      <div className="mt-2 border-t border-slate-100 pt-2">
+        <p className="text-[12px] font-bold text-navy-900">Recorded medication context available</p>
+        <p className="mt-0.5 text-[11px] font-medium text-navy-800/45">
+          Provider-recorded, not AI-derived
+        </p>
       </div>
     </Card>
   )
 }
 
-function CompanionKpis({ className = '' }) {
+function FollowUpKpis({ className = '' }) {
   return (
     <div className={`flex gap-3 ${className}`}>
       <Kpi
-        label="Answered without staff"
-        value="68%"
-        sub="of routine questions"
-        accent="mint"
+        label="Routine follow-ups completed"
+        value="86%"
+        sub={ILLUSTRATIVE}
+        accent="navy"
         Icon={ShieldCheck}
       />
       <Kpi
-        label="Escalated to a nurse"
-        value="9"
-        sub="out of scope, routed"
+        label="Flagged for clinical review"
+        value="14%"
+        sub={ILLUSTRATIVE}
         accent="navy"
         Icon={Activity}
       />
@@ -390,68 +404,69 @@ function CompanionKpis({ className = '' }) {
   )
 }
 
-/* ---------------------------------------------------- 03 · Automated PROMs */
+/* ------------------------------------------ 03 · Clinical Review & Outcomes */
 
-function PromScoreCard({ className = '' }) {
+/**
+ * Generic outcome trend. No named PROM instrument appears here: Haali has not
+ * confirmed licensing for one, and the status reads "Stable" rather than
+ * "Improving" so the card does not imply a causal effect.
+ */
+function OutcomeTrendCard({ className = '' }) {
   return (
     <Card className={`p-4 shadow-xl ${className}`}>
       <div className="flex items-center justify-between gap-3">
         <div>
           <span className="text-base font-extrabold tracking-tight text-navy-900">
-            EQ-5D-5L index
+            Patient-reported outcome trend
           </span>
           <p className="mt-0.5 text-[11px] font-medium text-navy-800/45">
-            Week 12 · knee replacement cohort · n=214
+            T2D follow-up cohort · {ILLUSTRATIVE}
           </p>
         </div>
-        <span className="inline-flex items-center gap-1 rounded-full bg-mint-50 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider text-mint-800">
-          <TrendingUp className="h-2.5 w-2.5" strokeWidth={2.5} />
-          Improving
+        <span className="inline-flex items-center gap-1 rounded-full bg-navy-50 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider text-navy-700">
+          Stable
         </span>
       </div>
 
-      <div className="mt-3 flex items-end gap-2">
-        <span className="text-[36px] font-extrabold leading-none tabular-nums text-navy-900">
-          0.81
-        </span>
-        <span className="pb-0.5 text-[12px] font-bold tabular-nums text-mint-700">
-          +0.14 vs baseline
-        </span>
-      </div>
-
-      {/* Baseline → week 12 trend. Heights are the index scaled to the plot. */}
-      <div className="mt-3 flex h-12 items-end gap-1">
-        {[0.67, 0.69, 0.72, 0.71, 0.76, 0.79, 0.81].map((score, i, all) => (
+      {/* Fluctuating, not rising: a climbing bar chart is a causal claim. */}
+      <div className="mt-4 flex h-14 items-end gap-1">
+        {[0.72, 0.66, 0.78, 0.7, 0.75, 0.69, 0.74].map((v, i, all) => (
           <div
-            key={score}
+            key={i}
             className={`flex-1 rounded-sm ${i === all.length - 1 ? 'bg-navy-600' : 'bg-navy-200'}`}
-            style={{ height: `${(score / 0.81) * 100}%` }}
+            style={{ height: `${v * 100}%` }}
           />
         ))}
       </div>
 
+      <div className="mt-3 flex flex-wrap gap-1.5">
+        <Chip>Improving</Chip>
+        <Chip>Stable</Chip>
+        <Chip>Needs review</Chip>
+      </div>
+
       <p className="mt-3 border-t border-slate-100 pt-3 text-[11px] leading-relaxed text-navy-800/45">
-        Collected in the patient&rsquo;s own routine, not as a separate chore. Streamed to the HIS
-        at 09:12 — reimbursement-ready for P4Q and VBP reporting.
+        Captured as structured, trendable data with the original conversation available as
+        supporting evidence.
       </p>
     </Card>
   )
 }
 
-function PromsKpis({ className = '' }) {
+function ReviewKpis({ className = '' }) {
   return (
     <div className={`flex gap-3 ${className}`}>
       <Kpi
-        label="Response rate"
+        label="Follow-up completion"
         value="86%"
-        sub="across active cohorts"
-        accent="mint"
+        sub={ILLUSTRATIVE}
+        accent="navy"
         Icon={TrendingUp}
       />
       <Kpi
-        label="Reports to HIS"
+        label="Clinical reviews completed"
         value="214"
-        sub="this week, automated"
+        sub={ILLUSTRATIVE}
         accent="navy"
         Icon={ClipboardList}
       />
@@ -466,66 +481,70 @@ function PromsKpis({ className = '' }) {
  * slotA/slotB stack in the leading column, slotC/slotD in the trailing one.
  */
 const VARIANTS = {
-  triage: {
+  precheck: {
     label:
-      'Haali triage queue: patients needing review, the AI clinical summary, suggested SNOMED codes and what is raising alerts.',
-    slotA: (p) => <TriageKpis {...p} />,
-    slotB: (p) => <ClinicalSummaryCard {...p} />,
+      'Haali pre-appointment check-in: completion metrics, the structured pre-visit summary, AI-suggested terminology awaiting clinician review, and what patients are reporting.',
+    slotA: (p) => <PrecheckKpis {...p} />,
+    slotB: (p) => <PreVisitSummaryCard {...p} />,
     slotC: (p) => <SuggestedCodesCard {...p} />,
     slotD: (p) => (
       <BarListCard
         {...p}
-        title="What is raising alerts"
+        title="What patients are reporting"
         Icon={Stethoscope}
+        aside={ILLUSTRATIVE}
         items={[
           { label: 'Missed doses', count: 5 },
-          { label: 'Foot infection', count: 4 },
-          { label: 'High blood sugar crisis', count: 3 },
+          { label: 'Light-headedness', count: 4 },
+          { label: 'Diet and self-management', count: 3 },
         ]}
       />
     ),
   },
 
-  companion: {
+  followup: {
     label:
-      'Haali Voice companion: a patient question answered from vetted clinical content, the synced patient profile, and what patients ask most.',
-    slotA: (p) => <CompanionKpis {...p} />,
-    slotB: (p) => <CompanionCard {...p} />,
-    slotC: (p) => <PatientProfileCard {...p} />,
+      'Haali between-visit follow-up: a follow-up conversation handed back to the clinical team, provider-known patient context, and common follow-up themes.',
+    slotA: (p) => <FollowUpKpis {...p} />,
+    slotB: (p) => <FollowUpCard {...p} />,
+    slotC: (p) => <ProviderContextCard {...p} />,
     slotD: (p) => (
       <BarListCard
         {...p}
-        title="What patients ask most"
+        title="Common follow-up themes"
         Icon={Mic}
+        aside={ILLUSTRATIVE}
         items={[
-          { label: 'Medication timing', count: 42 },
-          { label: 'Side effects', count: 31 },
-          { label: 'Appointment prep', count: 18 },
+          { label: 'Medication adherence', count: 42 },
+          { label: 'New symptoms or concerns', count: 31 },
+          { label: 'Appointment preparation', count: 18 },
         ]}
       />
     ),
   },
 
-  proms: {
+  review: {
     label:
-      'Automated PROMs: the EQ-5D-5L outcome trend, response rates by instrument, and reports streamed to the HIS.',
-    slotA: (p) => <PromsKpis {...p} />,
-    slotB: (p) => <PromScoreCard {...p} />,
+      'Haali clinical review and outcomes: follow-up and review volumes, a patient-reported outcome trend, AI-suggested terminology awaiting review, and T2DM follow-up measures.',
+    slotA: (p) => <ReviewKpis {...p} />,
+    slotB: (p) => <OutcomeTrendCard {...p} />,
     slotC: (p) => <SuggestedCodesCard {...p} />,
     slotD: (p) => (
       <BarListCard
         {...p}
-        title="Response rate by instrument"
+        title="T2DM follow-up measures"
         Icon={ClipboardList}
+        aside={ILLUSTRATIVE}
         items={[
-          { label: 'EQ-5D-5L', count: 92 },
-          { label: 'Oxford Knee Score', count: 74 },
-          { label: 'PHQ-9', count: 61 },
+          { label: 'Medication adherence', count: 92 },
+          { label: 'Patient-reported wellbeing', count: 74 },
+          { label: 'Pathway outcomes', count: 61 },
         ]}
       />
     ),
   },
 }
+
 
 const SLOT_KEYS = ['slotA', 'slotB', 'slotC', 'slotD']
 
@@ -533,7 +552,7 @@ const SLOT_KEYS = ['slotA', 'slotB', 'slotC', 'slotD']
 const FOCUS_MS = 2600
 
 /** Starting card per variant, so the three clusters are out of step. */
-const VARIANT_PHASE = { triage: 1, companion: 2, proms: 0 }
+const VARIANT_PHASE = { precheck: 1, followup: 2, review: 0 }
 
 /**
  * Advances a focus index while the cluster is on screen.
@@ -646,8 +665,8 @@ function useCanvasFit() {
   return { stageRef, canvasRef, scale, height }
 }
 
-export default function DashboardMockup({ variant = 'triage', className = '' }) {
-  const spec = VARIANTS[variant] ?? VARIANTS.triage
+export default function DashboardMockup({ variant = 'precheck', className = '' }) {
+  const spec = VARIANTS[variant] ?? VARIANTS.precheck
   const { stageRef, canvasRef, scale, height } = useCanvasFit()
   // Phase-shifted per variant so the three clusters on the page do not pulse
   // in lockstep as the reader scrolls past them.

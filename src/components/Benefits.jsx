@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { Sparkles } from 'lucide-react'
+import { ArrowRight, Sparkles } from 'lucide-react'
 import Icon from './Icon'
 import Reveal from './Reveal'
 
@@ -9,7 +9,7 @@ export default function Benefits() {
   const cards = t('benefits.cards', { returnObjects: true })
 
   return (
-    <section id="benefits" className="border-y border-navy-100 bg-surface py-20 lg:py-28">
+    <section id="for-providers" className="border-y border-navy-100 bg-surface py-20 lg:py-28">
       <div className="container-x">
         <Reveal className="mx-auto max-w-3xl text-center">
           <span className="eyebrow">
@@ -30,6 +30,21 @@ export default function Benefits() {
                 </div>
                 <div className="mt-2 text-sm font-bold text-navy-800">{s.label}</div>
                 <div className="mt-1 text-xs leading-relaxed text-navy-800/50">{s.hint}</div>
+
+                {/*
+                  Review #16: the VBHC card bridges to the dedicated section
+                  rather than repeating its content here. Copy is unchanged —
+                  only the link is added, and only on the last card.
+                */}
+                {i === stats.length - 1 && (
+                  <a
+                    href="#vbhc"
+                    className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-mint-700 underline-offset-4 transition-colors hover:text-mint-800 hover:underline"
+                  >
+                    {t('benefits.vbhcLink')}
+                    <ArrowRight className="h-3.5 w-3.5 rtl:rotate-180" aria-hidden="true" />
+                  </a>
+                )}
               </div>
             </Reveal>
           ))}

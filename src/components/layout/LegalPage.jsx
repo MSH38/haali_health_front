@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async'
+import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Info } from 'lucide-react'
 import PageHero from './PageHero'
@@ -6,16 +7,21 @@ import StickyCta from './StickyCta'
 import Reveal from '../Reveal'
 
 /**
- * Shared shell for the two legal pages (Privacy, Terms).
+ * Shared shell for the legal pages.
  *
  * Renders a jump-to-section index plus numbered prose sections. `children`
- * is injected between the index and the sections, which is where the Terms
- * page puts its clinical disclaimer callout.
+ * is injected between the index and the sections.
+ *
+ * A section renders in a fixed order — `body`, page-specific extras,
+ * `bullets`, then `after` — because several sections introduce a list and
+ * then continue in prose underneath it, and reversing that reads as if the
+ * closing paragraphs belong to the list.
  */
 export default function LegalPage({ ns, children, renderSection }) {
   const { t } = useTranslation()
   const p = (k) => t(`pages.${ns}.${k}`)
   const sections = t(`pages.${ns}.sections`, { returnObjects: true })
+  const callout = t(`pages.${ns}.callout`, { returnObjects: true, defaultValue: null })
 
   return (
     <>
@@ -92,9 +98,34 @@ export default function LegalPage({ ns, children, renderSection }) {
                       ))}
                     </ul>
                   )}
+
+                  {s.after?.map((para) => (
+                    <p key={para} className="mt-4 text-[15px] leading-[1.9] text-navy-800/75">
+                      {para}
+                    </p>
+                  ))}
+
+                  {s.link && (
+                    <Link
+                      to={s.link.href}
+                      className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-mint-700 underline-offset-4 hover:underline"
+                    >
+                      {s.link.label}
+                    </Link>
+                  )}
                 </Reveal>
               ))}
             </div>
+
+            {/* Deployment notice — its own box so it is not read as a clause. */}
+            {callout && (
+              <Reveal delay={60}>
+                <div className="mt-12 rounded-2xl border border-mint-300/60 bg-mint-50/60 p-6">
+                  <h2 className="text-sm font-extrabold text-navy-900">{callout.title}</h2>
+                  <p className="mt-2 text-sm leading-relaxed text-navy-800/70">{callout.body}</p>
+                </div>
+              </Reveal>
+            )}
           </div>
         </div>
       </section>

@@ -1,5 +1,5 @@
 /**
- * HaaliHealth wordmark.
+ * Haali Health wordmark.
  *
  * Set in DM Sans, two weights, two colours:
  *
@@ -57,7 +57,7 @@ export default function BrandLogo({ variant = 'dark', className = '' }) {
       className={`inline-block whitespace-nowrap font-brand leading-none ${className}`}
     >
       {/* Screen readers get the name, not eleven separate letters. */}
-      <span className="sr-only">HaaliHealth</span>
+      <span className="sr-only">Haali Health</span>
 
       <span aria-hidden="true">
         <span style={{ fontWeight: 700, letterSpacing: '-0.01em' }}>

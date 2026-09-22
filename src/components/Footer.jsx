@@ -7,11 +7,17 @@ import BrandLogo from './BrandLogo'
  * Destinations for the footer link columns, matched positionally to
  * `footer.columns[].links` in the translation files. Kept here rather than in
  * the locale files so translators never have to touch a URL.
+ *
+ * Locked by the FINAL FOOTER specification (Review #22): Product deep-links
+ * to the three How It Works steps plus VBHC; Company covers About, provider
+ * value, security and conversion; Legal is Privacy Policy only. Terms of
+ * Service, Data Processing and a second Security destination were removed
+ * under Reviews #21/#22 and must not come back without a real destination.
  */
 const COLUMN_HREFS = [
-  ['/#solutions', '/#solutions', '/#solutions', '/#solutions'],
-  ['/about', '/#solutions', '/#contact', '/#contact'],
-  ['/privacy', '/terms', '/privacy#retention', '/security'],
+  ['/#step-1', '/#step-2', '/#step-3', '/#vbhc'],
+  ['/about', '/#for-providers', '/#security', '/#contact'],
+  ['/privacy'],
 ]
 
 export default function Footer() {
@@ -25,7 +31,7 @@ export default function Footer() {
         <div className="grid gap-10 lg:grid-cols-[1.4fr_repeat(3,1fr)] lg:gap-12">
           {/* Brand */}
           <div>
-            <Link to="/" className="text-2xl" aria-label="HaaliHealth">
+            <Link to="/" className="text-2xl" aria-label="Haali Health">
               <BrandLogo variant="light" />
             </Link>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/45">
@@ -71,17 +77,26 @@ export default function Footer() {
           ))}
         </div>
 
+        {/*
+          Clinical / demo disclaimer (Review #21). It replaces the removed
+          Terms page, so it is static text rather than a navigation item — the
+          final footer specification deliberately lists no such link.
+        */}
+        <p className="mt-5 text-xs leading-relaxed text-white/35">
+          {t('footer.disclaimer')}
+        </p>
+
         {/* Bottom bar */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-7 sm:flex-row">
-          <p className="text-xs text-white/35">
-            © {year} HaaliHealth. {t('footer.rights')} · {t('footer.built')}
+        <div className=" flex flex-col mt-2 border-t-2 border-white/10 items-center justify-between gap-4 sm:flex-row">
+          <p className="text-xs mt-5 text-white/35">
+            © {year} Haali Health. {t('footer.rights')} • {t('footer.built')}
           </p>
           <div className="flex items-center gap-5">
-            <Link to="/privacy" className="text-xs text-white/35 transition-colors hover:text-mint-400">
+            <Link
+              to="/privacy"
+              className="text-xs text-white/35 transition-colors hover:text-mint-400"
+            >
               {t('pages.privacy.breadcrumb')}
-            </Link>
-            <Link to="/terms" className="text-xs text-white/35 transition-colors hover:text-mint-400">
-              {t('pages.terms.breadcrumb')}
             </Link>
             <button
               type="button"

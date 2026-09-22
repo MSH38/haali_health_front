@@ -13,7 +13,7 @@ const FREE_EMAIL_DOMAINS = [
   'proton.me',
 ]
 
-const EMPTY = { name: '', hospital: '', email: '', role: '' }
+const EMPTY = { name: '', hospital: '', email: '', role: '', interest: '' }
 
 export default function Contact() {
   const { t } = useTranslation()
@@ -53,7 +53,7 @@ export default function Contact() {
     setStatus('sending')
     // TODO: replace with the real endpoint (CRM, form service, or API route).
     await new Promise((r) => setTimeout(r, 900))
-    console.info('[HaaliHealth] demo request', values)
+    console.info('[Haali Health] demo request', values)
     setStatus('done')
   }
 
@@ -71,7 +71,7 @@ export default function Contact() {
     }`
 
   return (
-    <section id="contact" className="bg-white py-20 lg:py-28">
+    <section id="contact" className="scroll-mt-20 bg-white py-20 lg:py-28">
       <div className="container-x">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.05fr] lg:items-center lg:gap-20">
           {/* Pitch */}
@@ -199,6 +199,32 @@ export default function Contact() {
                           {f.roles.map((r) => (
                             <option key={r} value={r}>
                               {r}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+
+                      {/* Optional — helps route the enquiry, never blocks it. */}
+                      <div>
+                        <label
+                          htmlFor="interest"
+                          className="mb-2 flex items-center gap-2 text-sm font-bold text-navy-800"
+                        >
+                          {f.interest}
+                          <span className="rounded-md bg-navy-50 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-navy-800/50">
+                            {f.interestOptional}
+                          </span>
+                        </label>
+                        <select
+                          id="interest"
+                          value={values.interest}
+                          onChange={update('interest')}
+                          className={`${fieldClass('interest')} appearance-none`}
+                        >
+                          <option value="">{f.interestPlaceholder}</option>
+                          {f.interests.map((item) => (
+                            <option key={item} value={item}>
+                              {item}
                             </option>
                           ))}
                         </select>

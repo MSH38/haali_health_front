@@ -8,10 +8,14 @@ export default function Security() {
   const { t } = useTranslation()
   const safeguards = t('security.safeguards', { returnObjects: true })
   const roadmap = t('security.roadmap', { returnObjects: true })
+  const alignment = t('security.alignment', { returnObjects: true })
   const integrations = t('security.integrations', { returnObjects: true })
 
   return (
-    <section id="security" className="relative overflow-hidden bg-navy-900 py-20 lg:py-28">
+    <section
+      id="security"
+      className="relative scroll-mt-20 overflow-hidden bg-navy-900 py-20 lg:py-28"
+    >
       <AmbientGlow />
 
       <div className="container-x relative">
@@ -25,6 +29,15 @@ export default function Security() {
           </h2>
           <p className="mt-5 text-base leading-relaxed text-white/60 sm:text-lg">
             {t('security.subtitle')}
+          </p>
+
+          {/*
+            Review #7: there is no single GCC-wide privacy or healthcare
+            security regime, so regional readiness is stated as a country-by-
+            country position rather than one blanket compliance claim.
+          */}
+          <p className="mx-auto mt-6 max-w-2xl rounded-2xl border border-white/12 bg-white/[.05] px-5 py-3.5 text-sm font-semibold text-white/75">
+            {t('security.regionalNote')}
           </p>
         </Reveal>
 
@@ -63,7 +76,7 @@ export default function Security() {
               {t('security.roadmapNote')}
             </p>
 
-            <ul className="mt-7 grid gap-3 sm:grid-cols-3">
+            <ul className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {roadmap.map((r) => (
                 <li
                   key={r.name}
@@ -83,6 +96,23 @@ export default function Security() {
                 </li>
               ))}
             </ul>
+
+            {/* Standards that inform the design but are not claimed as badges. */}
+            <div className="mt-7 border-t border-white/10 pt-6">
+              <h4 className="text-[11px] font-bold uppercase tracking-widest text-white/45">
+                {t('security.alignmentTitle')}
+              </h4>
+              <ul className="mt-4 space-y-2.5">
+                {alignment.map((item) => (
+                  <li
+                    key={item}
+                    className="border-s-2 border-white/15 ps-4 text-xs leading-relaxed text-white/50"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </Reveal>
 
@@ -91,6 +121,7 @@ export default function Security() {
           <div className="mt-6 rounded-3xl border border-white/10 bg-white/[.04] p-8 backdrop-blur lg:mt-8 lg:p-12">
             <div className="grid gap-10 lg:grid-cols-[1fr_1.15fr] lg:gap-14">
               <div>
+                <span className="eyebrow-dark mb-5">{t('security.integrationEyebrow')}</span>
                 <h3 className="text-2xl font-extrabold leading-snug tracking-tight text-white sm:text-[1.75rem]">
                   {t('security.integrationTitle')}
                 </h3>

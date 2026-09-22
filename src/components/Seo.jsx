@@ -27,7 +27,7 @@ export default function Seo() {
       <link rel="alternate" hrefLang="x-default" href={`${SITE}/ar`} />
 
       <meta property="og:type" content="website" />
-      <meta property="og:site_name" content="HaaliHealth" />
+      <meta property="og:site_name" content="Haali Health" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonical} />
