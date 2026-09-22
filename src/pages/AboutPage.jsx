@@ -81,7 +81,7 @@ export default function AboutPage() {
                 <blockquote className="mt-8 rounded-2xl border border-mint-300/50 bg-mint-50 p-6">
                   <Quote className="h-5 w-5 text-mint-600" aria-hidden="true" />
                   <p className="mt-3 text-lg font-bold leading-relaxed text-navy-900">
-                    {p('mission.pullQuote')}
+                    &ldquo;{p('mission.pullQuote')}&rdquo;
                   </p>
                 </blockquote>
               </Reveal>
