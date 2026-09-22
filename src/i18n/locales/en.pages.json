@@ -122,14 +122,14 @@
         {
           "name": "Husain Ali",
           "role": "Co-Founder",
-          "bio": "Public-safe biography to be provided by Haali Health before launch.",
+          "bio": "Husain has worked across healthcare environments where the effective use of data, technology and redesigned patient pathways can make a meaningful difference to both clinical outcomes and service delivery.\n\nHis experience implementing technology across different healthcare settings, combined with a strong interest in automation and AI, has given him a practical perspective on where digital health can add the greatest value.\n\nHe co-founded Haali Health to help close the information gaps that exist across the patient journey and to create technology that can support more continuous, efficient and accessible care.",
           "photo": "/media/team/husain-ali.webp",
           "linkedin": "https://www.linkedin.com/in/husain-ali-26453252/"
         },
         {
-          "name": "samir Dhalla",
+          "name": "Samir Dhalla",
           "role": "Co-Founder",
-          "bio": "Public-safe biography to be provided by Haali Health before launch.",
+          "bio": "Samir brings together clinical experience and senior healthcare technology leadership, with more than 15 years spent working across digital health, clinical informatics and health data.\n\nHaving started his career as a pharmacist, he has since led teams and healthcare technology programmes across the UK, EU-5 and wider international markets, working with electronic health records, real-world data, AI-enabled solutions and digital patient pathways.\n\nHis experience in understanding both the clinical and technology sides of healthcare helped shape Haali's focus on closing the information gap between appointments and giving clinicians better visibility of the patients they care for.\n\nSamir was recognised among the Top 100 Asians in UK Tech.",
           "photo": "/media/team/samir-dhalla.webp",
           "linkedin": "https://www.linkedin.com/in/samirdhalla/"
         }
@@ -181,7 +181,9 @@
       {
         "id": "collect",
         "title": "2. Information we collect",
-        "body": ["When you request a demonstration or contact Haali, we may collect:"],
+        "body": [
+          "When you request a demonstration or contact Haali, we may collect:"
+        ],
         "bullets": [
           "full name — required;",
           "hospital or organisation — required;",
@@ -199,7 +201,9 @@
       {
         "id": "purpose",
         "title": "3. Why we use your information and legal basis",
-        "body": ["We use personal information to:"],
+        "body": [
+          "We use personal information to:"
+        ],
         "bullets": [
           "respond to enquiries;",
           "arrange and conduct demonstrations;",
@@ -244,7 +248,10 @@
           "No internet or information system can be guaranteed to be completely secure."
         ],
         "bullets": [],
-        "link": { "label": "Security & Governance", "href": "/#security" }
+        "link": {
+          "label": "Security & Governance",
+          "href": "/#security"
+        }
       },
       {
         "id": "rights",

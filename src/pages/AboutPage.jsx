@@ -272,7 +272,13 @@ export default function AboutPage() {
 
                     <h3 className="mt-4 text-lg font-extrabold text-navy-900">{founder.name}</h3>
                     <p className="mt-1 text-sm font-bold text-mint-700">{founder.role}</p>
-                    <p className="mt-3 text-sm leading-relaxed text-navy-800/65">{founder.bio}</p>
+                    <div className="mt-3 space-y-3 text-sm leading-relaxed text-navy-800/65">
+                      {String(founder.bio)
+                        .split(/\n\s*\n/)
+                        .map((para, j) => (
+                          <p key={j}>{para}</p>
+                        ))}
+                    </div>
 
                     {founder.linkedin && (
                       <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-navy-800/70 transition-colors group-hover:text-mint-700">
