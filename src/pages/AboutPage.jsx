@@ -321,20 +321,46 @@ export default function AboutPage() {
                 {p('team.contact.body')}
               </p>
 
-              <div className="mt-7 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-8">
+              {/*
+                Primary actions lead; the direct-contact icons sit below a
+                hairline as the quieter fallback rather than competing with the
+                buttons for attention.
+              */}
+              <div className="mt-7 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
+                <Link to="/#contact" className="btn-primary">
+                  {p('team.contact.primary')}
+                </Link>
+                <Link to="/#contact" className="btn-outline">
+                  <Mail className="h-4 w-4" aria-hidden="true" />
+                  {p('team.contact.secondary')}
+                </Link>
+              </div>
+
+              <div className="mt-8 flex items-center justify-center gap-2 border-t border-navy-100 pt-6">
+                {/*
+                  Collapsed to an icon, expanding to the full address on hover
+                  or keyboard focus. The 0fr → 1fr grid track is what makes the
+                  reveal animate to the text's real width; max-width would have
+                  to guess at it.
+                */}
                 <a
                   href="mailto:info@haalihealth.com"
-                  className="inline-flex items-center gap-2 text-sm font-bold text-navy-800/75 transition-colors hover:text-mint-700"
-                  dir="ltr"
+                  aria-label="info@haalihealth.com"
+                  className="group/mail flex h-10 items-center rounded-xl border border-navy-800/15 px-3 text-navy-800/60 transition-colors hover:border-mint-600/60 hover:text-mint-700 focus-visible:border-mint-600/60 focus-visible:text-mint-700 focus-visible:outline-none"
                 >
                   <Mail className="h-4 w-4 shrink-0" aria-hidden="true" />
-                  info@haalihealth.com
+                  <span
+                    className="grid grid-cols-[0fr] transition-[grid-template-columns] duration-300 ease-out group-hover/mail:grid-cols-[1fr] group-focus-visible/mail:grid-cols-[1fr]"
+                    aria-hidden="true"
+                  >
+                    <span className="overflow-hidden">
+                      <span className="block whitespace-nowrap ps-2 text-sm font-bold" dir="ltr">
+                        info@haalihealth.com
+                      </span>
+                    </span>
+                  </span>
                 </a>
-                {/*
-                  Icon only — the URL itself carries no information a reader
-                  needs, so aria-label does the naming the visible text used to.
-                  Matches the icon button in the footer.
-                */}
+
                 <a
                   href="https://www.linkedin.com/company/haali-health"
                   target="_blank"
@@ -344,16 +370,6 @@ export default function AboutPage() {
                 >
                   <Linkedin className="h-4 w-4" aria-hidden="true" />
                 </a>
-              </div>
-
-              <div className="mt-7 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
-                <Link to="/#contact" className="btn-primary">
-                  {p('team.contact.primary')}
-                </Link>
-                <Link to="/#contact" className="btn-outline">
-                  <Mail className="h-4 w-4" aria-hidden="true" />
-                  {p('team.contact.secondary')}
-                </Link>
               </div>
             </div>
           </Reveal>
