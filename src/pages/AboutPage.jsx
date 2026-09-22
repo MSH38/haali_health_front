@@ -249,12 +249,27 @@ export default function AboutPage() {
                 <Reveal key={i} delay={i * 100}>
                   <Card
                     {...linkProps}
-                    className={`card h-full text-center ${
+                    className={`card relative h-full text-center ${
                       founder.linkedin
                         ? 'group block cursor-pointer transition-transform duration-200 hover:-translate-y-1 focus-visible:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mint-600 focus-visible:ring-offset-2'
                         : ''
                     }`}
                   >
+                    {/*
+                      The whole card is the link, so this is an affordance, not
+                      a second target — hence aria-hidden. Pinning it to the
+                      top start corner keeps it in the same spot on every card
+                      regardless of how long the bio below runs.
+                    */}
+                    {founder.linkedin && (
+                      <span
+                        className="absolute top-5 grid h-9 w-9 place-items-center rounded-lg bg-navy-50 text-navy-800/55 transition-colors group-hover:bg-mint-400 group-hover:text-navy-900 ltr:left-5 rtl:right-5"
+                        aria-hidden="true"
+                      >
+                        <Linkedin className="h-4 w-4" />
+                      </span>
+                    )}
+
                     {founder.photo ? (
                       <img
                         src={founder.photo}
@@ -285,13 +300,6 @@ export default function AboutPage() {
                           <p key={j}>{para}</p>
                         ))}
                     </div>
-
-                    {founder.linkedin && (
-                      <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-navy-800/70 transition-colors group-hover:text-mint-700">
-                        <Linkedin className="h-4 w-4" aria-hidden="true" />
-                        {p('team.linkedin')}
-                      </span>
-                    )}
                   </Card>
                 </Reveal>
               )
