@@ -169,16 +169,28 @@ export default function VbhcAnalytics() {
                       aria-hidden="true"
                     />
                   )}
-                  <div className="flex items-center gap-3">
-                    <span className="relative z-10 grid h-7 w-7 shrink-0 place-items-center rounded-full border border-navy-200 bg-white text-[11px] font-extrabold tabular-nums text-navy-800/70">
+                  {/*
+                    Desktop rail: half-line, circle, half-line — so the circle
+                    lands on the cell's centre line, directly above its label.
+                    The outer halves are transparent (not absent) to keep every
+                    circle on the same centre regardless of position.
+                  */}
+                  <div className="flex items-center">
+                    <span
+                      className={`hidden h-px flex-1 lg:block ${i === 0 ? 'bg-transparent' : 'bg-navy-200'}`}
+                      aria-hidden="true"
+                    />
+                    <span className="relative z-10 grid h-7 w-7 shrink-0 place-items-center rounded-full border border-navy-200 bg-white text-[11px] font-extrabold tabular-nums text-navy-800/70 lg:mx-2">
                       {i + 1}
                     </span>
-                    {/* Horizontal rail (desktop) */}
-                    {i < steps.length - 1 && (
-                      <span className="hidden h-px flex-1 bg-navy-200 lg:block" aria-hidden="true" />
-                    )}
+                    <span
+                      className={`hidden h-px flex-1 lg:block ${
+                        i === steps.length - 1 ? 'bg-transparent' : 'bg-navy-200'
+                      }`}
+                      aria-hidden="true"
+                    />
                   </div>
-                  <p className="self-center text-[13px] font-bold leading-snug text-navy-900 lg:mt-3 lg:pe-4">
+                  <p className="self-center text-[13px] font-bold leading-snug text-navy-900 lg:mt-3 lg:px-2 lg:text-center">
                     {stage}
                   </p>
                 </li>
