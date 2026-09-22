@@ -10,7 +10,7 @@
   },
   "about": {
     "meta": {
-      "title": "About Haali Health — Closing the information gap in chronic care",
+      "title": "About Haali Health, Closing the information gap in chronic care",
       "description": "Haali Health was created to make the period between appointments more visible, structured and clinically useful for healthcare providers across Saudi Arabia and the GCC."
     },
     "breadcrumb": "About",
@@ -19,7 +19,7 @@
       "title": "Closing the information gap in chronic care.",
       "body": [
         "People live with chronic conditions every day, while clinical care is often organised around individual appointments.",
-        "What happens between those appointments — changes in symptoms, medication use, self-management, wellbeing and new concerns — can remain difficult for clinical teams to see.",
+        "What happens between those appointments, changes in symptoms, medication use, self-management, wellbeing and new concerns, can remain difficult for clinical teams to see.",
         "Haali Health was created to make that period more visible, structured and clinically useful."
       ]
     },
@@ -29,7 +29,7 @@
       "body": [
         "Chronic care does not stop when a patient leaves an appointment.",
         "Haali helps healthcare providers maintain structured contact with patients before and between visits, turning what patients report into information that clinical teams can review and use.",
-        "The aim is not to replace the consultation. It is to help make sure the consultation — and the care between consultations — starts with a better picture of what has actually been happening."
+        "The aim is not to replace the consultation. It is to help make sure the consultation, and the care between consultations, starts with a better picture of what has actually been happening."
       ],
       "pullQuote": "We are not trying to replace the consultation. We are trying to make sure the clinical team has more of the patient story when it matters."
     },
@@ -41,7 +41,7 @@
         {
           "icon": "user-check",
           "title": "Clinicians remain in control.",
-          "body": "Haali can gather, clarify and structure patient-reported information, but clinical judgement stays with authorised healthcare professionals. AI should extend the clinical team's ability to follow patients — not take clinical decisions away from them.",
+          "body": "Haali can gather, clarify and structure patient-reported information, but clinical judgement stays with authorised healthcare professionals. AI should extend the clinical team's ability to follow patients, not take clinical decisions away from them.",
           "point": "Clinician control by design."
         },
         {
@@ -83,7 +83,7 @@
     "extensibility": {
       "eyebrow": "Clinical Extensibility",
       "title": "Starting deliberately narrow, engineered to go wide.",
-      "body": "Haali is starting with Type 2 Diabetes — a chronic-care pathway where regular follow-up, medication use, patient-reported concerns and longitudinal outcomes are particularly important. Starting with one pathway allows the clinical workflow, safety model, patient conversation and structured outputs to be developed and validated with appropriate depth before the platform expands.",
+      "body": "Haali is starting with Type 2 Diabetes, a chronic-care pathway where regular follow-up, medication use, patient-reported concerns and longitudinal outcomes are particularly important. Starting with one pathway allows the clinical workflow, safety model, patient conversation and structured outputs to be developed and validated with appropriate depth before the platform expands.",
       "note": "Future pathways are subject to clinical development, validation and provider priorities.",
       "phases": [
         {
@@ -109,7 +109,7 @@
       "body": [
         "Haali Health is focused on a simple problem: healthcare teams are responsible for patients over time, but much of the information available to them is still captured at isolated moments.",
         "We believe routine patient follow-up can become part of the clinical information infrastructure rather than remaining dependent on repeated manual calls, disconnected questionnaires or information that never reaches the care team in a structured form.",
-        "Haali is being built to help close that gap — combining low-friction patient conversations, structured clinical information, clinician oversight and longitudinal measurement in one continuous workflow."
+        "Haali is being built to help close that gap, combining low-friction patient conversations, structured clinical information, clinician oversight and longitudinal measurement in one continuous workflow."
       ],
       "closing": "Better visibility between appointments. Better information when clinical teams need it."
     },
@@ -144,7 +144,7 @@
   },
   "privacy": {
     "meta": {
-      "title": "Privacy Policy — Haali Health Ltd",
+      "title": "Privacy Policy, Haali Health Ltd",
       "description": "How Haali Health Ltd collects and uses personal information when you visit the Haali Health website, contact us or request a demonstration."
     },
     "breadcrumb": "Privacy Policy",
@@ -185,11 +185,11 @@
           "When you request a demonstration or contact Haali, we may collect:"
         ],
         "bullets": [
-          "full name — required;",
-          "hospital or organisation — required;",
-          "professional email address — required;",
-          "role or job title — required;",
-          "area of interest or other information you choose to provide — optional; and",
+          "full name, required;",
+          "hospital or organisation, required;",
+          "professional email address, required;",
+          "role or job title, required;",
+          "area of interest or other information you choose to provide, optional; and",
           "correspondence with Haali Health Ltd."
         ],
         "after": [
@@ -287,7 +287,7 @@
         "title": "9. Contact and complaints",
         "body": [
           "If you have a question about this Privacy Policy, want to exercise a privacy right or wish to raise a privacy concern, contact:",
-          "Haali Health Ltd — info@haalihealth.com",
+          "Haali Health Ltd, info@haalihealth.com",
           "Where the Saudi Personal Data Protection Law applies, you may also have the right to raise a complaint with the Saudi Data & AI Authority (SDAIA) in accordance with the applicable complaint process."
         ],
         "bullets": []

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "Haali Health — Continuous Patient Follow-Up for Saudi & GCC Providers",
+    "title": "Haali Health, Continuous Patient Follow-Up for Saudi & GCC Providers",
     "description": "Haali Health runs AI-powered telephone follow-up in Arabic and English, turning what patients report between appointments into structured, clinician-reviewed information that supports outcomes measurement and Value-Based Healthcare.",
     "ogLocale": "en_US"
   },
@@ -20,7 +20,7 @@
     "title": "without continuous clinician workload.",
     "titleAccent": "Continuous patient follow-up,",
     "subtitle": "AI-powered telephone conversations that keep clinical teams connected to patients before and between appointments.",
-    "body": "Haali speaks naturally with patients in Arabic and English, gathers pathway-relevant information, identifies concerns that may need attention, and turns each conversation into structured, reviewable clinical information — so care teams can focus their time where it matters most.",
+    "body": "Haali speaks naturally with patients in Arabic and English, gathers pathway-relevant information, identifies concerns that may need attention, and turns each conversation into structured, reviewable clinical information, so care teams can focus their time where it matters most.",
     "ctaPrimary": "Book a Demo",
     "ctaSecondary": "See How Haali Works",
     "trustLabel": "Saudi-first. Designed for country-specific requirements across the GCC.",
@@ -71,7 +71,7 @@
   },
   "how": {
     "eyebrow": "How it works",
-    "title": "One continuous follow-up loop — before, between and after appointments.",
+    "title": "One continuous follow-up loop, before, between and after appointments.",
     "subtitle": "Haali reaches patients by phone, gathers the information relevant to their pathway, structures what they report, and puts the right evidence in front of the clinical team for review.",
     "steps": [
       {
@@ -117,7 +117,7 @@
   },
   "clinicalAi": {
     "eyebrow": "Clinical AI & Safety",
-    "title": "AI that supports clinical teams — without taking clinical decisions away from them.",
+    "title": "AI that supports clinical teams, without taking clinical decisions away from them.",
     "subtitle": "Haali uses AI to conduct natural patient conversations, clarify responses, structure what patients report and highlight information that may need attention. Clinical decisions remain with authorised healthcare professionals.",
     "cards": [
       {
@@ -234,7 +234,7 @@
   "vbhc": {
     "eyebrow": "VBHC & Analytics",
     "title": "Turn continuous follow-up into outcomes intelligence.",
-    "subtitle": "Haali transforms patient follow-up into structured, longitudinal information that healthcare leaders can analyse across patients, pathways and populations. See who is being reached, where clinical review is needed, how patient-reported and pathway measures are changing, and what follow-up activity means for clinical capacity — creating a stronger information foundation for service improvement and Value-Based Healthcare (VBHC).",
+    "subtitle": "Haali transforms patient follow-up into structured, longitudinal information that healthcare leaders can analyse across patients, pathways and populations. See who is being reached, where clinical review is needed, how patient-reported and pathway measures are changing, and what follow-up activity means for clinical capacity, creating a stronger information foundation for service improvement and Value-Based Healthcare (VBHC).",
     "chainTitle": "From conversation to Value-Based Healthcare",
     "chain": [
       "Patient Follow-Up",
@@ -371,7 +371,7 @@
     ],
     "closing": {
       "title": "Supporting Value-Based Healthcare",
-      "body": "Value-Based Healthcare requires providers to understand outcomes across patient populations alongside the resources used to deliver care. Haali helps create the longitudinal information layer needed to support that measurement — connecting what patients report between appointments with clinical review, pathway performance and population-level insight."
+      "body": "Value-Based Healthcare requires providers to understand outcomes across patient populations alongside the resources used to deliver care. Haali helps create the longitudinal information layer needed to support that measurement, connecting what patients report between appointments with clinical review, pathway performance and population-level insight."
     },
     "cta": {
       "prompt": "Explore what this could look like for your pathway",
@@ -437,9 +437,9 @@
     ],
     "alignmentTitle": "Standards informing the design",
     "alignment": [
-      "ISO 27799 — healthcare information-security controls informing Haali's health-data security design.",
-      "ISO/IEC 27017 / 27018 — cloud security and cloud privacy controls informing hosting and processor due diligence.",
-      "Saudi-first, country-specific authorisation — Saudi/SFDA requirements assessed first, followed by the applicable national requirements for the UAE, Qatar, Bahrain, Kuwait and Oman as commercial deployment expands."
+      "ISO 27799, healthcare information-security controls informing Haali's health-data security design.",
+      "ISO/IEC 27017 / 27018, cloud security and cloud privacy controls informing hosting and processor due diligence.",
+      "Saudi-first, country-specific authorisation, Saudi/SFDA requirements assessed first, followed by the applicable national requirements for the UAE, Qatar, Bahrain, Kuwait and Oman as commercial deployment expands."
     ],
     "integrationEyebrow": "Integration Readiness",
     "integrationTitle": "Designed to fit into your existing HIS / EHR ecosystem",
@@ -451,7 +451,7 @@
       },
       {
         "icon": "code",
-        "label": "REST APIs & webhooks — configured per deployment"
+        "label": "REST APIs & webhooks, configured per deployment"
       },
       {
         "icon": "refresh-cw",
@@ -467,7 +467,7 @@
   "contact": {
     "eyebrow": "Book a Demo",
     "title": "See Haali working on a pathway relevant to your organisation.",
-    "subtitle": "Book a focused walkthrough of the Haali workflow — from patient follow-up and structured clinical information to clinician review, analytics and future interoperability. We can discuss how the model could fit one of your chronic-care pathways and the outcomes or Value-Based Healthcare priorities you are working toward.",
+    "subtitle": "Book a focused walkthrough of the Haali workflow, from patient follow-up and structured clinical information to clinician review, analytics and future interoperability. We can discuss how the model could fit one of your chronic-care pathways and the outcomes or Value-Based Healthcare priorities you are working toward.",
     "assurances": [
       "See the patient-to-clinician workflow in action",
       "Explore clinical workflow, integration and deployment questions",
@@ -502,7 +502,7 @@
       ],
       "submit": "Request a Demo",
       "submitting": "Sending…",
-      "success": "Thank you — we will be in touch within one working day.",
+      "success": "Thank you, we will be in touch within one working day.",
       "successNote": "A member of the team will contact you to arrange the walkthrough.",
       "again": "Submit another request",
       "privacy": "We use your details to respond to your enquiry and arrange the demo. We do not sell your contact information.",
