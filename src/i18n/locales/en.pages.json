@@ -219,19 +219,8 @@
         ]
       },
       {
-        "id": "sharing",
-        "title": "4. Who we share information with and where it is processed",
-        "body": [
-          "Haali Health Ltd may use service providers that support the operation of the website and our business, such as website hosting, form-processing, business email, cybersecurity or professional-services providers.",
-          "Website and demo/contact-form information is processed and stored using: [DEVELOPER MUST INSERT THE ACTUAL WEBSITE/FORM HOSTING PROVIDER, PROCESSING LOCATION(S), AND WHETHER PROCESSING OCCURS INSIDE OR OUTSIDE SAUDI ARABIA].",
-          "Where personal information is transferred, disclosed or processed outside Saudi Arabia and the Saudi Personal Data Protection Law applies, Haali Health Ltd will apply the requirements and safeguards required by applicable law.",
-          "We may also disclose personal information where required by law, a competent regulatory authority, a court or another legally authorised body."
-        ],
-        "bullets": []
-      },
-      {
         "id": "retention",
-        "title": "5. How long we keep information",
+        "title": "4. How long we keep information",
         "body": [
           "Haali Health Ltd retains personal information only for as long as it is reasonably required for the purpose for which it was collected and for any applicable legal, regulatory, contractual or legitimate business record-keeping requirement.",
           "For website enquiries and demonstration requests, this generally means retaining the information while the enquiry or potential business relationship remains active and thereafter only for as long as reasonably necessary for those purposes.",
@@ -241,7 +230,7 @@
       },
       {
         "id": "security",
-        "title": "6. Security",
+        "title": "5. Security",
         "body": [
           "Haali Health Ltd uses organisational and technical measures intended to protect personal information against unauthorised access, loss, alteration, disclosure or misuse.",
           "The measures used depend on the nature of the information and the relevant technical environment. Further information about Haali's approach to access control, encryption, auditability, deployment requirements and assurance is available in Security & Governance.",
@@ -255,7 +244,7 @@
       },
       {
         "id": "rights",
-        "title": "7. Your privacy rights",
+        "title": "6. Your privacy rights",
         "body": [
           "Depending on the applicable law and circumstances, you may have rights relating to your personal information, including rights to:"
         ],
@@ -274,7 +263,7 @@
       },
       {
         "id": "technologies",
-        "title": "8. Website technologies",
+        "title": "7. Website technologies",
         "body": [
           "The Haali Health website may use technical functionality and server logs necessary to operate, secure and maintain the website.",
           "Haali Health Ltd does not currently use non-essential analytics, advertising pixels or behavioural tracking technologies.",
@@ -284,7 +273,7 @@
       },
       {
         "id": "contact",
-        "title": "9. Contact and complaints",
+        "title": "8. Contact and complaints",
         "body": [
           "If you have a question about this Privacy Policy, want to exercise a privacy right or wish to raise a privacy concern, contact:",
           "Haali Health Ltd, info@haalihealth.com",
@@ -294,7 +283,7 @@
       },
       {
         "id": "changes",
-        "title": "10. Changes to this Privacy Policy",
+        "title": "9. Changes to this Privacy Policy",
         "body": [
           "We may update this Privacy Policy to reflect changes to our website, services, processing activities, technologies or applicable legal and regulatory requirements.",
           "The current version and its last-updated date will be published on this page."
