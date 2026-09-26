@@ -1,0 +1,295 @@
+{
+  "common": {
+    "home": "Home",
+    "lastUpdated": "Last updated",
+    "onThisPage": "On this page",
+    "ctaTitle": "See Haali working on a pathway relevant to your organisation.",
+    "ctaBody": "A focused walkthrough of the Haali workflow with our clinical and integration team.",
+    "ctaButton": "Book a Demo",
+    "ctaSecondary": "Talk to our team"
+  },
+  "about": {
+    "meta": {
+      "title": "About Haali Health, Closing the information gap in chronic care",
+      "description": "Haali Health was created to make the period between appointments more visible, structured and clinically useful for healthcare providers across Saudi Arabia and the GCC."
+    },
+    "breadcrumb": "About",
+    "hero": {
+      "eyebrow": "About Haali Health",
+      "title": "Closing the information gap in chronic care.",
+      "body": [
+        "People live with chronic conditions every day, while clinical care is often organised around individual appointments.",
+        "What happens between those appointments, changes in symptoms, medication use, self-management, wellbeing and new concerns, can remain difficult for clinical teams to see.",
+        "Haali Health was created to make that period more visible, structured and clinically useful."
+      ]
+    },
+    "mission": {
+      "eyebrow": "Our Mission",
+      "title": "Care is continuous. Clinical information should be too.",
+      "body": [
+        "Chronic care does not stop when a patient leaves an appointment.",
+        "Haali helps healthcare providers maintain structured contact with patients before and between visits, turning what patients report into information that clinical teams can review and use.",
+        "The aim is not to replace the consultation. It is to help make sure the consultation, and the care between consultations, starts with a better picture of what has actually been happening."
+      ],
+      "pullQuote": "We are not trying to replace the consultation. We are trying to make sure the clinical team has more of the patient story when it matters."
+    },
+    "philosophy": {
+      "eyebrow": "Our Principles",
+      "title": "Three principles we will not compromise on.",
+      "subtitle": "These are design principles that shape how Haali is built.",
+      "cards": [
+        {
+          "icon": "user-check",
+          "title": "Clinicians remain in control.",
+          "body": "Haali can gather, clarify and structure patient-reported information, but clinical judgement stays with authorised healthcare professionals. AI should extend the clinical team's ability to follow patients, not take clinical decisions away from them.",
+          "point": "Clinician control by design."
+        },
+        {
+          "icon": "phone-call",
+          "title": "Access should be low-friction.",
+          "body": "Technology should make follow-up easier for patients, not introduce another barrier. Haali is designed around a familiar interaction: answering a telephone call and having a natural conversation, without requiring a patient app, portal account or new digital routine.",
+          "point": "Technology should reduce barriers, not create them."
+        },
+        {
+          "icon": "line-chart",
+          "title": "Care should be understood longitudinally.",
+          "body": "An individual encounter provides one point in time. Chronic-care decisions often depend on understanding what is changing between those encounters. Haali is designed to build a structured longitudinal view of what patients report over time.",
+          "point": "See the trajectory, not only the encounter."
+        }
+      ]
+    },
+    "regional": {
+      "eyebrow": "Saudi First. GCC by Design.",
+      "title": "Built around the healthcare environment it is intended to serve.",
+      "body": "Haali is being developed from the Saudi healthcare context outward rather than taking a generic product and changing the interface for a new market. That influences the clinical content, language experience, workflow, interoperability approach and deployment requirements behind the platform.",
+      "points": [
+        {
+          "icon": "clipboard-list",
+          "title": "Saudi-first clinical design",
+          "body": "Haali's initial Type 2 Diabetes pathway is being developed around approved Saudi clinical guidance and the requirements of provider-led chronic-care follow-up. Clinical pathways can then be adapted and governed for the market and organisation in which they are deployed."
+        },
+        {
+          "icon": "mic",
+          "title": "Arabic and English by design",
+          "body": "Haali is designed for natural patient conversations in Arabic and English, including the realities of conversational and mixed-language communication. Language capability is treated as part of the clinical experience, not simply as interface translation."
+        },
+        {
+          "icon": "globe",
+          "title": "Designed to extend across the GCC",
+          "body": "The underlying platform is intended to support deployment across GCC healthcare systems while allowing clinical, regulatory, integration, hosting and operational requirements to be configured market by market. Saudi first. GCC by design."
+        }
+      ]
+    },
+    "extensibility": {
+      "eyebrow": "Clinical Extensibility",
+      "title": "Starting deliberately narrow, engineered to go wide.",
+      "body": "Haali is starting with Type 2 Diabetes, a chronic-care pathway where regular follow-up, medication use, patient-reported concerns and longitudinal outcomes are particularly important. Starting with one pathway allows the clinical workflow, safety model, patient conversation and structured outputs to be developed and validated with appropriate depth before the platform expands.",
+      "note": "Future pathways are subject to clinical development, validation and provider priorities.",
+      "phases": [
+        {
+          "status": "Initial pathway",
+          "title": "Type 2 Diabetes",
+          "body": "Pre-appointment information gathering · between-visit follow-up · medication adherence · patient-reported symptoms and concerns · pathway measures · clinician review"
+        },
+        {
+          "status": "Designed to extend",
+          "title": "Additional chronic-care pathways",
+          "body": "The same underlying follow-up model can be configured for additional chronic conditions as new pathways are clinically developed and validated."
+        },
+        {
+          "status": "Future extensibility",
+          "title": "Recovery and longer-term follow-up",
+          "body": "The architecture is also designed to support other structured follow-up use cases where longitudinal patient-reported information can improve visibility between clinical encounters."
+        }
+      ]
+    },
+    "why": {
+      "eyebrow": "Why We Built Haali",
+      "title": "The appointment should not be the only time the patient becomes visible.",
+      "body": [
+        "Haali Health is focused on a simple problem: healthcare teams are responsible for patients over time, but much of the information available to them is still captured at isolated moments.",
+        "We believe routine patient follow-up can become part of the clinical information infrastructure rather than remaining dependent on repeated manual calls, disconnected questionnaires or information that never reaches the care team in a structured form.",
+        "Haali is being built to help close that gap, combining low-friction patient conversations, structured clinical information, clinician oversight and longitudinal measurement in one continuous workflow."
+      ],
+      "closing": "Better visibility between appointments. Better information when clinical teams need it."
+    },
+    "team": {
+      "eyebrow": "Who We Are",
+      "title": "Built by people who understand healthcare, technology and the gap between them.",
+      "photoLabel": "Photo to follow",
+      "linkedin": "LinkedIn profile",
+      "founders": [
+        {
+          "name": "Husain Ali",
+          "role": "Co-Founder",
+          "bio": "Husain has worked across healthcare environments where the effective use of data, technology and redesigned patient pathways can make a meaningful difference to both clinical outcomes and service delivery.\n\nHis experience implementing technology across different healthcare settings, combined with a strong interest in automation and AI, has given him a practical perspective on where digital health can add the greatest value.\n\nHe co-founded Haali Health to help close the information gaps that exist across the patient journey and to create technology that can support more continuous, efficient and accessible care.",
+          "photo": "/media/team/husain-ali.webp",
+          "linkedin": "https://www.linkedin.com/in/husain-ali-26453252/"
+        },
+        {
+          "name": "Samir Dhalla",
+          "role": "Co-Founder",
+          "bio": "Samir brings together clinical experience and senior healthcare technology leadership, with more than 15 years spent working across digital health, clinical informatics and health data.\n\nHaving started his career as a pharmacist, he has since led teams and healthcare technology programmes across the UK, EU-5 and wider international markets, working with electronic health records, real-world data, AI-enabled solutions and digital patient pathways.\n\nHis experience in understanding both the clinical and technology sides of healthcare helped shape Haali's focus on closing the information gap between appointments and giving clinicians better visibility of the patients they care for.\n\nSamir was recognised among the Top 100 Asians in UK Tech.",
+          "photo": "/media/team/samir-dhalla.webp",
+          "linkedin": "https://www.linkedin.com/in/samirdhalla/"
+        }
+      ],
+      "contact": {
+        "title": "Speak to the team",
+        "body": "Have a question about Haali, a pathway or a potential deployment? Get in touch with the team.",
+        "primary": "Book a Demo",
+        "secondary": "Email Haali Health"
+      }
+    }
+  },
+  "privacy": {
+    "meta": {
+      "title": "Privacy Policy, Haali Health Ltd",
+      "description": "How Haali Health Ltd collects and uses personal information when you visit the Haali Health website, contact us or request a demonstration."
+    },
+    "breadcrumb": "Privacy Policy",
+    "hero": {
+      "eyebrow": "Legal",
+      "title": "Privacy Policy",
+      "subtitle": "Haali Health Ltd respects your privacy and is committed to handling personal information responsibly and transparently."
+    },
+    "updated": "21 September 2026",
+    "disclaimer": "This Privacy Policy explains how we collect and use personal information when you visit the Haali Health website, contact us, request a demonstration or otherwise interact with Haali Health Ltd in a business context. It primarily covers information for which Haali Health Ltd determines why and how it is used. When Haali is deployed by a healthcare provider to process patient information, additional provider-specific privacy and data-processing arrangements will apply.",
+    "callout": {
+      "title": "Healthcare-provider deployments",
+      "body": "When Haali Health is deployed by a healthcare provider to process real patient information, additional provider-specific privacy and data-processing arrangements will apply. These will be agreed with the healthcare organisation before real patient data is processed."
+    },
+    "sections": [
+      {
+        "id": "scope",
+        "title": "1. Who we are and scope",
+        "body": [
+          "Haali Health Ltd operates the Haali Health website and is responsible for the personal information described in this Privacy Policy.",
+          "This policy applies to information collected through:"
+        ],
+        "bullets": [
+          "the Haali Health website;",
+          "demo and contact forms;",
+          "direct business enquiries and email communications;",
+          "interactions with Haali Health representatives; and",
+          "essential website, technical and security logs."
+        ],
+        "after": [
+          "This policy does not by itself govern all processing of patient health information undertaken when Haali is deployed by a hospital, clinic or other healthcare provider. Those arrangements will be governed by the relevant provider-specific privacy information, contractual terms and Data Processing Agreement."
+        ]
+      },
+      {
+        "id": "collect",
+        "title": "2. Information we collect",
+        "body": [
+          "When you request a demonstration or contact Haali, we may collect:"
+        ],
+        "bullets": [
+          "full name, required;",
+          "hospital or organisation, required;",
+          "professional email address, required;",
+          "role or job title, required;",
+          "area of interest or other information you choose to provide, optional; and",
+          "correspondence with Haali Health Ltd."
+        ],
+        "after": [
+          "Please do not submit patient health information through the website contact or demo-request forms.",
+          "The website may also generate limited technical information necessary to operate and secure the service, such as IP address, browser/device information, date and time of access and technical or security logs.",
+          "If you do not provide information marked as required, we may be unable to respond to your enquiry or arrange a demonstration."
+        ]
+      },
+      {
+        "id": "purpose",
+        "title": "3. Why we use your information and legal basis",
+        "body": [
+          "We use personal information to:"
+        ],
+        "bullets": [
+          "respond to enquiries;",
+          "arrange and conduct demonstrations;",
+          "communicate with prospective healthcare organisations, partners and other business contacts;",
+          "operate, maintain and secure the website;",
+          "investigate technical or security issues;",
+          "maintain appropriate business records; and",
+          "comply with applicable legal or regulatory obligations."
+        ],
+        "after": [
+          "Depending on the circumstances, we process personal information with your consent, where processing is necessary for a lawful legitimate interest that does not override your rights and interests, to implement an agreement to which you are a party, to comply with applicable law, or on another legal basis permitted by applicable data-protection law.",
+          "Submitting a demo request or business enquiry does not subscribe you to an unrelated marketing mailing list. If Haali Health Ltd introduces direct marketing in future, we will implement the consent and opt-out controls required by applicable law before doing so."
+        ]
+      },
+      {
+        "id": "retention",
+        "title": "4. How long we keep information",
+        "body": [
+          "Haali Health Ltd retains personal information only for as long as it is reasonably required for the purpose for which it was collected and for any applicable legal, regulatory, contractual or legitimate business record-keeping requirement.",
+          "For website enquiries and demonstration requests, this generally means retaining the information while the enquiry or potential business relationship remains active and thereafter only for as long as reasonably necessary for those purposes.",
+          "When personal information is no longer required, it will be securely deleted, destroyed or anonymised as appropriate."
+        ],
+        "bullets": []
+      },
+      {
+        "id": "security",
+        "title": "5. Security",
+        "body": [
+          "Haali Health Ltd uses organisational and technical measures intended to protect personal information against unauthorised access, loss, alteration, disclosure or misuse.",
+          "The measures used depend on the nature of the information and the relevant technical environment. Further information about Haali's approach to access control, encryption, auditability, deployment requirements and assurance is available in Security & Governance.",
+          "No internet or information system can be guaranteed to be completely secure."
+        ],
+        "bullets": [],
+        "link": {
+          "label": "Security & Governance",
+          "href": "/#security"
+        }
+      },
+      {
+        "id": "rights",
+        "title": "6. Your privacy rights",
+        "body": [
+          "Depending on the applicable law and circumstances, you may have rights relating to your personal information, including rights to:"
+        ],
+        "bullets": [
+          "be informed about the legal basis and purpose for collecting your information;",
+          "access personal information held about you;",
+          "obtain a readable copy of personal information held about you;",
+          "request correction, completion or updating of inaccurate information;",
+          "request destruction of personal information where applicable; and",
+          "withdraw consent where processing is based on consent."
+        ],
+        "after": [
+          "To exercise a right relating to information controlled by Haali Health Ltd, contact us at info@haalihealth.com.",
+          "If Haali processes patient information solely on behalf of a healthcare provider, that provider will ordinarily be the primary point of contact for requests relating to that patient information, and Haali will support the provider as required by the applicable arrangement and law."
+        ]
+      },
+      {
+        "id": "technologies",
+        "title": "7. Website technologies",
+        "body": [
+          "The Haali Health website may use technical functionality and server logs necessary to operate, secure and maintain the website.",
+          "Haali Health Ltd does not currently use non-essential analytics, advertising pixels or behavioural tracking technologies.",
+          "If this changes, we will update this Privacy Policy and implement any required consent or preference controls before introducing those technologies."
+        ],
+        "bullets": []
+      },
+      {
+        "id": "contact",
+        "title": "8. Contact and complaints",
+        "body": [
+          "If you have a question about this Privacy Policy, want to exercise a privacy right or wish to raise a privacy concern, contact:",
+          "Haali Health Ltd, info@haalihealth.com",
+          "Where the Saudi Personal Data Protection Law applies, you may also have the right to raise a complaint with the Saudi Data & AI Authority (SDAIA) in accordance with the applicable complaint process."
+        ],
+        "bullets": []
+      },
+      {
+        "id": "changes",
+        "title": "9. Changes to this Privacy Policy",
+        "body": [
+          "We may update this Privacy Policy to reflect changes to our website, services, processing activities, technologies or applicable legal and regulatory requirements.",
+          "The current version and its last-updated date will be published on this page."
+        ],
+        "bullets": []
+      }
+    ]
+  }
+}

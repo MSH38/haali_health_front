@@ -1,0 +1,180 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem; /* clears the sticky navbar */
+  }
+
+  body {
+    @apply bg-white text-navy-800 antialiased;
+  }
+
+  /* Arabic typography: Tajawal, slightly looser leading for diacritic clearance */
+  html[dir='rtl'] body {
+    @apply font-arabic;
+    line-height: 1.85;
+  }
+
+  html[dir='ltr'] body {
+    @apply font-sans;
+  }
+
+  ::selection {
+    @apply bg-mint-300/40 text-navy-950;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-navy-500 ring-offset-2 ring-offset-white rounded-lg;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-mint-500/40
+           bg-mint-50 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-mint-700;
+  }
+
+  /* The logo's blue→green ramp, applied to text. */
+  .text-gradient {
+    @apply bg-brand-gradient bg-clip-text text-transparent;
+  }
+
+  /**
+   * Signature CTA — the full brand gradient, with a light sweep that loops
+   * every few seconds. Dark text keeps contrast high across the gradient.
+   */
+  .btn-gradient {
+    @apply btn relative isolate overflow-hidden bg-brand-gradient text-navy-950 shadow-card
+           hover:shadow-glow hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-gradient::after {
+    content: '';
+    @apply pointer-events-none absolute inset-y-0 start-0 -z-10 w-1/3
+           bg-gradient-to-r from-transparent via-white/45 to-transparent animate-shimmer;
+  }
+
+  /* Headline text that slowly cycles between brand green and blue. */
+  .text-spectrum {
+    @apply bg-spectrum-gradient bg-clip-text text-transparent animate-gradient-x;
+    background-size: 300% 100%;
+  }
+
+  .eyebrow-dark {
+    @apply inline-flex items-center gap-2 rounded-full border border-white/15
+           bg-white/5 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-mint-300;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3.5
+           text-sm font-semibold transition-all duration-200 whitespace-nowrap;
+  }
+
+  .btn-primary {
+    @apply btn bg-navy-800 text-white shadow-card
+           hover:bg-navy-700 hover:shadow-lift hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-mint {
+    @apply btn bg-mint-400 text-navy-950 shadow-card
+           hover:bg-mint-300 hover:shadow-glow hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-outline {
+    @apply btn border border-navy-800/15 bg-white/70 text-navy-800
+           hover:border-navy-800/30 hover:bg-white hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-outline-dark {
+    @apply btn border border-white/25 bg-white/5 text-white
+           hover:border-white/50 hover:bg-white/10 hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .card {
+    @apply rounded-2xl border border-navy-100 bg-white p-7 shadow-card
+           transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply relative overflow-hidden hover:-translate-y-1.5 hover:border-mint-300 hover:shadow-lift;
+  }
+
+  /* A brand-gradient line that draws along the top edge on hover. */
+  .card-hover::before {
+    content: '';
+    @apply pointer-events-none absolute inset-x-0 top-0 h-[3px] origin-left scale-x-0
+           bg-brand-gradient transition-transform duration-500 ease-out;
+  }
+
+  [dir='rtl'] .card-hover::before {
+    @apply origin-right;
+  }
+
+  .card-hover:hover::before {
+    @apply scale-x-100;
+  }
+
+  .h2 {
+    @apply text-3xl font-extrabold leading-[1.35] tracking-tight text-navy-900 sm:text-4xl sm:leading-[1.35] lg:text-[2.75rem];
+  }
+
+  .lede {
+    @apply text-base leading-relaxed text-navy-800/65 sm:text-lg sm:leading-relaxed;
+  }
+}
+
+/**
+ * Arabic headings need materially more leading than Latin ones.
+ *
+ * Tajawal carries tall diacritics above the baseline and deep descenders below
+ * it, so a tight display leading that looks sharp in Inter makes Arabic lines
+ * physically collide. Tailwind's `leading-*` utilities sit in the utilities
+ * layer and beat anything in @layer base, so these rules live outside the
+ * layers and win on specificity — (0,1,2) against a utility's (0,1,0).
+ *
+ * This is why it must be here and not a `leading-` class on each heading:
+ * every new heading would otherwise reintroduce the bug.
+ */
+html[dir='rtl'] h1 {
+  line-height: 1.45;
+}
+
+html[dir='rtl'] h2 {
+  line-height: 1.5;
+}
+
+html[dir='rtl'] h3,
+html[dir='rtl'] h4 {
+  line-height: 1.6;
+}
+
+/* Scroll-reveal: hidden until the observer adds .is-visible */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
