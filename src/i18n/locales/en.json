@@ -476,7 +476,9 @@
     ],
     "phone": "Prefer to talk? Call us on",
     "booking": {
-      "title": "Book your Haali demo",
+      "host": "Haali Health",
+      "event": "Haali Health | Smarter Healthcare, Better Outcomes",
+      "duration": "30 min",
       "loading": "Loading the booking calendar…",
       "fallback": "Calendar not loading?",
       "fallbackLink": "Open the booking page",
