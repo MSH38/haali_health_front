@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { ArrowUp, Linkedin, Mail } from 'lucide-react'
+import { ArrowUp, Linkedin, Mail, Phone } from 'lucide-react'
 import BrandLogo from './BrandLogo'
 
 /**
@@ -44,6 +44,13 @@ export default function Footer() {
                 className="grid h-10 w-10 place-items-center rounded-xl border border-navy-800/15 text-navy-800/60 transition-colors hover:border-mint-600/60 hover:text-mint-700"
               >
                 <Mail className="h-4 w-4" />
+              </a>
+              <a
+                href="tel:+96897786116"
+                aria-label="Phone"
+                className="grid h-10 w-10 place-items-center rounded-xl border border-navy-800/15 text-navy-800/60 transition-colors hover:border-mint-600/60 hover:text-mint-700"
+              >
+                <Phone className="h-4 w-4" />
               </a>
               <a
                 href="https://www.linkedin.com/company/haali-health"

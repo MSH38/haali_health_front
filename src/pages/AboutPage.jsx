@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { Linkedin, Mail, Quote, User } from 'lucide-react'
+import { Linkedin, Mail, Phone, Quote, User } from 'lucide-react'
 import PageHero from '../components/layout/PageHero'
 import StickyCta from '../components/layout/StickyCta'
 import Reveal from '../components/Reveal'
@@ -356,6 +356,24 @@ export default function AboutPage() {
                     <span className="overflow-hidden">
                       <span className="block whitespace-nowrap ps-2 text-sm font-bold" dir="ltr">
                         info@haalihealth.com
+                      </span>
+                    </span>
+                  </span>
+                </a>
+
+                <a
+                  href="tel:+96897786116"
+                  aria-label="+968 9778 6116"
+                  className="group/phone flex h-10 items-center rounded-xl border border-navy-800/15 px-3 text-navy-800/60 transition-colors hover:border-mint-600/60 hover:text-mint-700 focus-visible:border-mint-600/60 focus-visible:text-mint-700 focus-visible:outline-none"
+                >
+                  <Phone className="h-4 w-4 shrink-0" aria-hidden="true" />
+                  <span
+                    className="grid grid-cols-[0fr] transition-[grid-template-columns] duration-300 ease-out group-hover/phone:grid-cols-[1fr] group-focus-visible/phone:grid-cols-[1fr]"
+                    aria-hidden="true"
+                  >
+                    <span className="overflow-hidden">
+                      <span className="block whitespace-nowrap ps-2 text-sm font-bold" dir="ltr">
+                        +968 9778 6116
                       </span>
                     </span>
                   </span>
