@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { CheckCircle2, Clock, ExternalLink, Loader2, Mail, Phone } from 'lucide-react'
 import Reveal from './Reveal'
@@ -10,24 +10,18 @@ const CALENDLY_URL = import.meta.env.VITE_CALENDLY_URL || 'https://calendly.com/
 if (!/^https:\/\/calendly\.com\//.test(CALENDLY_URL)) {
   throw new Error(`VITE_CALENDLY_URL must be an https://calendly.com/ link, got "${CALENDLY_URL}"`)
 }
-const CALENDLY_SCRIPT = 'https://assets.calendly.com/assets/external/widget.js'
-
-// Loads Calendly's widget script once, no matter how many times the section mounts.
-let scriptPromise
-function loadCalendly() {
-  if (window.Calendly) return Promise.resolve(window.Calendly)
-  scriptPromise ??= new Promise((resolve, reject) => {
-    const s = document.createElement('script')
-    s.src = CALENDLY_SCRIPT
-    s.async = true
-    s.onload = () => resolve(window.Calendly)
-    s.onerror = () => {
-      scriptPromise = undefined
-      reject(new Error('Calendly failed to load'))
-    }
-    document.body.appendChild(s)
-  })
-  return scriptPromise
+// Brand colours, minus the leading '#'. Event details are shown by us above the
+// calendar, so Calendly's own side panel is hidden to keep the picker on top.
+// embed_* are the params Calendly's widget.js would add; setting them ourselves saves
+// loading that extra script before the iframe can start.
+function embedSrc() {
+  const url = new URL(CALENDLY_URL)
+  url.searchParams.set('embed_domain', window.location.host)
+  url.searchParams.set('embed_type', 'Inline')
+  url.searchParams.set('hide_gdpr_banner', '1')
+  url.searchParams.set('hide_event_type_details', '1')
+  url.searchParams.set('primary_color', '007a4e')
+  return url.toString()
 }
 
 export default function Contact() {
@@ -35,34 +29,38 @@ export default function Contact() {
   const b = t('contact.booking', { returnObjects: true })
   const assurances = t('contact.assurances', { returnObjects: true })
 
-  const widgetRef = useRef(null)
-  const [status, setStatus] = useState('loading') // loading | ready | error
+  const [src, setSrc] = useState(null)
+  const [loaded, setLoaded] = useState(false)
+  const [height, setHeight] = useState(560)
 
+  // Start Calendly only once the page itself has finished loading and the browser is idle,
+  // so the heavy booking app never competes with the main content (keeps Core Web Vitals,
+  // and so SEO, unaffected) yet is usually ready before visitors scroll down to it.
   useEffect(() => {
-    const el = widgetRef.current
-    let cancelled = false
-
-    // Brand colours, minus the leading '#'. Event details are shown by us above the
-    // calendar, so Calendly's own side panel is hidden to keep the picker on top.
-    const url = new URL(CALENDLY_URL)
-    url.searchParams.set('hide_gdpr_banner', '1')
-    url.searchParams.set('hide_event_type_details', '1')
-    url.searchParams.set('primary_color', '007a4e')
-
-    loadCalendly()
-      .then((Calendly) => {
-        if (cancelled || !el) return
-        el.innerHTML = ''
-        // resize: Calendly reports its content height, so the frame grows instead of scrolling.
-        Calendly.initInlineWidget({ url: url.toString(), parentElement: el, resize: true })
-        setStatus('ready')
-      })
-      .catch(() => !cancelled && setStatus('error'))
-
-    return () => {
-      cancelled = true
-      if (el) el.innerHTML = ''
+    let idleId
+    const start = () => {
+      idleId = window.requestIdleCallback
+        ? window.requestIdleCallback(() => setSrc(embedSrc()), { timeout: 2000 })
+        : window.setTimeout(() => setSrc(embedSrc()), 200)
     }
+    if (document.readyState === 'complete') start()
+    else window.addEventListener('load', start, { once: true })
+    return () => {
+      window.removeEventListener('load', start)
+      if (window.cancelIdleCallback) window.cancelIdleCallback(idleId)
+      else window.clearTimeout(idleId)
+    }
+  }, [])
+
+  // Calendly reports its content height, so the frame grows instead of scrolling.
+  useEffect(() => {
+    const onMessage = (e) => {
+      if (e.origin !== 'https://calendly.com' || e.data?.event !== 'calendly.page_height') return
+      const h = parseInt(e.data.payload?.height, 10)
+      if (h > 0) setHeight(h)
+    }
+    window.addEventListener('message', onMessage)
+    return () => window.removeEventListener('message', onMessage)
   }, [])
 
   return (
@@ -120,7 +118,7 @@ export default function Contact() {
                 </div>
 
                 <div className="relative mx-auto max-w-[400px]">
-                  {status === 'loading' && (
+                  {!loaded && (
                     <div className="absolute inset-0 grid place-items-center text-sm text-navy-800/60">
                       <span className="flex items-center gap-2">
                         <Loader2 className="h-4 w-4 animate-spin" />
@@ -128,10 +126,21 @@ export default function Contact() {
                       </span>
                     </div>
                   )}
-                  {/* Calendly injects its iframe here and sets the height itself once loaded;
-                      dir=ltr stops RTL from mirroring it. The narrow width keeps Calendly in
+                  {/* dir=ltr stops RTL from mirroring it. The narrow width keeps Calendly in
                       its compact, borderless layout. */}
-                  <div ref={widgetRef} dir="ltr" className="h-[560px] w-full" />
+                  {src ? (
+                    <iframe
+                      src={src}
+                      title={b.event}
+                      dir="ltr"
+                      onLoad={() => setLoaded(true)}
+                      style={{ height }}
+                      className="block w-full border-0"
+                    />
+                  ) : (
+                    // Reserves the space so nothing shifts when the calendar arrives (CLS).
+                    <div className="h-[560px] w-full" />
+                  )}
                 </div>
               </div>
 
@@ -161,7 +170,6 @@ export default function Contact() {
                     </a>
                   </p>
                   <p className="font-medium text-navy-800/60">
-                    {status === 'error' && <>{b.fallback} </>}
                     <a
                       href={CALENDLY_URL}
                       target="_blank"
