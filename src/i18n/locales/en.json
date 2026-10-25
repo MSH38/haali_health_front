@@ -482,6 +482,7 @@
       "pickTitle": "Reserve your walkthrough",
       "pickNote": "Times are shown in your local time zone. You will receive a confirmation email with the meeting details.",
       "loading": "Loading the booking calendar…",
+      "close": "Close",
       "fallback": "Calendar not loading?",
       "fallbackLink": "Open the booking page",
       "privacy": "Scheduling is handled by Calendly. We use your details to arrange and prepare for the demo. We do not sell your contact information."

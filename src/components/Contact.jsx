@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { CheckCircle2, Clock, ExternalLink, Loader2, Mail, Phone } from 'lucide-react'
+import { CheckCircle2, Clock, ExternalLink, Loader2, Mail, Phone, X } from 'lucide-react'
 import Reveal from './Reveal'
 
 // Override with VITE_CALENDLY_URL in .env if the booking page ever changes.
@@ -52,16 +52,38 @@ export default function Contact() {
     }
   }, [])
 
-  // Calendly reports its content height, so the frame grows instead of scrolling.
+  // Picking a time opens the booking form, whose reCAPTCHA gets cropped inside the compact
+  // frame — so from then on the same frame is shown as a modal (restyled, not remounted,
+  // so Calendly keeps the chosen slot).
+  const [modal, setModal] = useState(false)
+
   useEffect(() => {
     const onMessage = (e) => {
-      if (e.origin !== 'https://calendly.com' || e.data?.event !== 'calendly.page_height') return
-      const h = parseInt(e.data.payload?.height, 10)
-      if (h > 0) setHeight(h)
+      if (e.origin !== 'https://calendly.com') return
+      const event = e.data?.event
+      // Calendly reports its content height, so the frame grows instead of scrolling.
+      if (event === 'calendly.page_height') {
+        const h = parseInt(e.data.payload?.height, 10)
+        if (h > 0) setHeight(h)
+      } else if (event === 'calendly.date_and_time_selected') {
+        setModal(true)
+      }
     }
     window.addEventListener('message', onMessage)
     return () => window.removeEventListener('message', onMessage)
   }, [])
+
+  useEffect(() => {
+    if (!modal) return
+    const onKey = (e) => e.key === 'Escape' && setModal(false)
+    const overflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', onKey)
+    return () => {
+      document.body.style.overflow = overflow
+      window.removeEventListener('keydown', onKey)
+    }
+  }, [modal])
 
   return (
     <section id="contact" className="scroll-mt-20 bg-white py-20 lg:py-28">
@@ -117,7 +139,8 @@ export default function Contact() {
                   <p className="mt-1.5 text-xs leading-relaxed text-navy-800/55">{b.pickNote}</p>
                 </div>
 
-                <div className="relative mx-auto max-w-[400px]">
+                {/* Holds the frame's space while it's lifted into the modal, so the page doesn't jump. */}
+                <div className="relative mx-auto max-w-[400px]" style={modal ? { height } : undefined}>
                   {!loaded && (
                     <div className="absolute inset-0 grid place-items-center text-sm text-navy-800/60">
                       <span className="flex items-center gap-2">
@@ -127,16 +150,48 @@ export default function Contact() {
                     </div>
                   )}
                   {/* dir=ltr stops RTL from mirroring it. The narrow width keeps Calendly in
-                      its compact, borderless layout. */}
+                      its compact, borderless layout. The wrappers stay mounted in both modes
+                      so React never reloads the iframe when the modal opens or closes. */}
                   {src ? (
-                    <iframe
-                      src={src}
-                      title={b.event}
-                      dir="ltr"
-                      onLoad={() => setLoaded(true)}
-                      style={{ height }}
-                      className="block w-full border-0"
-                    />
+                    <div
+                      className={
+                        modal
+                          ? 'fixed inset-0 z-[100] grid place-items-center bg-navy-900/60 p-3 backdrop-blur-sm sm:p-6'
+                          : ''
+                      }
+                      onClick={(e) => e.target === e.currentTarget && setModal(false)}
+                      role={modal ? 'dialog' : undefined}
+                      aria-modal={modal || undefined}
+                      aria-label={modal ? b.event : undefined}
+                    >
+                      <div
+                        className={
+                          modal
+                            ? 'relative h-full max-h-[760px] w-full max-w-[560px] overflow-hidden rounded-2xl bg-white shadow-lift'
+                            : ''
+                        }
+                      >
+                        {modal && (
+                          <button
+                            type="button"
+                            onClick={() => setModal(false)}
+                            aria-label={b.close}
+                            className="absolute end-3 top-3 z-10 grid h-9 w-9 place-items-center rounded-full bg-white text-navy-800/70 shadow ring-1 ring-navy-100 hover:text-navy-900"
+                          >
+                            <X className="h-4 w-4" />
+                          </button>
+                        )}
+                        <iframe
+                          src={src}
+                          title={b.event}
+                          dir="ltr"
+                          onLoad={() => setLoaded(true)}
+                          // In the modal the frame fills the panel and scrolls on its own.
+                          style={modal ? undefined : { height }}
+                          className={`block w-full border-0 ${modal ? 'h-full' : ''}`}
+                        />
+                      </div>
+                    </div>
                   ) : (
                     // Reserves the space so nothing shifts when the calendar arrives (CLS).
                     <div className="h-[560px] w-full" />
