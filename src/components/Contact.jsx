@@ -80,14 +80,16 @@ export default function Contact() {
 
         {/* Booking card */}
         <Reveal delay={120}>
-          <div className="relative mx-auto mt-10 max-w-4xl">
+          <div className="relative mx-auto mt-10 max-w-6xl">
             <div
               className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-mint-400/15 to-navy-800/10 blur-2xl"
               aria-hidden="true"
             />
 
-            <div className="relative overflow-hidden rounded-3xl border border-navy-100 bg-white shadow-lift">
-              <div className="border-b border-navy-100 px-7 py-6 text-center sm:px-9">
+            {/* Phones stack header → calendar → details; from lg the details sit beside the
+                calendar, split by a vertical rule (border-s, so it follows RTL). */}
+            <div className="relative grid overflow-hidden rounded-3xl border border-navy-100 bg-white shadow-lift lg:grid-cols-[minmax(0,1fr)_minmax(0,1.35fr)] lg:grid-rows-[auto_1fr]">
+              <div className="px-7 pt-7 text-center sm:px-9 sm:pt-9 lg:text-start">
                 <p className="text-sm font-semibold text-navy-800/55">{b.host}</p>
                 <h3 className="mt-1 text-xl font-extrabold text-navy-900">{b.event}</h3>
                 <p className="mt-2 inline-flex items-center gap-1.5 text-xs font-semibold text-navy-800/55">
@@ -96,7 +98,7 @@ export default function Contact() {
                 </p>
               </div>
 
-              <div className="relative">
+              <div className="relative mt-6 border-t border-navy-100 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:mt-0 lg:border-s lg:border-t-0">
                 {status === 'loading' && (
                   <div className="absolute inset-0 grid place-items-center text-sm text-navy-800/60">
                     <span className="flex items-center gap-2">
@@ -111,10 +113,10 @@ export default function Contact() {
               </div>
 
               {/* Supporting details, kept small so the calendar stays the focus. */}
-              <div className="border-t border-navy-100 px-7 py-6 sm:px-9">
+              <div className="border-t border-navy-100 px-7 py-6 sm:px-9 lg:border-t-0 lg:pb-9 lg:pt-5">
                 <p className="text-sm leading-relaxed text-navy-800/65">{t('contact.subtitle')}</p>
 
-                <ul className="mt-4 grid gap-2 sm:grid-cols-3">
+                <ul className="mt-5 space-y-2.5">
                   {assurances.map((a) => (
                     <li key={a} className="flex items-start gap-2">
                       <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-mint-700" />
@@ -123,7 +125,7 @@ export default function Contact() {
                   ))}
                 </ul>
 
-                <div className="mt-5 flex flex-wrap items-center justify-between gap-3 text-xs">
+                <div className="mt-6 space-y-2 text-xs">
                   <p className="font-medium text-navy-800/60">
                     {t('contact.phone')}{' '}
                     <a
@@ -149,7 +151,7 @@ export default function Contact() {
                   </p>
                 </div>
 
-                <p className="mt-4 text-[11px] leading-relaxed text-navy-800/45">{b.privacy}</p>
+                <p className="mt-5 text-[11px] leading-relaxed text-navy-800/45">{b.privacy}</p>
               </div>
             </div>
           </div>
