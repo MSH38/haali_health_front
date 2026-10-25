@@ -1,74 +1,66 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { CheckCircle2, Loader2, Mail, Send } from 'lucide-react'
+import { CalendarDays, CheckCircle2, ExternalLink, Loader2, Mail } from 'lucide-react'
 import Reveal from './Reveal'
 
-const FREE_EMAIL_DOMAINS = [
-  'gmail.com',
-  'hotmail.com',
-  'outlook.com',
-  'yahoo.com',
-  'icloud.com',
-  'live.com',
-  'proton.me',
-]
+// Override with VITE_CALENDLY_URL in .env if the booking page ever changes.
+const CALENDLY_URL = import.meta.env.VITE_CALENDLY_URL || 'https://calendly.com/haalihealth-info/30min'
 
-const EMPTY = { name: '', hospital: '', email: '', role: '', interest: '' }
+// Booking details must only ever go to Calendly over HTTPS — fail the build otherwise.
+if (!/^https:\/\/calendly\.com\//.test(CALENDLY_URL)) {
+  throw new Error(`VITE_CALENDLY_URL must be an https://calendly.com/ link, got "${CALENDLY_URL}"`)
+}
+const CALENDLY_SCRIPT = 'https://assets.calendly.com/assets/external/widget.js'
+
+// Loads Calendly's widget script once, no matter how many times the section mounts.
+let scriptPromise
+function loadCalendly() {
+  if (window.Calendly) return Promise.resolve(window.Calendly)
+  scriptPromise ??= new Promise((resolve, reject) => {
+    const s = document.createElement('script')
+    s.src = CALENDLY_SCRIPT
+    s.async = true
+    s.onload = () => resolve(window.Calendly)
+    s.onerror = () => {
+      scriptPromise = undefined
+      reject(new Error('Calendly failed to load'))
+    }
+    document.body.appendChild(s)
+  })
+  return scriptPromise
+}
 
 export default function Contact() {
   const { t } = useTranslation()
-  const f = t('contact.form', { returnObjects: true })
+  const b = t('contact.booking', { returnObjects: true })
   const assurances = t('contact.assurances', { returnObjects: true })
 
-  const [values, setValues] = useState(EMPTY)
-  const [errors, setErrors] = useState({})
-  const [status, setStatus] = useState('idle') // idle | sending | done
+  const widgetRef = useRef(null)
+  const [status, setStatus] = useState('loading') // loading | ready | error
 
-  const update = (key) => (e) => {
-    setValues((v) => ({ ...v, [key]: e.target.value }))
-    setErrors((prev) => (prev[key] ? { ...prev, [key]: undefined } : prev))
-  }
+  useEffect(() => {
+    const el = widgetRef.current
+    let cancelled = false
 
-  const validate = () => {
-    const next = {}
-    if (!values.name.trim()) next.name = f.errors.name
-    if (!values.hospital.trim()) next.hospital = f.errors.hospital
+    // Brand colours, minus the leading '#'.
+    const url = new URL(CALENDLY_URL)
+    url.searchParams.set('hide_gdpr_banner', '1')
+    url.searchParams.set('primary_color', '007a4e')
 
-    const email = values.email.trim().toLowerCase()
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
-      next.email = f.errors.email
-    } else if (FREE_EMAIL_DOMAINS.includes(email.split('@')[1])) {
-      // This page sells to hospitals — a work address keeps the lead list clean.
-      next.email = f.errors.emailPersonal
+    loadCalendly()
+      .then((Calendly) => {
+        if (cancelled || !el) return
+        el.innerHTML = ''
+        Calendly.initInlineWidget({ url: url.toString(), parentElement: el })
+        setStatus('ready')
+      })
+      .catch(() => !cancelled && setStatus('error'))
+
+    return () => {
+      cancelled = true
+      if (el) el.innerHTML = ''
     }
-
-    setErrors(next)
-    return Object.keys(next).length === 0
-  }
-
-  const onSubmit = async (e) => {
-    e.preventDefault()
-    if (!validate()) return
-
-    setStatus('sending')
-    // TODO: replace with the real endpoint (CRM, form service, or API route).
-    await new Promise((r) => setTimeout(r, 900))
-    console.info('[Haali Health] demo request', values)
-    setStatus('done')
-  }
-
-  const reset = () => {
-    setValues(EMPTY)
-    setErrors({})
-    setStatus('idle')
-  }
-
-  const fieldClass = (key) =>
-    `w-full rounded-xl border bg-white px-4 py-3.5 text-sm text-navy-900 shadow-sm outline-none transition-colors placeholder:text-navy-800/35 ${
-      errors[key]
-        ? 'border-red-400 focus:border-red-500'
-        : 'border-navy-100 focus:border-mint-400 focus:ring-2 focus:ring-mint-400/25'
-    }`
+  }, [])
 
   return (
     <section id="contact" className="scroll-mt-20 bg-white py-20 lg:py-28">
@@ -97,7 +89,7 @@ export default function Contact() {
             </Reveal>
           </div>
 
-          {/* Form card */}
+          {/* Booking card */}
           <Reveal delay={160}>
             <div className="relative">
               <div
@@ -105,155 +97,38 @@ export default function Contact() {
                 aria-hidden="true"
               />
 
-              <div className="relative rounded-3xl border border-navy-100 bg-white p-7 shadow-lift sm:p-9">
-                {status === 'done' ? (
-                  <div className="py-10 text-center">
-                    <span className="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-mint-100 text-mint-800">
-                      <CheckCircle2 className="h-8 w-8" />
-                    </span>
-                    <h3 className="mt-6 text-xl font-extrabold text-navy-900">{f.success}</h3>
-                    <p className="mt-3 text-sm leading-relaxed text-navy-800/60">{f.successNote}</p>
-                    <button type="button" onClick={reset} className="btn-outline mt-7">
-                      {f.again}
-                    </button>
-                  </div>
-                ) : (
-                  <form onSubmit={onSubmit} noValidate>
-                    <h3 className="text-xl font-extrabold text-navy-900">{f.title}</h3>
+              <div className="relative overflow-hidden rounded-3xl border border-navy-100 bg-white shadow-lift">
+                <h3 className="flex items-center gap-2 px-7 pt-7 text-xl font-extrabold text-navy-900 sm:px-9 sm:pt-9">
+                  <CalendarDays className="h-5 w-5 text-mint-700" />
+                  {b.title}
+                </h3>
 
-                    <div className="mt-7 space-y-5">
-                      <div>
-                        <label htmlFor="name" className="mb-2 block text-sm font-bold text-navy-800">
-                          {f.name}
-                        </label>
-                        <input
-                          id="name"
-                          type="text"
-                          value={values.name}
-                          onChange={update('name')}
-                          placeholder={f.namePlaceholder}
-                          aria-invalid={!!errors.name}
-                          className={fieldClass('name')}
-                        />
-                        {errors.name && (
-                          <p className="mt-1.5 text-xs font-medium text-red-500">{errors.name}</p>
-                        )}
-                      </div>
-
-                      <div>
-                        <label
-                          htmlFor="hospital"
-                          className="mb-2 block text-sm font-bold text-navy-800"
-                        >
-                          {f.hospital}
-                        </label>
-                        <input
-                          id="hospital"
-                          type="text"
-                          value={values.hospital}
-                          onChange={update('hospital')}
-                          placeholder={f.hospitalPlaceholder}
-                          aria-invalid={!!errors.hospital}
-                          className={fieldClass('hospital')}
-                        />
-                        {errors.hospital && (
-                          <p className="mt-1.5 text-xs font-medium text-red-500">
-                            {errors.hospital}
-                          </p>
-                        )}
-                      </div>
-
-                      <div>
-                        <label
-                          htmlFor="email"
-                          className="mb-2 block text-sm font-bold text-navy-800"
-                        >
-                          {f.email}
-                        </label>
-                        <input
-                          id="email"
-                          type="email"
-                          dir="ltr"
-                          value={values.email}
-                          onChange={update('email')}
-                          placeholder={f.emailPlaceholder}
-                          aria-invalid={!!errors.email}
-                          className={`${fieldClass('email')} text-start`}
-                        />
-                        {errors.email && (
-                          <p className="mt-1.5 text-xs font-medium text-red-500">{errors.email}</p>
-                        )}
-                      </div>
-
-                      <div>
-                        <label htmlFor="role" className="mb-2 block text-sm font-bold text-navy-800">
-                          {f.role}
-                        </label>
-                        <select
-                          id="role"
-                          value={values.role}
-                          onChange={update('role')}
-                          className={`${fieldClass('role')} appearance-none`}
-                        >
-                          <option value="">{f.rolePlaceholder}</option>
-                          {f.roles.map((r) => (
-                            <option key={r} value={r}>
-                              {r}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-
-                      {/* Optional — helps route the enquiry, never blocks it. */}
-                      <div>
-                        <label
-                          htmlFor="interest"
-                          className="mb-2 flex items-center gap-2 text-sm font-bold text-navy-800"
-                        >
-                          {f.interest}
-                          <span className="rounded-md bg-navy-50 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-navy-800/50">
-                            {f.interestOptional}
-                          </span>
-                        </label>
-                        <select
-                          id="interest"
-                          value={values.interest}
-                          onChange={update('interest')}
-                          className={`${fieldClass('interest')} appearance-none`}
-                        >
-                          <option value="">{f.interestPlaceholder}</option>
-                          {f.interests.map((item) => (
-                            <option key={item} value={item}>
-                              {item}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
+                <div className="relative mt-4">
+                  {status === 'loading' && (
+                    <div className="absolute inset-0 grid place-items-center text-sm text-navy-800/60">
+                      <span className="flex items-center gap-2">
+                        <Loader2 className="h-4 w-4 animate-spin" />
+                        {b.loading}
+                      </span>
                     </div>
+                  )}
+                  {/* Calendly injects its iframe here; dir=ltr stops RTL from mirroring it. */}
+                  <div ref={widgetRef} dir="ltr" className="h-[680px] w-full" />
+                </div>
 
-                    <button
-                      type="submit"
-                      disabled={status === 'sending'}
-                      className="btn-primary mt-7 w-full disabled:cursor-not-allowed disabled:opacity-70"
-                    >
-                      {status === 'sending' ? (
-                        <>
-                          <Loader2 className="h-4 w-4 animate-spin" />
-                          {f.submitting}
-                        </>
-                      ) : (
-                        <>
-                          <Send className="h-4 w-4" />
-                          {f.submit}
-                        </>
-                      )}
-                    </button>
-
-                    <p className="mt-4 text-center text-xs leading-relaxed text-navy-800/45">
-                      {f.privacy}
-                    </p>
-                  </form>
-                )}
+                <p className="border-t border-navy-100 px-7 py-4 text-center text-xs leading-relaxed text-navy-800/45 sm:px-9">
+                  {status === 'error' && <>{b.fallback} </>}
+                  <a
+                    href={CALENDLY_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 font-semibold text-mint-700 hover:underline"
+                  >
+                    {b.fallbackLink}
+                    <ExternalLink className="h-3 w-3" />
+                  </a>
+                  <span className="mt-2 block">{b.privacy}</span>
+                </p>
               </div>
             </div>
           </Reveal>

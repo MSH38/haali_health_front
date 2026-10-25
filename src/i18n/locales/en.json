@@ -474,45 +474,12 @@
       "Explore clinical workflow, integration and deployment questions",
       "Discuss a potential pathway or pilot with no obligation"
     ],
-    "form": {
-      "title": "Request a Haali demo",
-      "name": "Full name",
-      "namePlaceholder": "Dr. Sara Al-Mansouri",
-      "hospital": "Hospital / organisation",
-      "hospitalPlaceholder": "King Fahad Medical City",
-      "email": "Professional email",
-      "emailPlaceholder": "name@hospital.com",
-      "role": "Your role",
-      "rolePlaceholder": "Select a role",
-      "roles": [
-        "Executive (CEO / COO / CFO)",
-        "CTO / CIO / IT",
-        "Chief Medical Officer",
-        "Quality & Outcomes",
-        "Other"
-      ],
-      "interest": "Area of interest",
-      "interestOptional": "optional",
-      "interestPlaceholder": "Select an area",
-      "interests": [
-        "Clinical workflow",
-        "Operations & capacity",
-        "Digital / IT & integration",
-        "VBHC & outcomes",
-        "Partnership"
-      ],
-      "submit": "Request a Demo",
-      "submitting": "Sending…",
-      "success": "Thank you, we will be in touch within one working day.",
-      "successNote": "A member of the team will contact you to arrange the walkthrough.",
-      "again": "Submit another request",
-      "privacy": "We use your details to respond to your enquiry and arrange the demo. We do not sell your contact information.",
-      "errors": {
-        "name": "Please enter your full name.",
-        "hospital": "Please enter your hospital or organisation.",
-        "email": "Please enter a valid professional email address.",
-        "emailPersonal": "Please use your professional (work) email address."
-      }
+    "booking": {
+      "title": "Book your Haali demo",
+      "loading": "Loading the booking calendar…",
+      "fallback": "Calendar not loading?",
+      "fallbackLink": "Open the booking page",
+      "privacy": "Scheduling is handled by Calendly. We use your details to arrange and prepare for the demo. We do not sell your contact information."
     }
   },
   "footer": {
