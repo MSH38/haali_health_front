@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { CalendarDays, CheckCircle2, ExternalLink, Loader2, Mail } from 'lucide-react'
+import { CalendarDays, CheckCircle2, ExternalLink, Loader2, Mail, Phone } from 'lucide-react'
 import Reveal from './Reveal'
 
 // Override with VITE_CALENDLY_URL in .env if the booking page ever changes.
@@ -86,6 +86,18 @@ export default function Contact() {
                   </li>
                 ))}
               </ul>
+
+              <p className="mt-8 text-sm font-medium text-navy-800/60">
+                {t('contact.phone')}{' '}
+                <a
+                  href="tel:+96897786116"
+                  dir="ltr"
+                  className="inline-flex items-center gap-1.5 font-bold text-mint-700 hover:underline"
+                >
+                  <Phone className="h-4 w-4" aria-hidden="true" />
+                  +968 9778 6116
+                </a>
+              </p>
             </Reveal>
           </div>
 
