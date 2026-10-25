@@ -80,52 +80,75 @@ export default function Contact() {
 
         {/* Booking card */}
         <Reveal delay={120}>
-          <div className="relative mx-auto mt-10 max-w-6xl">
+          <div className="relative mx-auto mt-12 max-w-5xl">
             <div
-              className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-mint-400/15 to-navy-800/10 blur-2xl"
+              className="absolute -inset-4 rounded-[2.25rem] bg-gradient-to-br from-mint-400/10 via-transparent to-navy-800/10 blur-2xl"
               aria-hidden="true"
             />
 
             {/* Phones stack header → calendar → details; from lg the details sit beside the
-                calendar, split by a vertical rule (border-s, so it follows RTL). */}
-            <div className="relative grid overflow-hidden rounded-3xl border border-navy-100 bg-white shadow-lift lg:grid-cols-[minmax(0,1fr)_minmax(0,1.35fr)] lg:grid-rows-[auto_1fr]">
-              <div className="px-7 pt-7 text-center sm:px-9 sm:pt-9 lg:text-start">
-                <p className="text-sm font-semibold text-navy-800/55">{b.host}</p>
-                <h3 className="mt-1 text-xl font-extrabold text-navy-900">{b.event}</h3>
-                <p className="mt-2 inline-flex items-center gap-1.5 text-xs font-semibold text-navy-800/55">
-                  <Clock className="h-3.5 w-3.5" />
+                calendar, split by a fading vertical rule (start-side, so it follows RTL). */}
+            <div className="relative grid overflow-hidden rounded-[1.75rem] border border-navy-100/80 bg-white shadow-lift lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:grid-rows-[auto_1fr]">
+              {/* Soft tint behind the details column only. */}
+              <div
+                className="pointer-events-none absolute inset-y-0 start-0 hidden w-1/2 bg-gradient-to-b from-mint-50/70 via-navy-50/30 to-white lg:block"
+                aria-hidden="true"
+              />
+
+              <div className="relative px-7 pt-8 text-center sm:px-10 sm:pt-10 lg:text-start">
+                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-mint-700">
+                  {b.host}
+                </p>
+                <h3 className="mt-3 text-2xl font-extrabold leading-snug tracking-tight text-navy-900">
+                  {b.event}
+                </h3>
+                <p className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1 text-xs font-semibold text-navy-800/60 ring-1 ring-navy-100">
+                  <Clock className="h-3.5 w-3.5 text-mint-700" />
                   {b.duration}
                 </p>
               </div>
 
-              <div className="relative mt-6 border-t border-navy-100 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:mt-0 lg:border-s lg:border-t-0">
-                {status === 'loading' && (
-                  <div className="absolute inset-0 grid place-items-center text-sm text-navy-800/60">
-                    <span className="flex items-center gap-2">
-                      <Loader2 className="h-4 w-4 animate-spin" />
-                      {b.loading}
-                    </span>
-                  </div>
-                )}
-                {/* Calendly injects its iframe here and sets the height itself once loaded;
-                    dir=ltr stops RTL from mirroring it. */}
-                <div ref={widgetRef} dir="ltr" className="h-[640px] w-full" />
+              <div className="relative mt-8 border-t border-navy-100 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:mt-0 lg:border-t-0">
+                <span
+                  className="absolute inset-y-10 start-0 hidden w-px bg-gradient-to-b from-transparent via-navy-100 to-transparent lg:block"
+                  aria-hidden="true"
+                />
+
+                <div className="mx-auto max-w-[400px] px-6 pb-3 pt-8 text-center sm:pt-10">
+                  <p className="text-base font-bold text-navy-900">{b.pickTitle}</p>
+                  <p className="mt-1.5 text-xs leading-relaxed text-navy-800/55">{b.pickNote}</p>
+                </div>
+
+                <div className="relative mx-auto max-w-[400px]">
+                  {status === 'loading' && (
+                    <div className="absolute inset-0 grid place-items-center text-sm text-navy-800/60">
+                      <span className="flex items-center gap-2">
+                        <Loader2 className="h-4 w-4 animate-spin" />
+                        {b.loading}
+                      </span>
+                    </div>
+                  )}
+                  {/* Calendly injects its iframe here and sets the height itself once loaded;
+                      dir=ltr stops RTL from mirroring it. The narrow width keeps Calendly in
+                      its compact, borderless layout. */}
+                  <div ref={widgetRef} dir="ltr" className="h-[560px] w-full" />
+                </div>
               </div>
 
               {/* Supporting details, kept small so the calendar stays the focus. */}
-              <div className="border-t border-navy-100 px-7 py-6 sm:px-9 lg:border-t-0 lg:pb-9 lg:pt-5">
+              <div className="relative border-t border-navy-100 px-7 py-8 sm:px-10 lg:border-t-0 lg:pb-10 lg:pt-6">
                 <p className="text-sm leading-relaxed text-navy-800/65">{t('contact.subtitle')}</p>
 
-                <ul className="mt-5 space-y-2.5">
+                <ul className="mt-6 space-y-3">
                   {assurances.map((a) => (
-                    <li key={a} className="flex items-start gap-2">
+                    <li key={a} className="flex items-start gap-2.5">
                       <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-mint-700" />
-                      <span className="text-xs font-medium leading-relaxed text-navy-800/70">{a}</span>
+                      <span className="text-[13px] font-medium leading-relaxed text-navy-800/75">{a}</span>
                     </li>
                   ))}
                 </ul>
 
-                <div className="mt-6 space-y-2 text-xs">
+                <div className="mt-8 space-y-2.5 border-t border-navy-100/80 pt-6 text-xs">
                   <p className="font-medium text-navy-800/60">
                     {t('contact.phone')}{' '}
                     <a
@@ -151,7 +174,7 @@ export default function Contact() {
                   </p>
                 </div>
 
-                <p className="mt-5 text-[11px] leading-relaxed text-navy-800/45">{b.privacy}</p>
+                <p className="mt-5 text-[11px] leading-relaxed text-navy-800/40">{b.privacy}</p>
               </div>
             </div>
           </div>
